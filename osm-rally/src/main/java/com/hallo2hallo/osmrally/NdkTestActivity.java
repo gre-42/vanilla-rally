@@ -29,7 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-public class OsmRallyNativeActivity extends NativeActivity {
+public class NdkTestActivity extends NativeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +84,7 @@ public class OsmRallyNativeActivity extends NativeActivity {
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
     }
 
-    OsmRallyNativeActivity _activity;
+    NdkTestActivity _activity;
     PopupWindow _popupWindow;
     TextView _label;
 

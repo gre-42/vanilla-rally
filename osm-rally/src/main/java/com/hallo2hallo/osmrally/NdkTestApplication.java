@@ -23,7 +23,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 import android.widget.Toast;
 
-public class OsmRallyApplication extends Application {
+public class NdkTestApplication extends Application {
     public void onCreate(){
         super.onCreate();	
         Log.w("native-activity", "onCreate");
