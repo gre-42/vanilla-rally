@@ -18,6 +18,7 @@ package com.hallo2hallo.osmrally;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.app.NativeActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -28,6 +29,8 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 public class NdkTestActivity extends NativeActivity {
     @Override
@@ -133,6 +136,17 @@ public class NdkTestActivity extends NativeActivity {
             return;
 
         _activity = this;
-        this.runOnUiThread(() -> _label.setText(String.format("%2.2f FPS", fFPS)));
+        this.runOnUiThread(() -> _label.setText(String.format(Locale.US, "%2.2f FPS", fFPS)));
+    }
+
+    public void showMessage(String title, String message)
+    {
+        this.runOnUiThread(() -> {
+            new AlertDialog.Builder(this)
+                    .setTitle(title)
+                    .setMessage(message)
+                    .show();
+            //Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+        });
     }
 }
