@@ -1,0 +1,161 @@
+include main_menu_rally.scn;
+include main_menu_skating.scn;
+include reload.scn;
+
+macro_begin _reload_transient_objects;
+    clear_nodes_not_allowed_to_be_unregistered;
+    macro_playback instantiate_transient_objects context=primary_scene
+        IF_UPDATE_EXISTING_SCENE:
+        SHOWROOM_PLAYER_VEHICLE:SHOWROOM_PLAYER_VEHICLE
+        PLAYBACK_SPEED:PLAYBACK_SPEED
+        RACE_SESSION:RACE_SESSION
+        RACE_LAPS:RACE_LAPS;
+macro_end;
+
+macro_begin __change_showroom_vehicle_in_physics_thread;
+    execute_in_physics_thread macro_playback change_showroom_vehicle
+        VEHICLE_NAME:VEHICLE_NAME
+        VEHICLE_COLOR_R:VEHICLE_COLOR_R
+        VEHICLE_COLOR_G:VEHICLE_COLOR_G
+        VEHICLE_COLOR_B:VEHICLE_COLOR_B
+        DECIMATE:DECIMATE;
+macro_end;
+
+macro_begin _change_showroom_vehicle_in_physics_thread;
+    macro_playback __change_showroom_vehicle_in_physics_thread
+        VEHICLE_NAME:SHOWROOM_PLAYER_VEHICLE
+        VEHICLE_COLOR_R:SHOWROOM_PLAYER_VEHICLE_R
+        VEHICLE_COLOR_G:SHOWROOM_PLAYER_VEHICLE_G
+        VEHICLE_COLOR_B:SHOWROOM_PLAYER_VEHICLE_B
+        DECIMATE:SHOWROOM_DECIMATE;
+macro_end;
+
+macro_begin _setup_menu_primary_scene_game_mode_selector;
+    ui_background
+        z_order=1
+        texture=textures/ui_background.png
+        update=once
+        focus_mask=menu;
+
+    ui_background
+        z_order=1
+        texture=textures/ui_background.png
+        update=once
+        focus_mask=loading;
+
+    tab_menu
+        key=ENTER
+        gamepad_button=A
+        id=submenus
+        title=
+        ttf_file=fonts/RobotoMono-Bold.ttf
+        position=20 -60
+        size=NAN 60
+        font_height=32
+        line_distance=32
+        default=0
+        reload_transient_objects=execute_in_physics_thread with_delete_node_mutex macro_playback _reload_transient_objects;
+
+    IF_DEVEL parameter_setter
+        id=game_mode_selector,
+        title=Game mode,
+        ttf_file=fonts/RobotoMono-Bold.ttf,
+        position=20 -900,
+        size=NAN 850,
+        font_height=32,
+        line_distance=32,
+        default=0,
+        on_first_render=,
+        on_change=macro_playback clear_selection_ids_and_reload,
+        parameters=
+            name=Rally           value=IF_GAME_MODE_RALLY:  IF_GAME_MODE_SKATING:# IF_GAME_MODE_TD:#
+            name=Skating         value=IF_GAME_MODE_RALLY:# IF_GAME_MODE_SKATING:  IF_GAME_MODE_TD:#
+            name=Team deathmatch value=IF_GAME_MODE_RALLY:# IF_GAME_MODE_SKATING:# IF_GAME_MODE_TD:;
+    
+    IF_RELEASE parameter_setter
+        id=game_mode_selector,
+        title=Game mode,
+        ttf_file=fonts/RobotoMono-Bold.ttf,
+        position=20 -900,
+        size=NAN 850,
+        font_height=32,
+        line_distance=32,
+        default=0,
+        on_first_render=,
+        on_change=macro_playback clear_selection_ids_and_reload,
+        parameters=
+            name=Rally           value=IF_GAME_MODE_RALLY:  IF_GAME_MODE_SKATING:# IF_GAME_MODE_TD:#
+            name=Team deathmatch value=IF_GAME_MODE_RALLY:# IF_GAME_MODE_SKATING:# IF_GAME_MODE_TD:;
+macro_end;
+
+macro_begin _scene_selector_devel;
+    scene_selector
+        id=scene_selector,
+        title=Scene,
+        ttf_file=fonts/RobotoMono-Bold.ttf,
+        position=20 -900,
+        size=NAN 850,
+        font_height=32,
+        line_distance=32,
+        on_change=macro_playback reload,
+        scene_directory=levels;
+macro_end;
+
+macro_begin _scene_selector_release;
+    scene_selector
+        id=scene_selector,
+        title=Scene,
+        ttf_file=fonts/RobotoMono-Bold.ttf,
+        position=20 -900,
+        size=NAN 850,
+        font_height=32,
+        line_distance=32,
+        on_change=macro_playback reload,
+        scene_directory=levels,
+        exclude=WIP;
+macro_end;
+
+macro_begin _setup_menu_primary_scene_rest;
+    IF_DEVEL macro_playback _scene_selector_devel;
+    IF_RELEASE macro_playback _scene_selector_release;
+
+    # name=Zugspitze value=levels/zugspitze/scene_zugspitze.scn;
+
+    # clear_parameters;
+
+    IF_GAME_MODE_RALLY macro_playback parameter_setters_rally IF_DEVEL:IF_DEVEL;
+    IF_GAME_MODE_SKATING macro_playback parameter_setters_skating;
+
+    # fill_pixel_region_with_texture
+        source_scene=showroom
+        texture_name=scene
+        update=always
+        position=20 80
+        size=500 300
+        focus_mask=menu
+        submenus=car_selector car_color_selector;
+
+    controls
+        id=controls
+        title=Controls
+        gamepad_texture=textures/gamepad.png
+        position=20 80
+        size=512 256;
+
+    focused_text
+        ttf_file=fonts/RobotoMono-Bold.ttf
+        position=NAN NAN
+        font_height=64
+        line_distance=64
+        focus_mask=game_over
+        text=Game over;
+macro_end;
+
+macro_begin create_main_menu;
+    macro_playback _setup_menu_primary_scene_game_mode_selector context=primary_scene;
+    IF_GAME_MODE_RALLY macro_playback create_showroom_scene_rally;
+    IF_GAME_MODE_SKATING macro_playback create_showroom_scene_skating;
+    IF_GAME_MODE_RALLY macro_playback _setup_menu_showroom_rally context=showroom;
+    IF_GAME_MODE_SKATING macro_playback _setup_menu_showroom_skating context=showroom;
+    macro_playback _setup_menu_primary_scene_rest context=primary_scene;
+macro_end;
