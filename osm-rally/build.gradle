@@ -13,6 +13,12 @@ android {
         }
         externalNativeBuild {
             cmake {
+                // https://issuetracker.google.com/issues/37128614
+                // "Android has always built debuggable release binaries and then stripped them
+                // before they reach the APK. Once Studio starts using RELWITHDEBINFO,
+                // we can make the change."
+                // The "build" variant requires signing the APK, so use "Release" and let
+                // Android Studio add the "-g" flag.
                 arguments '-DANDROID_TOOLCHAIN=clang',
                           '-DANDROID_STL=c++_shared',
                           '-DWITH_OPENSSL=OFF',
