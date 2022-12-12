@@ -89,7 +89,6 @@ public class NdkTestActivity extends NativeActivity {
 
     NdkTestActivity _activity;
     PopupWindow _popupWindow;
-    TextView _label;
 
     @SuppressLint("InflateParams")
     public void showUI()
@@ -119,24 +118,12 @@ public class NdkTestActivity extends NativeActivity {
                 // Show our UI over NativeActivity window
                 _popupWindow.showAtLocation(mainLayout, Gravity.TOP | Gravity.START, 10, 10);
                 _popupWindow.update();
-
-                _label = (TextView)popupView.findViewById(R.id.textViewFPS);
-
             }});
     }
 
     protected void onPause()
     {
         super.onPause();
-    }
-
-    public void updateFPS(final float fFPS)
-    {
-        if( _label == null )
-            return;
-
-        _activity = this;
-        this.runOnUiThread(() -> _label.setText(String.format(Locale.US, "%2.2f FPS", fFPS)));
     }
 
     public void showMessage(String title, String message)

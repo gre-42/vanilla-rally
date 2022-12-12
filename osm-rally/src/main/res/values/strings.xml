@@ -1,6 +1,5 @@
 <resources>
 
     <string name="app_name">OSM Rally</string>
-    <string name="fps">0.0 FPS</string>
 
 </resources>

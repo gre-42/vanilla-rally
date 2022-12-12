@@ -1,0 +1,47 @@
+##################;
+#    UP          #;
+#   DOWN       X #;
+# LEFT RIGHT   A #;
+##################;
+
+create_tap_button
+    key=LEFT
+    left=0
+    right=0.25
+    bottom=0
+    top=0.5;
+
+create_tap_button
+    key=RIGHT
+    left=0.25
+    right=0.5
+    bottom=0
+    top=0.5;
+
+create_tap_button
+    key=DOWN
+    left=0
+    right=0.5
+    bottom=0.5
+    top=0.75;
+
+create_tap_button
+    key=UP
+    left=0
+    right=0.5
+    bottom=0.75
+    top=1;
+
+create_tap_button
+    key=X
+    left=0.5
+    right=1
+    bottom=0
+    top=0.25;
+
+create_tap_button
+    key=A
+    left=0.5
+    right=1
+    bottom=0.25
+    top=0.5;

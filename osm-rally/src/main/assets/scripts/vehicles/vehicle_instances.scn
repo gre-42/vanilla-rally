@@ -7,11 +7,11 @@ include cars/FN_instance.scn;
 include cars/DM74_instance.scn;
 include cars/CNY71_instance.scn;
 
-include tanks/tiger_tank_instance.scn;
+!IF_ANDROID include tanks/tiger_tank_instance.scn;
 
-include helicopters/AH_64_instance.scn;
-include planes/F_35_instance.scn;
+!IF_ANDROID include helicopters/AH_64_instance.scn;
+!IF_ANDROID include planes/F_35_instance.scn;
 
-include humans/human_instance_mh1.scn;
+!IF_ANDROID include humans/human_instance_mh1.scn;
 
-include skaters/skater_instance_mh1.scn;
+!IF_ANDROID include skaters/skater_instance_mh1.scn;
