@@ -27,7 +27,7 @@ include billboards/billboards.scn;
 !IF_ANDROID include models/models_canyon.scn;
 !IF_ANDROID include models/models_depots.scn;
 !IF_ANDROID include models/models_dune.scn;
-!IF_ANDROID include models/models_misc.scn;
+include models/models_misc.scn;
 !IF_ANDROID include models/models_mountain.scn;
 include models/models_raceway.scn;
 include models/models_street.scn;
