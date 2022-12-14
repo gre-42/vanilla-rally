@@ -4,6 +4,7 @@
     android:versionName="1.0">
 
   <uses-feature android:glEsVersion="0x00020000"/>
+  <!--uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/-->
 
   <application
       tools:remove="android:appComponentFactory"

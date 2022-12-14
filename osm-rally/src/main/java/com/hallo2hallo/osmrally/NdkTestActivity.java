@@ -16,10 +16,13 @@
 
 package com.hallo2hallo.osmrally;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.NativeActivity;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -30,9 +33,14 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import java.util.Locale;
 
 public class NdkTestActivity extends NativeActivity {
+    private static final int REQUEST_PERMISSION = 1234;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,5 +143,13 @@ public class NdkTestActivity extends NativeActivity {
                     .show();
             //Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    public void requestReadExternalStoragePermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    REQUEST_PERMISSION);
+        }
     }
 }
