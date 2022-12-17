@@ -36,29 +36,14 @@ macro_begin create_tap_buttons;
         focus_mask=always;
 
     create_tap_button
-        key=DOWN
-        left=0
-        right=0.125
-        bottom=0.25
-        top=0.5;
-    ui_background
-        z_order=2
-        texture=textures/ui/down.png
-        position=0 0.5
-        size=0.125 0.25
-        units=fraction
-        update=once
-        focus_mask=always;
-
-    create_tap_button
-        key=UP
+        key=ESCAPE
         left=0
         right=0.125
         bottom=0
         top=0.25;
     ui_background
         z_order=2
-        texture=textures/ui/up.png
+        texture=textures/ui/escape.png
         position=0 0.75
         size=0.125 0.25
         units=fraction
@@ -66,14 +51,14 @@ macro_begin create_tap_buttons;
         focus_mask=always;
     
     create_tap_button
-        key=ESCAPE
+        key=START
         left=0.125
         right=0.25
         bottom=0
         top=0.25;
     ui_background
         z_order=2
-        texture=textures/ui/escape.png
+        texture=textures/ui/start.png
         position=0.125 0.75
         size=0.125 0.25
         units=fraction
@@ -81,7 +66,7 @@ macro_begin create_tap_buttons;
         focus_mask=always;
 
     create_tap_button
-        key=A
+        key=DOWN
         left=0.5
         right=0.75
         bottom=0.5
@@ -96,7 +81,7 @@ macro_begin create_tap_buttons;
         focus_mask=always;
 
     create_tap_button
-        key=X
+        key=UP
         left=0.75
         right=1
         bottom=0.5
