@@ -4,44 +4,94 @@
 # LEFT RIGHT   A #;
 ##################;
 
-create_tap_button
-    key=LEFT
-    left=0
-    right=0.25
-    bottom=0
-    top=0.5;
+macro_begin create_tap_buttons;
+    create_tap_button
+        key=LEFT
+        left=0
+        right=0.25
+        bottom=0.5
+        top=1;
+    ui_background
+        z_order=2
+        texture=textures/ui/left.png
+        position=0 0
+        size=0.25 0.5
+        units=fraction
+        update=once
+        focus_mask=always;
 
-create_tap_button
-    key=RIGHT
-    left=0.25
-    right=0.5
-    bottom=0
-    top=0.5;
+    create_tap_button
+        key=RIGHT
+        left=0.25
+        right=0.5
+        bottom=0.5
+        top=1;
+    ui_background
+        z_order=2
+        texture=textures/ui/right.png
+        position=0.25 0
+        size=0.25 0.5
+        units=fraction
+        update=once
+        focus_mask=always;
 
-create_tap_button
-    key=DOWN
-    left=0
-    right=0.5
-    bottom=0.5
-    top=0.75;
+    create_tap_button
+        key=DOWN
+        left=0
+        right=0.5
+        bottom=0.25
+        top=0.5;
+    ui_background
+        z_order=2
+        texture=textures/ui/down.png
+        position=0 0.5
+        size=0.25 0.25
+        units=fraction
+        update=once
+        focus_mask=always;
 
-create_tap_button
-    key=UP
-    left=0
-    right=0.5
-    bottom=0.75
-    top=1;
+    create_tap_button
+        key=UP
+        left=0
+        right=0.5
+        bottom=0
+        top=0.25;
+    ui_background
+        z_order=2
+        texture=textures/ui/up.png
+        position=0 0.75
+        size=0.25 0.25
+        units=fraction
+        update=once
+        focus_mask=always;
 
-create_tap_button
-    key=X
-    left=0.5
-    right=1
-    bottom=0
-    top=0.25;
+    create_tap_button
+        key=A
+        left=0.5
+        right=0.75
+        bottom=0.5
+        top=1;
+    ui_background
+        z_order=2
+        texture=textures/ui/down.png
+        position=0.5 0
+        size=0.25 0.5
+        units=fraction
+        update=once
+        focus_mask=always;
 
-create_tap_button
-    key=A
-    left=0.5
-    right=1
-    bottom=0.25
-    top=0.5;
+    create_tap_button
+        key=X
+        left=0.75
+        right=1
+        bottom=0.5
+        top=1;
+    ui_background
+        z_order=2
+        texture=textures/ui/up.png
+        position=0.75 0
+        size=0.25 0.5
+        units=fraction
+        update=once
+        focus_mask=always;
+macro_end;

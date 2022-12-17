@@ -150,6 +150,8 @@ macro_begin _setup_menu_primary_scene_rest;
         line_distance=64
         focus_mask=game_over
         text=Game over;
+
+    IF_ANDROID macro_playback create_tap_buttons;
 macro_end;
 
 macro_begin create_main_menu;
