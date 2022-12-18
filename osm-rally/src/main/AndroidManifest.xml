@@ -9,7 +9,7 @@
   <application
       tools:remove="android:appComponentFactory"
       android:supportsRtl="true"
-      android:icon="@mipmap/ic_launcher"
+      android:icon="@drawable/osm_racing_game_icon_path"
       android:label="@string/app_name"
       android:theme="@style/AppTheme"
       android:name="com.hallo2hallo.osmrally.NdkTestApplication"
