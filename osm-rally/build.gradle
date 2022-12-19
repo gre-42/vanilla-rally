@@ -8,6 +8,8 @@ android {
         applicationId = 'com.hallo2hallo.osmrally'
         minSdkVersion 18
         targetSdkVersion 32
+        versionCode 1
+        versionName "0.1"
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
