@@ -1,12 +1,12 @@
-.PHONY: recast osm-rally
+.PHONY: recast vanilla-rally
 
-all: recast osm-rally
+all: recast vanilla-rally
 
 recast:
 	./gradlew :recast:build
 
-osm-rally:
-	./gradlew :osm-rally:build
+vanilla-rally:
+	./gradlew :vanilla-rally:build
 
 install-debug:
-	./gradlew :osm-rally:installDebug
+	./gradlew :vanilla-rally:installDebug

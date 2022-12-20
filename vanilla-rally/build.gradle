@@ -5,7 +5,7 @@ android {
     ndkVersion '22.1.7171670'
 
     defaultConfig {
-        applicationId = 'com.hallo2hallo.osmrally'
+        applicationId = 'com.hallo2hallo.vanillarally'
         minSdkVersion 18
         targetSdkVersion 32
         versionCode 1
@@ -28,8 +28,8 @@ android {
                           '-DBUILD_CV=OFF',
                           '-DBUILD_SFM=OFF',
                           '-DBUILD_OPENCV=OFF',
-                          '-DCMAKE_BUILD_TYPE=Release',
-                          '--graphviz=/tmp/osm-rally.dot'
+                          '-DCMAKE_BUILD_TYPE=Release'
+                          // '--graphviz=/tmp/vanilla-rally.dot'
             }
         }
     }
@@ -52,7 +52,7 @@ android {
     //         jniLibs.srcDirs = ['build/intermediates/merged_native_libs/debug/out/lib']
     //     }
     // }
-    namespace 'com.hallo2hallo.osmrally'
+    namespace 'com.hallo2hallo.vanillarally'
 }
 
 dependencies {

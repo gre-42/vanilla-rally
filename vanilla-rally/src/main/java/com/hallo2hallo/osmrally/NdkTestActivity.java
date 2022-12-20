@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hallo2hallo.osmrally;
+package com.hallo2hallo.vanillarally;
 
 import android.Manifest;
 import android.annotation.SuppressLint;

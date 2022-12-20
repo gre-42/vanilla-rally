@@ -1,2 +1,2 @@
 include ':recast'
-include ':osm-rally'
+include ':vanilla-rally'

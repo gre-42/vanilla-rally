@@ -4,6 +4,7 @@
 **/*.iml
 local.properties
 build
+release
 *~
 .externalNativeBuild
 libwebp
