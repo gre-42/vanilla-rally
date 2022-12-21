@@ -8,8 +8,8 @@ android {
         applicationId = 'com.hallo2hallo.vanillarally'
         minSdkVersion 18
         targetSdkVersion 32
-        versionCode 1
-        versionName "0.1"
+        versionCode 3
+        versionName "0.3"
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
