@@ -37,14 +37,14 @@ macro_begin create_tap_buttons;
 
     create_tap_button
         key=ESCAPE
-        left=0
-        right=0.125
+        left=0.375
+        right=0.5
         bottom=0
         top=0.25;
     ui_background
         z_order=2
         texture=textures/ui/escape.png
-        position=0 0.75
+        position=0.375 0.75
         size=0.125 0.25
         units=fraction
         update=once
@@ -52,14 +52,14 @@ macro_begin create_tap_buttons;
     
     create_tap_button
         key=START
-        left=0.125
-        right=0.25
+        left=0.5
+        right=0.625
         bottom=0
         top=0.25;
     ui_background
         z_order=2
         texture=textures/ui/start.png
-        position=0.125 0.75
+        position=0.5 0.75
         size=0.125 0.25
         units=fraction
         update=once
