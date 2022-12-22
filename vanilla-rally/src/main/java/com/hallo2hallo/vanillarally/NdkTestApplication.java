@@ -24,8 +24,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class NdkTestApplication extends Application {
+    @Override
     public void onCreate(){
-        super.onCreate();	
+        super.onCreate();
         Log.w("native-activity", "onCreate");
 
         final PackageManager pm = getApplicationContext().getPackageManager();

@@ -31,12 +31,9 @@ import android.view.ViewGroup.MarginLayoutParams;
 import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
-import java.util.Locale;
 
 public class NdkTestActivity extends NativeActivity {
     private static final int REQUEST_PERMISSION = 1234;
