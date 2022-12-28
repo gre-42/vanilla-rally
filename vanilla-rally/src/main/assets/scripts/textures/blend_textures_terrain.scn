@@ -82,7 +82,7 @@
     scale=0.00390625
     weight=1;
 
-!IF_ANDROID add_blend_map_texture
+add_blend_map_texture
     name=Ground037_1
     texture=#Ground037
     min_height=-INFINITY
@@ -93,7 +93,7 @@
     scale=1
     weight=1;
 
-!IF_ANDROID add_blend_map_texture
+add_blend_map_texture
     name=Ground037_8
     texture=#Ground037
     min_height=-INFINITY

@@ -157,9 +157,13 @@ macro_begin _scene_racing_instantiate_static_objects;
     ###########;
     # Dirtmap #;
     ###########;
-    root_node_instance type=dynamic name=dirtmap_node position=0 1000 0 rotation=-90 0 0 scale=1;
-    ortho_camera node=dirtmap_node near_plane=1 far_plane=10000 left_plane=DIRTMAP_LEFT right_plane=DIRTMAP_RIGHT bottom_plane=DIRTMAP_BOTTOM top_plane=DIRTMAP_TOP requires_postprocessing=0;
-    set_dirtmap filename=DIRTMAP_TEXTURE offset=DIRTMAP_OFFSET discreteness=DIRTMAP_DISCRETENESS scale=DIRT_SCALE wrap_mode=DIRTMAP_WRAP_MODE;
+    IF_DIRTMAP root_node_instance type=dynamic name=dirtmap_node position=0 1000 0 rotation=-90 0 0 scale=1;
+    IF_DIRTMAP ortho_camera node=dirtmap_node near_plane=1 far_plane=10000 left_plane=DIRTMAP_LEFT right_plane=DIRTMAP_RIGHT bottom_plane=DIRTMAP_BOTTOM top_plane=DIRTMAP_TOP requires_postprocessing=0;
+    IF_DIRTMAP set_dirtmap filename=DIRTMAP_TEXTURE offset=DIRTMAP_OFFSET discreteness=DIRTMAP_DISCRETENESS scale=DIRT_SCALE wrap_mode=DIRTMAP_WRAP_MODE;
+
+    ##############;
+    # Soft light #;
+    ##############;
     set_soft_light filename=SOFT_LIGHT_TEXTURE;
 
     ##########;
@@ -441,7 +445,6 @@ macro_begin scene_racing_static;
         depth_fog=PRIMARY_SCENE_DEPTH_FOG
         low_pass=PRIMARY_SCENE_LOW_PASS
         high_pass=PRIMARY_SCENE_HIGH_PASS
-        with_dirtmap=PRIMARY_SCENE_WITH_DIRTMAP
         with_skybox=PRIMARY_SCENE_WITH_SKYBOX
         with_flying_logic=PRIMARY_SCENE_WITH_FLYING_LOGIC
         clear_mode=PRIMARY_SCENE_CLEAR_MODE
@@ -464,7 +467,6 @@ macro_begin scene_racing_static;
         depth_fog=0
         low_pass=0
         high_pass=0
-        with_dirtmap=0
         with_skybox=0
         with_flying_logic=0
         clear_mode=depth;
@@ -496,6 +498,7 @@ macro_begin scene_racing_static;
         DIRTMAP_RIGHT:DIRTMAP_RIGHT
         DIRTMAP_BOTTOM:DIRTMAP_BOTTOM
         DIRTMAP_TOP:DIRTMAP_TOP
+        IF_DIRTMAP:IF_DIRTMAP
         DIRTMAP_TEXTURE:DIRTMAP_TEXTURE
         DIRTMAP_OFFSET:DIRTMAP_OFFSET
         DIRTMAP_DISCRETENESS:DIRTMAP_DISCRETENESS
