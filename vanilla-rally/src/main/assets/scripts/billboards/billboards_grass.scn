@@ -170,7 +170,7 @@
     aggregate_mode=instances_sorted
     transformation_mode=position_lookat;
 
-!IF_ANDROID square_resource
+square_resource
     name=grass_tbdpec3r_desert_bush
     texture_filename=#grass_tbdpec3r_desert_bush
     min=-1.2 0

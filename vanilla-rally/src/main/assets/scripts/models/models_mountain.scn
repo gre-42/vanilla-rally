@@ -1,4 +1,4 @@
-obj_resource
+!IF_ANDROID obj_resource
     name=Stone_model_tex_small_d1_s3
     filename=models/opengameart/Stone_model_tex/stone_d1.obj
     position=0 0 0
@@ -12,7 +12,7 @@ obj_resource
     aggregate_mode=instances_sorted
     transformation_mode=position;
 
-obj_resource
+!IF_ANDROID obj_resource
     name=Stone_model_tex_small_d1_s11
     filename=models/opengameart/Stone_model_tex/stone_d1.obj
     position=0 0 0
@@ -26,7 +26,7 @@ obj_resource
     aggregate_mode=instances_sorted
     transformation_mode=position;
 
-obj_resource
+!IF_ANDROID obj_resource
     name=desert_rock01_small_d1_s3
     filename=models/opengameart/desert_rock01/rock01_mean_d1.obj
     position=0 0 0
@@ -40,7 +40,7 @@ obj_resource
     aggregate_mode=instances_sorted
     transformation_mode=position;
 
-obj_resource
+!IF_ANDROID obj_resource
     name=desert_rock01_small_d1_s13
     filename=models/opengameart/desert_rock01/rock01_mean_d1.obj
     position=0 0 0
@@ -54,7 +54,7 @@ obj_resource
     aggregate_mode=instances_sorted
     transformation_mode=position;
 
-obj_resource
+!IF_ANDROID obj_resource
     name=Stone_model_tex_small
     filename=models/opengameart/Stone_model_tex/stone.obj
     position=0 0 0
@@ -82,7 +82,7 @@ obj_resource
     aggregate_mode=instances_sorted
     transformation_mode=position;
 
-obj_resource
+!IF_ANDROID obj_resource
     name=desert_rock01_small
     filename=models/opengameart/desert_rock01/rock01_mean.obj
     position=0 0 0
@@ -110,7 +110,7 @@ obj_resource
     aggregate_mode=instances_sorted
     transformation_mode=position;
 
-# obj_resource
+# !IF_ANDROID obj_resource
     name=rock028
     filename=models/rock/rock028.obj
     position=0 0 0
@@ -123,7 +123,7 @@ obj_resource
     occluder_pass=none
     aggregate_mode=none;
 
-obj_resource
+!IF_ANDROID obj_resource
     name=Stone_model_tex
     filename=models/opengameart/Stone_model_tex/stone.obj
     position=0 0 0
@@ -137,7 +137,7 @@ obj_resource
     aggregate_mode=instances_once
     transformation_mode=position;
 
-obj_resource
+!IF_ANDROID obj_resource
     name=desert_rock01
     filename=models/opengameart/desert_rock01/rock01_mean.obj
     position=0 -1 0

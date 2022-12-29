@@ -298,7 +298,7 @@ add_blend_map_texture
 ################;
 # Rock028_Dune #;
 ################;
-!IF_ANDROID add_blend_map_texture
+add_blend_map_texture
     name=Rock028_Dune_8
     texture=#Rock028_Dune
     min_height=-INFINITY
@@ -310,7 +310,7 @@ add_blend_map_texture
     scale=0.125
     weight=5;
 
-!IF_ANDROID add_blend_map_texture
+add_blend_map_texture
     name=Rock028_Dune_128
     texture=#Rock028_Dune
     min_height=-INFINITY

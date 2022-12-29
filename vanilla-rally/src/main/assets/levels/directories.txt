@@ -1,3 +1,5 @@
+canyon1
+desert1
+forest0
 main
 raceway0
-forest0
