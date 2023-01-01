@@ -59,3 +59,5 @@ include key_bindings/skater_key_bindings.scn;
 include key_bindings/car_key_bindings.scn;
 include key_bindings/plane_key_bindings.scn;
 IF_ANDROID include key_bindings/tap_buttons.scn;
+
+include materials.scn;
