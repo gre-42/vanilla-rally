@@ -133,6 +133,7 @@ macro_begin _scene_racing_instantiate_static_objects;
         focus_mask=game_over_countdown_any;
 
     countdown
+        node=countdown
         z_order=1
         ttf_file=fonts/RobotoMono-Bold.ttf
         position=NAN NAN
@@ -144,6 +145,7 @@ macro_begin _scene_racing_instantiate_static_objects;
         text=;
 
     countdown
+        node=game_over_countdown
         z_order=1
         ttf_file=fonts/RobotoMono-Bold.ttf
         position=NAN NAN
