@@ -3,3 +3,4 @@ desert1
 forest0
 main
 raceway0
+snow1
