@@ -7,8 +7,7 @@ macro_begin osm_resource_snow1;
         terrain_grass_textures=
             #black_001
             #Rock028_Snow_8
-            #Rock028_Snow_128
-            #Rock028_Snow_512,
+            #Rock028_Snow_128,
         bounding_terrain_type=grass,
         default_terrain_type=grass,
         terrain_materials=surface_base_snow,
@@ -50,7 +49,7 @@ macro_begin osm_resource_snow1;
         scale=1e-3,
         height_scale=3e-1,
         uv_scale_terrain=3e-1,
-        uv_period_terrain=512,
+        uv_period_terrain=128,
         uv_scale_street=1e-1,
         uv_scale_path=1e-1,
         uv_scale_wall=1e-1,
