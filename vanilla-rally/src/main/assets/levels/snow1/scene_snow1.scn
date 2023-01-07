@@ -47,6 +47,12 @@ macro_begin instantiate_transient_objects;
         IF_PLAYBACK_WINNER_1:#
         IF_PLAYBACK_WINNER_2:#
         IF_CHECKPOINTS:
+        CHECK_POINTS_ACTIVE_R:0.3
+        CHECK_POINTS_ACTIVE_G:0.3
+        CHECK_POINTS_ACTIVE_B:1
+        CHECK_POINTS_INACTIVE_R:0.1
+        CHECK_POINTS_INACTIVE_G:0.1
+        CHECK_POINTS_INACTIVE_B:0.2
         IF_RACING:#
         IF_RALLY:
         IF_BURN_IN:;
