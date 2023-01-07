@@ -93,7 +93,7 @@ macro_begin _setup_menu_primary_scene_game_mode_selector;
     IF_ANDROID constant_parameter IF_GAME_MODE_TD:#;
 macro_end;
 
-macro_begin _scene_selector_devel;
+macro_begin _setup_menu_primary_scene_rest;
     # on_change=macro_playback reload, ;
     scene_selector
         id=scene_selector,
@@ -104,25 +104,6 @@ macro_begin _scene_selector_devel;
         font_height=32,
         line_distance=32,
         scene_directory=levels;
-macro_end;
-
-macro_begin _scene_selector_release;
-    # on_change=macro_playback reload, ;
-    scene_selector
-        id=scene_selector,
-        title=Scene,
-        ttf_file=fonts/RobotoMono-Bold.ttf,
-        position=20 -900,
-        size=NAN 850,
-        font_height=32,
-        line_distance=32,
-        scene_directory=levels,
-        exclude=WIP;
-macro_end;
-
-macro_begin _setup_menu_primary_scene_rest;
-    IF_DEVEL macro_playback _scene_selector_devel;
-    IF_RELEASE macro_playback _scene_selector_release;
 
     # name=Zugspitze value=levels/zugspitze/scene_zugspitze.scn;
 
