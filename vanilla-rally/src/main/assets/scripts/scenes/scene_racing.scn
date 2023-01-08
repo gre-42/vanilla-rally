@@ -82,8 +82,9 @@ macro_begin _scene_racing_instantiate_static_objects;
     ui_background
         z_order=1
         texture=textures/ui_background.png
-        position=-600 -200
-        size=600 200
+        position=-6 -2
+        size=6 2
+        units=inch
         update=once
         focus_mask=always;
 
@@ -99,10 +100,11 @@ macro_begin _scene_racing_instantiate_static_objects;
     players_stats
         z_order=1
         ttf_file=fonts/RobotoMono-Bold.ttf
-        position=-600 -200
-        size=600 200
-        font_height=24
-        line_distance=24
+        position=-6 -2
+        size=6 2
+        font_height=0.24
+        line_distance=0.24
+        units=inch
         score_board=SCORE_BOARD;
 
     ##############;

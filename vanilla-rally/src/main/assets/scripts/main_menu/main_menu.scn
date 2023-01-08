@@ -50,10 +50,11 @@ macro_begin _setup_menu_primary_scene_game_mode_selector;
         id=submenus
         title=
         ttf_file=fonts/RobotoMono-Bold.ttf
-        position=20 -60
-        size=NAN 60
-        font_height=32
-        line_distance=32
+        position=0.2 -0.6
+        size=NAN 0.6
+        font_height=0.12
+        line_distance=0.12
+        units=inches
         default=0
         reload_transient_objects=execute_in_physics_thread with_delete_node_mutex macro_playback _reload_transient_objects;
 
@@ -99,10 +100,11 @@ macro_begin _setup_menu_primary_scene_rest;
         id=scene_selector,
         title=Scene,
         ttf_file=fonts/RobotoMono-Bold.ttf,
-        position=20 -900,
-        size=NAN 850,
-        font_height=32,
-        line_distance=32,
+        position=0.2 -8.7,
+        size=NAN 8.5,
+        font_height=0.12,
+        line_distance=0.12,
+        units=inches,
         scene_directory=levels;
 
     # name=Zugspitze value=levels/zugspitze/scene_zugspitze.scn;
@@ -131,8 +133,9 @@ macro_begin _setup_menu_primary_scene_rest;
     focused_text
         ttf_file=fonts/RobotoMono-Bold.ttf
         position=NAN NAN
-        font_height=64
-        line_distance=64
+        font_height=0.64
+        line_distance=0.64
+        units=inches
         focus_mask=game_over
         text=Game over;
 
