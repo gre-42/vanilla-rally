@@ -8,30 +8,32 @@ macro_begin create_tap_buttons;
     create_tap_button
         key=LEFT
         left=0
-        right=0.25
-        bottom=0.5
-        top=1;
+        right=1
+        bottom=-1
+        top=-0
+        units=inches;
     ui_background
         z_order=2
         texture=textures/ui/left.png
         position=0 0
-        size=0.25 0.5
-        units=fraction
+        size=1 1
+        units=inches
         update=once
         focus_mask=always;
 
     create_tap_button
         key=RIGHT
-        left=0.25
-        right=0.5
-        bottom=0.5
-        top=1;
+        left=1.25
+        right=2.25
+        bottom=-1
+        top=-0
+        units=inches;
     ui_background
         z_order=2
         texture=textures/ui/right.png
-        position=0.25 0
-        size=0.25 0.5
-        units=fraction
+        position=1.25 0
+        size=1 1
+        units=inches
         update=once
         focus_mask=always;
 
@@ -40,7 +42,8 @@ macro_begin create_tap_buttons;
         left=0.375
         right=0.5
         bottom=0
-        top=0.25;
+        top=0.25
+        units=fraction;
     ui_background
         z_order=2
         texture=textures/ui/escape.png
@@ -55,7 +58,8 @@ macro_begin create_tap_buttons;
         left=0.5
         right=0.625
         bottom=0
-        top=0.25;
+        top=0.25
+        units=fraction;
     ui_background
         z_order=2
         texture=textures/ui/start.png
@@ -67,31 +71,33 @@ macro_begin create_tap_buttons;
 
     create_tap_button
         key=DOWN
-        left=0.5
-        right=0.75
-        bottom=0.5
-        top=1;
+        left=-2.5
+        right=-1.5
+        bottom=-1
+        top=-0
+        units=inches;
     ui_background
         z_order=2
         texture=textures/ui/down.png
-        position=0.5 0
-        size=0.25 0.5
-        units=fraction
+        position=-2.5 0
+        size=1 1
+        units=inches
         update=once
         focus_mask=always;
 
     create_tap_button
         key=UP
-        left=0.75
-        right=1
-        bottom=0.5
-        top=1;
+        left=-1.25
+        right=-0.25
+        bottom=-1
+        top=-0
+        units=inches;
     ui_background
         z_order=2
         texture=textures/ui/up.png
-        position=0.75 0
-        size=0.25 0.5
-        units=fraction
+        position=-1.25 0
+        size=1 1
+        units=inches
         update=once
         focus_mask=always;
 macro_end;

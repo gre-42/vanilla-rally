@@ -25,6 +25,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -132,8 +133,7 @@ public class NdkTestActivity extends NativeActivity {
         super.onPause();
     }
 
-    public void showMessage(String title, String message)
-    {
+    public void showMessage(String title, String message) {
         this.runOnUiThread(() -> {
             new AlertDialog.Builder(this)
                     .setTitle(title)
@@ -141,6 +141,18 @@ public class NdkTestActivity extends NativeActivity {
                     .show();
             //Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    public float xDpi() {
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        return displaymetrics.xdpi;
+    }
+
+    public float yDpi() {
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        return displaymetrics.ydpi;
     }
 
     public void requestReadExternalStoragePermission() {
