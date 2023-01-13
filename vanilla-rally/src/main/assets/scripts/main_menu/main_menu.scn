@@ -46,12 +46,13 @@ macro_begin _setup_menu_primary_scene_game_mode_selector;
         gamepad_button=A
         tap_button=START
         id=submenus
+        max_entry_distance=1
         title=
         ttf_file=fonts/RobotoMono-Bold.ttf
-        left=min
-        right=escape_button_left
-        bottom=lower_buttons_top
-        top=max
+        left=tabmenu_left
+        right=tabmenu_right
+        bottom=tabmenu_bottom
+        top=tabmenu_top
         font_height=0.12
         line_distance=0.12
         font_height_units=inches
@@ -100,6 +101,7 @@ macro_begin _setup_menu_primary_scene_rest;
     # on_change=macro_playback reload, ;
     scene_selector
         id=scene_selector,
+        max_entry_distance=5,
         title=Scene,
         ttf_file=fonts/RobotoMono-Bold.ttf,
         left=submenu_left,
