@@ -14,9 +14,8 @@ macro_begin _setup_scene_loading;
     focused_text
         ttf_file=fonts/RobotoMono-Bold.ttf
         position=NAN NAN
-        font_height=0.2
-        line_distance=0.2
-        font_height_units=inches
+        font_height=huge
+        line_distance=huge
         focus_mask=always
         text=Loading...;
 macro_end;

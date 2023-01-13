@@ -89,9 +89,8 @@ macro_begin create_player_car_externals;
         right=player_status_right
         bottom=player_status_bottom
         top=player_status_top
-        font_height=0.1
-        line_distance=0.1
-        font_height_units=inches;
+        font_height=normal
+        line_distance=normal;
     
     IF_PC IF_RELEASE visual_player_status
         player=PLAYER_NAME
@@ -101,9 +100,8 @@ macro_begin create_player_car_externals;
         right=player_status_right
         bottom=player_status_bottom
         top=player_status_top
-        font_height=0.1
-        line_distance=0.1
-        font_height_units=inches;
+        font_height=normal
+        line_distance=normal;
     
     IF_PC visual_player_bullet_count
         player=PLAYER_NAME
@@ -112,7 +110,6 @@ macro_begin create_player_car_externals;
         right=bullet_count_right
         bottom=bullet_count_bottom
         top=bullet_count_top
-        font_height=0.1
-        line_distance=0.1
-        font_height_units=inches;
+        font_height=normal
+        line_distance=normal;
 macro_end;

@@ -53,9 +53,8 @@ macro_begin _setup_menu_primary_scene_game_mode_selector;
         right=tabmenu_right
         bottom=tabmenu_bottom
         top=tabmenu_top
-        font_height=0.12
-        line_distance=0.12
-        font_height_units=inches
+        font_height=normal
+        line_distance=normal
         default=0
         reload_transient_objects=execute_in_physics_thread with_delete_node_mutex macro_playback _reload_transient_objects;
 
@@ -108,9 +107,8 @@ macro_begin _setup_menu_primary_scene_rest;
         right=submenu_right,
         bottom=submenu_bottom,
         top=submenu_top,
-        font_height=0.12,
-        line_distance=0.12,
-        font_height_units=inches,
+        font_height=normal,
+        line_distance=normal,
         scene_directory=levels;
 
     # name=Zugspitze value=levels/zugspitze/scene_zugspitze.scn;
@@ -141,9 +139,8 @@ macro_begin _setup_menu_primary_scene_rest;
     focused_text
         ttf_file=fonts/RobotoMono-Bold.ttf
         position=NAN NAN
-        font_height=0.64
-        line_distance=0.64
-        font_height_units=inches
+        font_height=huge
+        line_distance=huge
         focus_mask=game_over
         text=Game over;
 

@@ -105,9 +105,8 @@ macro_begin _scene_racing_instantiate_static_objects;
         right=highscore_right
         bottom=highscore_bottom
         top=highscore_top
-        font_height=0.1
-        line_distance=0.1
-        font_height_units=inches
+        font_height=normal
+        line_distance=normal
         score_board=SCORE_BOARD;
 
     ##############;
@@ -119,9 +118,8 @@ macro_begin _scene_racing_instantiate_static_objects;
         right=global_log_right
         bottom=global_log_bottom
         top=global_log_top
-        font_height=0.24
-        line_distance=0.24
-        font_height_units=inches
+        font_height=normal
+        line_distance=normal
         nentries=10
         severity=critical;
 
@@ -143,9 +141,8 @@ macro_begin _scene_racing_instantiate_static_objects;
         z_order=1
         ttf_file=fonts/RobotoMono-Bold.ttf
         position=NAN NAN
-        font_height=0.3
-        line_distance=0.3
-        font_height_units=inches
+        font_height=huge
+        line_distance=huge
         nseconds=5
         pending_focus=countdown_pending
         counting_focus=countdown_counting
@@ -156,9 +153,8 @@ macro_begin _scene_racing_instantiate_static_objects;
         z_order=1
         ttf_file=fonts/RobotoMono-Bold.ttf
         position=NAN NAN
-        font_height=0.3
-        line_distance=0.3
-        font_height_units=inches
+        font_height=huge
+        line_distance=huge
         nseconds=3
         pending_focus=game_over_countdown_pending
         counting_focus=game_over_countdown_counting
