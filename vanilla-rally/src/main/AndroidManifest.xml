@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:versionCode="35"
-    android:versionName="0.35">
+    android:versionCode="36"
+    android:versionName="0.36">
 
   <uses-feature android:glEsVersion="0x00030002"/>
   <!--uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/-->

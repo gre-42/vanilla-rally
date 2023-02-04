@@ -17,26 +17,22 @@
 package com.hallo2hallo.vanillarally;
 
 import android.app.Application;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
-import android.widget.Toast;
 
 public class NdkTestApplication extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-        Log.w("native-activity", "onCreate");
+        Log.w("native-application", "onCreate");
 
-        final PackageManager pm = getApplicationContext().getPackageManager();
-        ApplicationInfo ai;
-        try {
-            ai = pm.getApplicationInfo( this.getPackageName(), 0);
-        } catch (final NameNotFoundException e) {
-            ai = null;
-        }
-        final String applicationName = (String) (ai != null ? pm.getApplicationLabel(ai) : "(unknown)");
-        Toast.makeText(this, applicationName, Toast.LENGTH_SHORT).show();
+        // final PackageManager pm = getApplicationContext().getPackageManager();
+        // ApplicationInfo ai;
+        // try {
+        //     ai = pm.getApplicationInfo( this.getPackageName(), 0);
+        // } catch (final NameNotFoundException e) {
+        //     ai = null;
+        // }
+        // final String applicationName = (String) (ai != null ? pm.getApplicationLabel(ai) : "(unknown)");
+        // Toast.makeText(this, applicationName, Toast.LENGTH_SHORT).show();
     }
 }

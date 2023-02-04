@@ -17,7 +17,6 @@
 package com.hallo2hallo.vanillarally;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.NativeActivity;
@@ -26,13 +25,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup.MarginLayoutParams;
-import android.view.WindowManager.LayoutParams;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
