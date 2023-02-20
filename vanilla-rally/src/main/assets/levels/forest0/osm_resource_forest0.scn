@@ -10,7 +10,7 @@ macro_begin osm_resource_forest0;
             #Ground037_8,
         bounding_terrain_type=grass,
         default_terrain_type=grass,
-        terrain_undefined_materials=surface_base_stone
+        terrain_undefined_materials=surface_base_stone,
         street_materials=surface_base_gravel,
         street_crossing_texture=#Road007_No_Lines,
         street_textures=
