@@ -1,8 +1,8 @@
-macro_begin osm_resource_raceway0;
+macro_begin osm_resource_race_track0;
     osm_resource
         name=osm_map,
-        filename=__DIR__/map_raceway0.osm,
-        cache_filename=__APPDATA__/raceway0.cereal.binary,
+        filename=__DIR__/map_race_track0.osm,
+        cache_filename=__APPDATA__/race_track0.cereal.binary,
         heightmap=__DIR__/heightmap.pgm,
         terrain_undefined_textures=textures/debug/pink.png,
         terrain_grass_textures=#Ground037_Sl,
@@ -31,8 +31,8 @@ macro_begin osm_resource_raceway0;
             name:traffic_barrier texture:#traffic_barrier uv:1 1 blend_mode:semi_continuous_02 wrap_mode_t:clamp_to_edge reorient_uv0:0 ambience:1 diffusivity:1 specularity:1
             name:ad0 texture:#ad0 uv:0.125 0.5 blend_mode:off wrap_mode_t:clamp_to_edge reorient_uv0:1 ambience:1 diffusivity:1 specularity:1,
         racing_line_texture=#racing_line,
-        racing_line_track=__DIR__/racing_line_raceway0.m,
-        racing_line_playback=__APPDATA__/raceway0_checkpoints.m,
+        racing_line_track=__DIR__/racing_line_race_track0.m,
+        racing_line_playback=__APPDATA__/race_track0_checkpoints.m,
         default_street_width=12,
         scale=1e-3,
         uv_scale_terrain=1e-1,
