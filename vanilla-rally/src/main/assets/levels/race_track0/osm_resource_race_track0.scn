@@ -32,7 +32,7 @@ macro_begin osm_resource_race_track0;
             name:ad0 texture:#ad0 uv:0.125 0.5 blend_mode:off wrap_mode_t:clamp_to_edge reorient_uv0:1 ambience:1 diffusivity:1 specularity:1,
         racing_line_texture=#racing_line,
         racing_line_track=__DIR__/racing_line_race_track0.m,
-        racing_line_playback=__APPDATA__/race_track0_checkpoints.m,
+        racing_line_playback=__APPDATA__/LEVEL_ID.checkpoints.m,
         default_street_width=12,
         scale=1e-3,
         uv_scale_terrain=1e-1,

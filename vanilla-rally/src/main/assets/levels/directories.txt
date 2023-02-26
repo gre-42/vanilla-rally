@@ -1,6 +1,7 @@
 canyon1
 desert1
 forest0
+island0
 main
 race_track0
 snow1
