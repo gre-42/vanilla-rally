@@ -80,6 +80,11 @@ add_texture_atlas
         texture_pos:768 512 texture:#tb
         texture_pos:768 768 texture:textures/opengameart/vaious-vegetation-sprites/dry-slim-bush1.png;
 
+# save_texture_atlas_png
+    name=vegetation1
+    filename=/tmp/vegetation1.png
+    color_mode=rgba;
+
 add_texture_descriptor
     name=vegetation1
     color=#vegetation1
@@ -113,8 +118,3 @@ square_resource
         uv_scale: 0.25  0.25  uv_offset:0.75  0.5    vertex_scale: 4   4    alpha_distances:0 0 250 400 max_distance:503 occluder_pass:none
         uv_scale: 0.25  0.25  uv_offset:0.75  0.75   vertex_scale: 4   4    alpha_distances:0 0 250 400 max_distance:503 occluder_pass:none
         uv_scale:-0.25  0.25  uv_offset:1     0.25   vertex_scale: 2   2    alpha_distances:0 0 250 400 max_distance:503 occluder_pass:none;
-
-# save_texture_atlas_png
-    name=vegetation1
-    filename=/tmp/vegetation1.png
-    color_mode=rgba;
