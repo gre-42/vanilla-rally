@@ -1,10 +1,15 @@
 {
-    "name": "OT",
-    "on_init": [
-        "include OT_resource.scn",
-        "include OT_instance.scn"],
+  "id": "OT",
+  "on_init": [
+    {"include": "OT_resource.scn.json"},
+    {"include": "OT_instance.scn.json"}
+  ],
+  "params": {
+    "title": "OT",
     "variables": {
-        "VEHICLE_SUFFIX": "_OT"
+      "VEHICLE_SUFFIX": "_OT",
+      "VEHICLE_CLASS": "car"
     },
-    "requires": ["IF_GAME_MODE_RALLY"]
+    "required": ["IF_GAME_MODE_RALLY"]
+  }
 }

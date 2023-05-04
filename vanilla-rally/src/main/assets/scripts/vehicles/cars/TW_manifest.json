@@ -1,10 +1,15 @@
 {
-    "name": "TW",
-    "on_init": [
-        "include TW_resource.scn",
-        "include TW_instance.scn"],
+  "id": "TW",
+  "on_init": [
+    {"include": "TW_resource.scn.json"},
+    {"include": "TW_instance.scn.json"}
+  ],
+  "params": {
+    "title": "TW",
     "variables": {
-        "VEHICLE_SUFFIX": "_TW"
+      "VEHICLE_SUFFIX": "_TW",
+      "VEHICLE_CLASS": "car"
     },
-    "requires": ["IF_GAME_MODE_RALLY"]
+    "required": ["IF_GAME_MODE_RALLY"]
+  }
 }
