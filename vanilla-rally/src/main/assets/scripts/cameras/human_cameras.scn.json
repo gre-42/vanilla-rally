@@ -1,7 +1,10 @@
 [
   {
     "declare_macro": "create_human_cameras_persistent",
-    "content": []
+    "content": [
+      {"call": "perspective_camera", "literals": {"node": "human_head_camera_node$SUFFIX", "y_fov": 60, "near_plane": 0.1, "far_plane": "%FAR_PLANE", "requires_postprocessing": true}},
+      {"call": "set_node_hider", "literals": {"node_to_hide": "human_node$SUFFIX", "camera_node": "human_head_camera_node$SUFFIX"}}
+    ]
   },
   {
     "declare_macro": "create_human_cameras_pc",
@@ -10,7 +13,6 @@
       {"call": "child_node_instance", "literals": {"type": "dynamic", "parent": "human_node$SUFFIX", "name": "follower_camera", "position": [0, 10, 10]}},
       {"call": "perspective_camera", "literals": {"node": "45_deg_camera", "y_fov": 30, "near_plane": 1, "far_plane": 10000, "requires_postprocessing": false}},
       {"call": "perspective_camera", "literals": {"node": "follower_camera", "y_fov": 60, "near_plane": 1, "far_plane": "%FAR_PLANE", "requires_postprocessing": true}},
-      {"call": "perspective_camera", "literals": {"node": "human_head_camera_node$SUFFIX", "y_fov": 60, "near_plane": 0.1, "far_plane": "%FAR_PLANE", "requires_postprocessing": true}},
       {"call": "look_at_node", "literals": {"follower": "45_deg_camera", "followed": "human_node$SUFFIX"}},
       {
         "call": "follow_node",
@@ -29,8 +31,7 @@
       {"call": "set_camera_cycle", "literals": {"name": "near", "cameras": ["follower_camera", "human_head_camera_node$SUFFIX"]}},
       {"call": "set_camera", "literals": {"name": "human_head_camera_node$SUFFIX"}},
       {"call": "append_externals_deleter", "literals": {"player": "%PLAYER_NAME", "node": "45_deg_camera"}},
-      {"call": "append_externals_deleter", "literals": {"player": "%PLAYER_NAME", "node": "follower_camera"}},
-      {"call": "append_externals_deleter", "literals": {"player": "%PLAYER_NAME", "node": "human_head_camera_node$SUFFIX"}}
+      {"call": "append_externals_deleter", "literals": {"player": "%PLAYER_NAME", "node": "follower_camera"}}
     ]
   }
 ]

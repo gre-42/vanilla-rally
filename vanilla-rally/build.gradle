@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     ndkVersion '22.1.7171670'
 
     defaultConfig {
         applicationId = 'com.hallo2hallo.vanillarally'
         minSdkVersion 18
-        targetSdkVersion 32
-        versionCode 39
-        versionName "0.39"
+        targetSdkVersion 33
+        versionCode 40
+        versionName "0.40"
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
@@ -57,7 +57,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation project(':recast')
 }
