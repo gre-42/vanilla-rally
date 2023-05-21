@@ -167,7 +167,7 @@
           "mass": "inf",
           "size": [1, 2, 3],
           "w": [0, 10, 0],
-          "collidable_mode": "terrain",
+          "collidable_mode": "static",
           "name": "stage"
         }
       },
