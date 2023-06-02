@@ -43,7 +43,7 @@
   {
     "call": "obj_resource",
     "literals": {
-      "name": "CNY71-tirelines",
+      "name": "CNY71_tirelines",
       "filename": "models/primitives/empty.obj",
       "position": [0, 0, 0],
       "rotation": [0, 0, 0],
@@ -58,12 +58,12 @@
     }
   },
 
-  {"call": "modify_physics_material_tags", "literals": {"resource_name": "CNY71-tirelines", "add": "obj_tire_line"}},
+  {"call": "modify_physics_material_tags", "literals": {"resource_name": "CNY71_tirelines", "add": "obj_tire_line"}},
 
-  {"call": "gen_ray", "literals": {"name": "CNY71-tirelines", "from": [-0.7, -0.2, -1.5],  "to": [-0.7, -1, -1.5]}},  {"comment": "left front"},
-  {"call": "gen_ray", "literals": {"name": "CNY71-tirelines", "from": [ 0.7, -0.2, -1.5],  "to": [ 0.7, -1, -1.5]}},  {"comment": "right front"},
-  {"call": "gen_ray", "literals": {"name": "CNY71-tirelines", "from": [-0.7, -0.2,  1.25], "to": [-0.7, -1,  1.25]}}, {"comment": "left rear"},
-  {"call": "gen_ray", "literals": {"name": "CNY71-tirelines", "from": [ 0.7, -0.2,  1.25], "to": [ 0.7, -1,  1.25]}}, {"comment": "right rear"},
+  {"call": "gen_ray", "literals": {"name": "CNY71_tirelines", "from": [-0.7, -0.2, -1.5],  "to": [-0.7, -1, -1.5]}},  {"comment": "left front"},
+  {"call": "gen_ray", "literals": {"name": "CNY71_tirelines", "from": [ 0.7, -0.2, -1.5],  "to": [ 0.7, -1, -1.5]}},  {"comment": "right front"},
+  {"call": "gen_ray", "literals": {"name": "CNY71_tirelines", "from": [-0.7, -0.2,  1.25], "to": [-0.7, -1,  1.25]}}, {"comment": "left rear"},
+  {"call": "gen_ray", "literals": {"name": "CNY71_tirelines", "from": [ 0.7, -0.2,  1.25], "to": [ 0.7, -1,  1.25]}}, {"comment": "right rear"},
 
   {
     "declare_macro": "load_CNY71_part",
@@ -71,7 +71,7 @@
       {
         "call": "obj_resource",
         "literals": {
-          "name": "CNY71/$NAME",
+          "name": "CNY71_obj/$NAME",
           "filename": "models/sketchfab.com/Chrysler-New_Yorker_1971/$NAME.obj",
           "position": [-0.275, -0.75, -1.1],
           "rotation": [0, -90, 0],
@@ -97,7 +97,7 @@
       {
         "call": "obj_resource",
         "literals": {
-          "name": "CNY71/$NAME",
+          "name": "CNY71_obj/$NAME",
           "filename": "models/sketchfab.com/Chrysler-New_Yorker_1971/$NAME.obj",
           "position": [0, 0, 0],
           "rotation": [0, -90, 0],
@@ -121,10 +121,13 @@
     "declare_macro": "load-CNY71",
     "content": [
       {"playback": "load_CNY71_part",  "literals": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "OCCLUDER_PASS": "%OCCLUDER_PASS", "REFLECTION_MAP": "car", "NAME": "chassis$DECIMATE"}},
-      {"playback": "load_CNY71_wheel", "literals": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "OCCLUDER_PASS": "%OCCLUDER_PASS", "REFLECTION_MAP": "",  "NAME": "wheel$DECIMATE"}}
+      {"playback": "load_CNY71_wheel", "literals": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "OCCLUDER_PASS": "%OCCLUDER_PASS", "REFLECTION_MAP": "",  "NAME": "wheel$DECIMATE"}},
+      {"call": "compound_resource", "literals": {"source_names": ["CNY71_obj/chassis$DECIMATE"], "dest_name": "CNY71/chassis$SUFFIX"}},
+      {"call": "compound_resource", "literals": {"source_names": ["CNY71_obj/wheel$DECIMATE"], "dest_name": "CNY71/wheel_front$SUFFIX"}},
+      {"call": "compound_resource", "literals": {"source_names": ["CNY71_obj/wheel$DECIMATE"], "dest_name": "CNY71/wheel_rear$SUFFIX"}}
     ]
   },
-  {"playback": "load-CNY71", "literals": {"DIST_MIN": 0,   "DIST_MAX": 100,  "OCCLUDER_PASS": "none",               "DECIMATE": ""}},
-  {"playback": "load-CNY71", "literals": {"DIST_MIN": 0,   "DIST_MAX": 100,  "OCCLUDER_PASS": "none",               "DECIMATE": "_d3"}},
-  {"playback": "load-CNY71", "literals": {"DIST_MIN": 100, "DIST_MAX": 1000, "OCCLUDER_PASS": "lightmap_black_local_instances", "DECIMATE": "_d1"}}
+  {"playback": "load-CNY71", "literals": {"DIST_MIN": 0,   "DIST_MAX": 100,  "OCCLUDER_PASS": "none", "DECIMATE": "", "SUFFIX": ""}},
+  {"playback": "load-CNY71", "literals": {"DIST_MIN": 0,   "DIST_MAX": 100,  "OCCLUDER_PASS": "none", "DECIMATE": "_d3", "SUFFIX": "_d3"}},
+  {"playback": "load-CNY71", "literals": {"DIST_MIN": 100, "DIST_MAX": 1000, "OCCLUDER_PASS": "lightmap_black_local_instances", "DECIMATE": "_d1", "SUFFIX": "_lowres"}}
 ]

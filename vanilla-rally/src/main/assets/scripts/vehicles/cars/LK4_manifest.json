@@ -1,6 +1,7 @@
 {
   "id": "LK4",
   "on_init": [
+    {"include": "scripts/vehicles/cars/create_generic_car_instance.scn.json"},
     {"include": "LK4_resource.scn.json"},
     {"include": "LK4_instance.scn.json"}
   ],
@@ -10,6 +11,6 @@
       "VEHICLE_SUFFIX": "_LK4",
       "VEHICLE_CLASS": "car"
     },
-    "required": ["IF_GAME_MODE_RALLY"]
+    "required": ["GAME_MODE=='RALLY'"]
   }
 }

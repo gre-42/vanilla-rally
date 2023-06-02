@@ -1,6 +1,7 @@
 {
   "id": "OT",
   "on_init": [
+    {"include": "scripts/vehicles/cars/create_generic_car_instance.scn.json"},
     {"include": "OT_resource.scn.json"},
     {"include": "OT_instance.scn.json"}
   ],
@@ -10,6 +11,6 @@
       "VEHICLE_SUFFIX": "_OT",
       "VEHICLE_CLASS": "car"
     },
-    "required": ["IF_GAME_MODE_RALLY"]
+    "required": ["GAME_MODE=='RALLY'"]
   }
 }
