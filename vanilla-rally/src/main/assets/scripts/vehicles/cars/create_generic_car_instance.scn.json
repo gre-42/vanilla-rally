@@ -91,8 +91,6 @@
 
       {"required": ["IF_WITH_PHYSICS"], "playback": "generic_car.create_physics", "literals": {
         "NAME": "%NAME",
-        "IF_RACING": "%IF_RACING",
-        "IF_RALLY": "%IF_RALLY",
         "SUFFIX": "%SUFFIX",
         "MASS": "%MASS",
         "WHEEL_RADIUS": "%WHEEL_RADIUS",
@@ -113,8 +111,6 @@
         "required": ["IF_PC"],
         "playback": "create_car_key_bindings",
         "literals": {
-          "IF_RACING": "%IF_RACING",
-          "IF_RALLY": "%IF_RALLY",
           "IF_MANUAL_DRIVE": "%IF_MANUAL_DRIVE",
           "IF_MANUAL_AIM": false,
           "IF_HAS_GUN": false,

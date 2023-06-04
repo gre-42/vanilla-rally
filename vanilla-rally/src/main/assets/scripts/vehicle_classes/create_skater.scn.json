@@ -68,8 +68,6 @@
               "PLAYER_NAME": "%PLAYER_NAME",
               "SKATER_NAME": "%SKATER_NAME",
               "SUFFIX": "%SUFFIX",
-              "IF_RACING": "%IF_RACING",
-              "IF_RALLY": "%IF_RALLY",
               "IF_PC": "%IF_PC"
             }
           },
@@ -77,7 +75,6 @@
           "capture": {
             "SKATER_NAME": "%SKATER_NAME",
             "SUFFIX": "%SUFFIX",
-            "IF_RACING": "%IF_RACING",
             "IF_RALLY": "%IF_RALLY"
           }
         }
@@ -104,8 +101,6 @@
         "playback": "create_player_skater_externals$SKATER_NAME",
         "literals": {
           "SUFFIX": "%SUFFIX",
-          "IF_RACING": "%IF_RACING",
-          "IF_RALLY": "%IF_RALLY",
           "PLAYER_NAME": "%PLAYER_NAME",
           "IF_PC": "%IF_PC"
         }
