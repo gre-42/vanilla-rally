@@ -8,7 +8,7 @@
   "params": {
     "title": "M3",
     "globals": {
-      "VEHICLE_SUFFIX": "_M3",
+      "VEHICLE_SUFFIX": "M3",
       "VEHICLE_CLASS": "car"
     },
     "required": ["GAME_MODE=='rally'"]

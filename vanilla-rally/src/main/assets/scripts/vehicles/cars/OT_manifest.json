@@ -8,7 +8,7 @@
   "params": {
     "title": "OT",
     "globals": {
-      "VEHICLE_SUFFIX": "_OT",
+      "VEHICLE_SUFFIX": "OT",
       "VEHICLE_CLASS": "car"
     },
     "required": ["GAME_MODE=='rally'"]
