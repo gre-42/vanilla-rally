@@ -1,0 +1,58 @@
+[
+  {
+    "declare_macro": "create_LK4_with_TNo2",
+    "content": [
+      {
+        "playback": "create_LK4",
+        "literals": {
+          "SUFFIX": "%SUFFIX",
+          "IF_WITH_GRAPHICS": "%IF_WITH_GRAPHICS",
+          "IF_WITH_PHYSICS": "%IF_WITH_PHYSICS",
+          "DECIMATE": "%DECIMATE",
+          "HAND_BRAKE_PULLED": "%HAND_BRAKE_PULLED"
+        }
+      },
+      {
+        "call": "create_trailer_node",
+        "literals": {
+          "car_instance": "car_node$SUFFIX",
+          "trailer_asset_id": "TNo2",
+          "trailer_node": "car_node_trailer$SUFFIX"
+        }
+      },
+      {
+        "playback": "create_TNo2",
+        "literals": {
+          "SUFFIX": "_trailer$SUFFIX",
+          "IF_WITH_GRAPHICS": "%IF_WITH_GRAPHICS",
+          "IF_WITH_PHYSICS": "%IF_WITH_PHYSICS",
+          "DECIMATE": "%DECIMATE",
+          "HAND_BRAKE_PULLED": "%HAND_BRAKE_PULLED"
+        }
+      },
+      {
+        "call": "connect_trailer",
+        "literals": {
+          "car": "car_node$SUFFIX",
+          "trailer": "car_node_trailer$SUFFIX"
+        }
+      }
+    ]
+  },
+  {
+    "declare_macro": "create_player_car_externals_LK4_with_TNo2",
+    "content": {
+      "playback": "generic_car.create_player_car_externals",
+      "literals": {
+        "ASSET_ID": "LK4",
+        "IF_PC": "%IF_PC",
+        "IF_MANUAL_DRIVE": "%IF_MANUAL_DRIVE",
+        "PLAYER_NAME": "%PLAYER_NAME",
+        "SUFFIX": "%SUFFIX",
+
+        "CAMERA_CLASS": "car_with_trailer",
+        "COCKPIT_CAMERA_POSITION": [-0.4, 0.5, -0.1]
+      }
+    }
+  }
+]

@@ -1,15 +1,15 @@
 {
   "id": "FN",
-  "on_init": [
-    {"include": "scripts/vehicles/create_generic_car_instance.scn.json"},
-    {"include": "FN_resource.scn.json"},
-    {"include": "FN_instance.scn.json"}
-  ],
+  "on_init": {"include": "FN.scn.json"},
   "params": {
     "title": "FN",
     "globals": {
       "VEHICLE_SUFFIX": "FN",
-      "VEHICLE_CLASS": "car"
+      "VEHICLE_CLASS": "car",
+      "NODE_PREFIXES": ["car_node"],
+      "TRAILER_HITCH_POSITION_FEMALE": null,
+      "TRAILER_HITCH_POSITION_MALE": null,
+      "MAX_TIRE_ANGLE": 30
     },
     "required": ["GAME_MODE=='rally'"]
   }

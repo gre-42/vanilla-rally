@@ -33,7 +33,7 @@
         }
       },
       {
-        "playback": "create$HUMAN_NAME",
+        "playback": "create_$HUMAN_NAME",
         "literals": {
           "DECIMATE": "%DECIMATE",
           "SUFFIX": "%SUFFIX",
@@ -54,14 +54,15 @@
       },
       {
         "required": ["IF_SPAWNER"],
-        "call": "spawner_set_node",
+        "call": "spawner_set_nodes",
         "literals": {
-          "node": "human_node$SUFFIX",
+          "asset_id": "%HUMAN_NAME",
+          "suffix": "%SUFFIX",
           "spawner": "%SPAWNER_NAME"
         }
       },
       {
-        "comment": "# IF_SHADOW macro_playback add_attached_light-HUMAN_NAME LSUFFIX:_human$SUFFIX CSUFFIX:SUFFIX;"
+        "comment": "# IF_SHADOW macro_playback add_attached_light_$HUMAN_NAME LSUFFIX:_human$SUFFIX CSUFFIX:SUFFIX;"
       },
       {
         "required": ["IF_SPAWNER"],
@@ -106,7 +107,7 @@
     "declare_macro": "create_player_human_externals",
     "content": [
       {
-        "playback": "create_player_human_externals$HUMAN_NAME",
+        "playback": "create_player_human_externals_$HUMAN_NAME",
         "literals": {
           "SUFFIX": "%SUFFIX",
           "IF_WITH_GUN": "%IF_WITH_GUN",
@@ -173,7 +174,8 @@
         "literals": {
           "surface_power_forward": "inf",
           "surface_power_backward": "-inf",
-          "player": "%PLAYER_NAME"
+          "player": "%PLAYER_NAME",
+          "NAME": "%HUMAN_NAME"
         }
       }
     ]

@@ -11,13 +11,34 @@
         "DECIMATE": "%DECIMATE",
         "HAND_BRAKE_PULLED": "%HAND_BRAKE_PULLED",
 
+        "SIZE": [2, 0.66, 5.66],
+        "COM": [0, -0.18, 0],
+
         "MASS": 2000,
         "WHEEL_RADIUS": 0.3,
 
         "WHEEL_LEFT_FRONT_POSITION":  [-0.85, -0.45, -1.5],
         "WHEEL_RIGHT_FRONT_POSITION": [ 0.85, -0.45, -1.5],
         "WHEEL_LEFT_REAR_POSITION":   [-0.85, -0.45,  1.6],
-        "WHEEL_RIGHT_REAR_POSITION":  [ 0.85, -0.45,  1.6]
+        "WHEEL_RIGHT_REAR_POSITION":  [ 0.85, -0.45,  1.6],
+
+        "ANGULAR_VELS_FRONT": [-6000, -4200, -3000, 0],
+        "ANGULAR_VELS_REAR": [-6000, -4200, -3000, 0],
+
+        "POWERS_FRONT": [20, 200,  200,  20],
+        "POWERS_REAR": [20, 200,  200,  20],
+
+        "GEAR_RATIOS": [0.75, 1.5, 3, 6, 9, -9]
+      }
+    }
+  },
+  {
+    "declare_macro": "set_spawner_nodes_DM74",
+    "content": {
+      "call": "spawner_set_nodes",
+      "literals": {
+        "nodes": ["car_node$SUFFIX"],
+        "spawner": "%SPAWNER_NAME"
       }
     }
   },
@@ -26,6 +47,7 @@
     "content": {
       "playback": "generic_car.create_player_car_externals",
       "literals": {
+        "ASSET_ID": "DM74",
         "IF_PC": "%IF_PC",
         "IF_MANUAL_DRIVE": "%IF_MANUAL_DRIVE",
         "PLAYER_NAME": "%PLAYER_NAME",
