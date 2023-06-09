@@ -28,7 +28,7 @@
         "IF_WITH_GUN": false,
         "IF_STATIC": false,
         "IF_DYNAMIC": true,
-        "IF_MANUAL_DRIVE": "%!IF_PC_PLAYER_PLAYBACK",
+        "IF_MANUAL_DRIVE": "!IF_PC_PLAYER_PLAYBACK",
         "IF_MANUAL_AIM": false,
         "HAND_BRAKE_PULLED": "%HAND_BRAKE_PULLED",
         "VELOCITY_ERROR_STD": 0,
@@ -118,7 +118,7 @@
       }
     },
     {
-      "required": ["IF_PLAYBACK_WINNER_0", "IF_WINNER_RANK0_EXISTS"],
+      "required": ["%IF_PLAYBACK_WINNER_0", "%IF_WINNER_RANK0_EXISTS"],
       "playback": "_create_winner_playback",
       "literals": {
         "RANK": 0,
@@ -130,7 +130,7 @@
       }
     },
     {
-      "required": ["IF_PLAYBACK_WINNER_1", "IF_WINNER_RANK1_EXISTS"],
+      "required": ["%IF_PLAYBACK_WINNER_1", "%IF_WINNER_RANK1_EXISTS"],
       "playback": "_create_winner_playback",
       "literals": {
         "RANK": 1,
@@ -142,7 +142,7 @@
       }
     },
     {
-      "required": ["IF_PLAYBACK_WINNER_2", "IF_WINNER_RANK2_EXISTS"],
+      "required": ["%IF_PLAYBACK_WINNER_2", "%IF_WINNER_RANK2_EXISTS"],
       "playback": "_create_winner_playback",
       "literals": {
         "RANK": 2,

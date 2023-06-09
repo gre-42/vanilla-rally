@@ -153,7 +153,7 @@
       },
       {
         "call": "parameter_setter",
-        "exclude": ["IF_ANDROID", "%IF_DEVEL"],
+        "exclude": ["%IF_ANDROID", "%IF_DEVEL"],
         "literals": {
           "id": "game_mode_selector",
           "title": "Game mode",
