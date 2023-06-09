@@ -74,25 +74,25 @@
       {"comment": {"call": "renderable_instance", "literals": {"name": "generic_car_massbox$SUFFIX", "node": "car_node$SUFFIX", "resource": "$NAME-_massbox"}}},
       {"comment": "renderable_instance name=generic_car_topdown_locator$SUFFIX node=car_node$NODE_SUFFIX resource=topdown_locator"},
 
-      {"required": ["IF_WITH_GRAPHICS"], "call": "child_node_instance", "literals": {"type": "dynamic", "parent": "wheel_right_front_node$SUFFIX", "name": "wheel_right_front_node_visual$SUFFIX", "rotation": [0, 180, 0]}},
-      {"required": ["IF_WITH_GRAPHICS"], "call": "child_node_instance", "literals": {"type": "dynamic", "parent": "wheel_right_rear_node$SUFFIX", "name": "wheel_right_rear_node_visual$SUFFIX", "rotation": [0, 180, 0]}},
-      {"required": ["IF_WITH_GRAPHICS"], "playback": "generic_car.create_graphics", "literals": {
+      {"required": ["%IF_WITH_GRAPHICS"], "call": "child_node_instance", "literals": {"type": "dynamic", "parent": "wheel_right_front_node$SUFFIX", "name": "wheel_right_front_node_visual$SUFFIX", "rotation": [0, 180, 0]}},
+      {"required": ["%IF_WITH_GRAPHICS"], "call": "child_node_instance", "literals": {"type": "dynamic", "parent": "wheel_right_rear_node$SUFFIX", "name": "wheel_right_rear_node_visual$SUFFIX", "rotation": [0, 180, 0]}},
+      {"required": ["%IF_WITH_GRAPHICS"], "playback": "generic_car.create_graphics", "literals": {
         "NAME": "%NAME",
         "NODE_SUFFIX": "%SUFFIX",
         "SUFFIX": "%SUFFIX",
         "DECIMATE": "%DECIMATE"
         }
       },
-      {"required": ["IF_WITH_GRAPHICS"], "playback": "generic_car.create_graphics", "literals": {
+      {"required": ["%IF_WITH_GRAPHICS"], "playback": "generic_car.create_graphics", "literals": {
         "NAME": "%NAME",
         "NODE_SUFFIX": "%SUFFIX",
         "SUFFIX": "_lowres$SUFFIX",
         "DECIMATE": "_lowres"
         }
       },
-      {"required": ["IF_WITH_GRAPHICS"], "playback": "generic_car.create_lights", "literals": {"NAME": "%NAME", "SUFFIX": "%SUFFIX"}},
+      {"required": ["%IF_WITH_GRAPHICS"], "playback": "generic_car.create_lights", "literals": {"NAME": "%NAME", "SUFFIX": "%SUFFIX"}},
 
-      {"required": ["IF_WITH_PHYSICS"], "playback": "generic_car.create_physics", "literals": {
+      {"required": ["%IF_WITH_PHYSICS"], "playback": "generic_car.create_physics", "literals": {
         "NAME": "%NAME",
         "SUFFIX": "%SUFFIX",
         "SIZE": "%SIZE",
@@ -118,7 +118,7 @@
     "declare_macro": "generic_car.create_player_car_externals",
     "content": [
       {
-        "required": ["IF_PC"],
+        "required": ["%IF_PC"],
         "playback": "create_car_key_bindings",
         "literals": {
           "IF_MANUAL_DRIVE": "%IF_MANUAL_DRIVE",
@@ -130,7 +130,7 @@
         }
       },
       {
-        "required": ["IF_PC"],
+        "required": ["%IF_PC"],
         "playback": "create_car_cameras_$CAMERA_CLASS",
         "literals": {
           "SUFFIX": "%SUFFIX",
@@ -139,8 +139,8 @@
         }
       },
       {
-        "required": ["IF_PC"],
-        "exclude": ["IF_ANDROID"],
+        "required": ["%IF_PC"],
+        "exclude": ["%IF_ANDROID"],
         "playback": "create_player_car_engine_rpm_meter",
         "literals": {
           "PLAYER_NAME": "%PLAYER_NAME",
