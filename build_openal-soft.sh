@@ -10,6 +10,7 @@ for ANDROID_ABI in armeabi-v7a arm64-v8a x86 x86_64; do
     mkdir -p openal-soft/build-$ANDROID_ABI
     pushd openal-soft/build-$ANDROID_ABI
     cmake .. \
+        -DLIBTYPE=STATIC \
         -DANDROID_STL=c++_shared \
         -DANDROID_ABI=$ANDROID_ABI \
         -DCMAKE_TOOLCHAIN_FILE="${NDK_ROOT}/build/cmake/android.toolchain.cmake"
