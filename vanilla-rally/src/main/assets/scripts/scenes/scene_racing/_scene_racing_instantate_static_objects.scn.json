@@ -2,6 +2,14 @@
   "declare_macro": "_scene_racing_instantiate_static_objects",
   "content": [
     {
+      "comment": {
+        "call": "preload_single",
+        "literals": {
+          "resource": "osm_map"
+        }
+      }
+    },
+    {
       "playback": "_create_osm_map_resource",
       "literals": {
         "OSM_MAP": "osm_map",
@@ -104,7 +112,8 @@
         "size": [1, 2, 3],
         "collidable_mode": "static",
         "name": "osm_map",
-        "asset_id": "osm_map_no_id"
+        "asset_id": "osm_map_no_id",
+        "collision_ridge_error_behavior": "%OSM_COLLISION_RIDGE_ERROR_BEHAVIOR"
       }
     },
     {"comment": "collidable-mesh rigid_body-node=osm_map_node node=osm_map_node resource=osm_map"},

@@ -2,9 +2,9 @@
   "id": "TW",
   "title": "TW",
   "on_init": {"include": "TW.scn.json"},
-  "globals": {
-    "VEHICLE_SUFFIX": "TW",
-    "VEHICLE_CLASS": "car",
+  "database": {
+    "SUFFIX": "TW",
+    "CLASS": "car",
     "NODE_PREFIXES": ["car_node"],
     "TRAILER_HITCH_POSITION_FEMALE": null,
     "TRAILER_HITCH_POSITION_MALE": null,

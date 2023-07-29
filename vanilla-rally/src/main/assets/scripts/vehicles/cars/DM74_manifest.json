@@ -2,9 +2,9 @@
   "id": "DM74",
   "title": "Dodge Monaco 1974",
   "on_init": {"include": "DM74.scn.json"},
-  "globals": {
-    "VEHICLE_SUFFIX": "DM74",
-    "VEHICLE_CLASS": "car",
+  "database": {
+    "SUFFIX": "DM74",
+    "CLASS": "car",
     "NODE_PREFIXES": ["car_node"],
     "TRAILER_HITCH_POSITION_FEMALE": null,
     "TRAILER_HITCH_POSITION_MALE": null,

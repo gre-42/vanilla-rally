@@ -2,9 +2,9 @@
   "id": "OT",
   "title": "OT",
   "on_init": {"include": "OT.scn.json"},
-  "globals": {
-    "VEHICLE_SUFFIX": "OT",
-    "VEHICLE_CLASS": "car",
+  "database": {
+    "SUFFIX": "OT",
+    "CLASS": "car",
     "NODE_PREFIXES": ["car_node"],
     "TRAILER_HITCH_POSITION_FEMALE": null,
     "TRAILER_HITCH_POSITION_MALE": null,

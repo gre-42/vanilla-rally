@@ -2,9 +2,9 @@
   "id": "CNY71",
   "title": "Chrysler - New Yorker 1971",
   "on_init": {"include": "CNY71.scn.json"},
-  "globals": {
-    "VEHICLE_SUFFIX": "CNY71",
-    "VEHICLE_CLASS": "car",
+  "database": {
+    "SUFFIX": "CNY71",
+    "CLASS": "car",
     "NODE_PREFIXES": ["car_node"],
     "TRAILER_HITCH_POSITION_FEMALE": null,
     "TRAILER_HITCH_POSITION_MALE": null,

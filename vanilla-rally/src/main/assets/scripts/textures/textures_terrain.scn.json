@@ -525,11 +525,7 @@
             "name": "grass_tbdpec3r_dark27",
             "color": "textures/quixel/tbdpec3r/Billboard_2K_Albedo_Lower.png",
             "color_mode": "rgba",
-            "lighten": [
-                -0.27,
-                -0.27,
-                -0.27
-            ],
+            "lighten": [-0.27, -0.27, -0.27],
             "anisotropic_filtering_level": 16
         }
     },

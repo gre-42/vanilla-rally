@@ -2,9 +2,9 @@
   "id": "FN",
   "title": "FN",
   "on_init": {"include": "FN.scn.json"},
-  "globals": {
-    "VEHICLE_SUFFIX": "FN",
-    "VEHICLE_CLASS": "car",
+  "database": {
+    "SUFFIX": "FN",
+    "CLASS": "car",
     "NODE_PREFIXES": ["car_node"],
     "TRAILER_HITCH_POSITION_FEMALE": null,
     "TRAILER_HITCH_POSITION_MALE": null,

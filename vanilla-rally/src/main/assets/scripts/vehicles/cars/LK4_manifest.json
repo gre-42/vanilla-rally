@@ -2,9 +2,9 @@
   "id": "LK4",
   "title": "LK4",
   "on_init": {"include": "LK4.scn.json"},
-  "globals": {
-    "VEHICLE_SUFFIX": "LK4",
-    "VEHICLE_CLASS": "car",
+  "database": {
+    "SUFFIX": "LK4",
+    "CLASS": "car",
     "NODE_PREFIXES": ["car_node"],
     "TRAILER_HITCH_POSITION_FEMALE": null,
     "TRAILER_HITCH_POSITION_MALE": [0, -0.2, 2],
