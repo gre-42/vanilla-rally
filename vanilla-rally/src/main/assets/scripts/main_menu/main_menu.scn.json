@@ -13,7 +13,6 @@
         "context": "primary_scene",
         "literals": {
           "IF_UPDATE_EXISTING_SCENE": true,
-          "SELECTED_VEHICLE_ID": "%SELECTED_VEHICLE_ID",
           "PLAYBACK_SPEED": "%PLAYBACK_SPEED",
           "RACE_SESSION": "%RACE_SESSION",
           "RACE_LAPS": "%RACE_LAPS"
