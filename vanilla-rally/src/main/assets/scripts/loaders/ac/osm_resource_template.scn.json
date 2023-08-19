@@ -1,0 +1,88 @@
+{
+  "declare_macro": "osm_resource_template",
+  "content": [
+    {
+      "call": "obj_resource",
+      "literals": {
+        "name": "%LEVEL_ID",
+        "filename": "%STAGE_INI_FILENAME",
+        "position": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "max_triangle_distance": 800,
+        "blend_mode": "semi_continuous_02",
+        "alpha_distances": [0, 0, "inf", "inf"],
+        "occluded_pass": "none",
+        "occluder_pass": "none",
+        "anisotropic_filtering_level": 16,
+        "magnifying_interpolation_mode": "linear",
+        "aggregate_mode": "sorted",
+        "transformation_mode": "all",
+        "emissivity_factor": "%AC_EMISSIVITY_FACTOR",
+        "ambience_factor": "%AC_AMBIENCE_FACTOR",
+        "diffusivity_factor": "%AC_DIFFUSIVITY_FACTOR",
+        "specularity_factor": "%AC_SPECULARITY_FACTOR",
+        "physics_material": "attr_visible|attr_concave",
+        "triangle_tangent_error_behavior": "zero",
+        "double_precision": true
+      }
+    },
+    {
+      "call": "cleanup_mesh",
+      "literals": {
+        "resource_name": "%LEVEL_ID",
+        "min_distance_material_filter": "attr_collide",
+        "min_vertex_distance": 1e-2
+      }
+    },
+    {
+      "call": "merge_textures",
+      "literals": {
+        "resource_name": "%LEVEL_ID",
+        "merged_resource_name": "$LEVEL_ID-_trees",
+        "merged_texture_name": "$LEVEL_ID-_trees",
+        "merged_array_name": "$LEVEL_ID-_trees",
+        "merged_blend_mode": "semi_continuous_02",
+        "merged_continuous_blending_z_order": 1,
+        "merged_occluded_pass": "none",
+        "merged_occluder_pass": "lightmap_black_global_and_local",
+        "merged_aggregate_mode": "sorted",
+        "merged_max_triangle_distance": 800,
+        "merged_cull_faces": true,
+        "merged_ambience": [1, 1, 1]
+      }
+    },
+    {
+      "call": "add_foliage",
+      "literals": {
+        "mesh_resource_name": "%LEVEL_ID",
+        "foliage_resource_name": "$LEVEL_ID-_foliage",
+        "near_grass_resource_names": ["vegetation10.0"],
+        "dirty_near_grass_resource_names": ["vegetation10.1"],
+        "near_grass_distance": 3,
+        "near_grass_foliagemap": "textures/foliagemap.png",
+        "near_grass_foliagemap_period": 0.01
+      }
+    },
+    {
+      "call": "replace_terrain_material",
+      "literals": {
+        "resource_name": "%LEVEL_ID",
+        "textures": [
+          "#Ground037_Sl_1",
+          "#Ground037_Sl_8",
+          "#Ground037_Sl_64",
+          "#Ground037_Sl_256"],
+        "uv_scale": 3e-1,
+        "uv_period": 256
+      }
+    },
+    {
+      "call": "compound_resource",
+      "literals": {
+        "source_names": ["%LEVEL_ID"],
+        "dest_name": "osm_map"
+      }
+    }
+  ]
+}
