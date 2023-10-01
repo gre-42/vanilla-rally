@@ -97,6 +97,21 @@
   {
     "call": "add_blend_map_texture",
     "literals": {
+      "name": "Gravel010_Detail_Desaturated",
+      "texture": "#Gravel010_Desaturated",
+      "min_height": "-inf",
+      "max_height": "inf",
+      "distances": [0, 0, "inf", "inf"],
+      "normal": [0, 0, 0],
+      "cosine": [-1, -1, 1, 1],
+      "scale": 0.4,
+      "weight": 1.1,
+      "role": "detail_color_horizontal"
+    }
+  },
+  {
+    "call": "add_blend_map_texture",
+    "literals": {
       "name": "Gravel010_Detail_Desert",
       "texture": "#Gravel010_Desert",
       "min_height": "-inf",
