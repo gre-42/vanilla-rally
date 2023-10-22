@@ -25,9 +25,14 @@
       "default_terrain_type": "grass",
       "terrain_undefined_materials": "surface_base_stone",
       "street_materials": "surface_base_tarmac",
+      "street_alpha_textures": [
+        "#PlusDetail",
+        "#TimesBlend5",
+        "#Ramp5"
+      ],
       "street_crossing_textures": ["#Road007_No_Lines"],
       "street_textures": [
-        {"lanes": 1, "textures": ["#Road007_Alpha3_Detail_Base", "#Gravel010_Detail"]}],
+        {"lanes": 1, "textures": ["#Road007_Base_Detail_Base", "#Gravel010_Detail"]}],
       "racing_line_texture": "#racing_line",
       "racing_line_track": "$__DIR__/../forest0/racing_line_forest0.m",
       "racing_line_playback": "$__APPDATA__/$LEVEL_ID.checkpoints.m",
@@ -49,7 +54,7 @@
       "grass_foliagemap_period": 38.4,
       "uv_scale_terrain": 3e-1,
       "uv_period_terrain": 128,
-      "uv_scale_street": 1e-1,
+      "uv_scale_street": 0.0125,
       "uv_scale_facade": 2.5e-1,
       "uv_scale_ceiling": 1e-1,
       "uv_scale_barrier_wall": 1e0,
