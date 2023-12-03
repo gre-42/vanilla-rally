@@ -37,7 +37,7 @@
       "normal": "textures/cc0textures/Gravel010_2K_NormalGL.jpg",
       "color_mode": "rgb",
       "anisotropic_filtering_level": 16,
-      "desaturate": true
+      "desaturate": 1
     }
   },
   {
@@ -129,7 +129,7 @@
       "color": "textures/textures.com/TexturesCom_Pavement_ConcreteSidewalk3_2.2x2.2_1K_albedo.png",
       "normal": "textures/textures.com/TexturesCom_Pavement_ConcreteSidewalk3_2.2x2.2_1K_normal.png",
       "color_mode": "rgb",
-      "desaturate": true,
+      "desaturate": 1,
       "lighten": [
         0.2,
         0.2,
