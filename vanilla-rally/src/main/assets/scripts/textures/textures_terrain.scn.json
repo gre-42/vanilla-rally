@@ -575,9 +575,12 @@
     "call": "add_texture_descriptor",
     "arguments": {
       "name": "concrete1_2K_wh",
-      "color": "textures/cc0textures/concrete1_2K_wh.jpg",
+      "color": "textures/cc0textures/concrete1_2K.jpg",
       "normal": "textures/cc0textures/concrete1_2K_normGL.jpg",
       "color_mode": "rgb",
+      "desaturate": 1,
+      "times": 2,
+      "plus": -1,
       "anisotropic_filtering_level": 16
     }
   },
@@ -586,7 +589,7 @@
     "call": "add_texture_descriptor",
     "arguments": {
       "name": "concrete1_2K_ye",
-      "color": "textures/cc0textures/concrete1_2K_ye.jpg",
+      "color": "textures/cc0textures/concrete1_2K.jpg",
       "normal": "textures/cc0textures/concrete1_2K_normGL.jpg",
       "color_mode": "rgb",
       "anisotropic_filtering_level": 16
