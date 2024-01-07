@@ -42,10 +42,6 @@
       "curb_path_texture": "#Curb_Grass_Asphalt",
       "curb2_street_texture": "",
       "curb2_path_texture": "",
-      "facade_textures": [
-        {"facade": "Plaster003_Gray"},
-        {"facade": "Plaster003"}],
-      "ceiling_texture": "#Asphalt015",
       "barrier_styles": [
         {
           "name": "traffic_barrier",
@@ -77,7 +73,6 @@
           "fresnel_exponent": 4,
           "fresnel_ambience": [1, 1, 1]
         }],
-      "roof_texture": "textures/cc0textures/RoofingTiles002_2K_Color.jpg",
       "racing_line_texture": "#racing_line",
       "racing_line_track": "$__DIR__/racing_line_race_track0.m",
       "racing_line_playback": "$__APPDATA__/$LEVEL_ID.checkpoints.m",
