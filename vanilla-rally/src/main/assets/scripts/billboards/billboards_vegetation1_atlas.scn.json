@@ -124,17 +124,17 @@
       "height": 1024,
       "color_mode": "rgba",
       "images": [
-        {"texture_pos": [0, 0], "texture": "#tc0"},
-        {"texture_pos": [256, 0], "texture": "#tc3"},
-        {"texture_pos": [512, 0], "texture": "#tc4"},
-        {"texture_pos": [0, 512], "texture": "#tc5"},
-        {"texture_pos": [256, 512], "texture": "#tc6"},
-        {"texture_pos": [512, 512], "texture": "#tcd0"},
-        {"texture_pos": [768, 3], "texture": "#grass_tbdpec3r_island_bright"},
-        {"texture_pos": [768, 130], "texture": "#grass_tbdpec3r_island_green1"},
-        {"texture_pos": [768, 258], "texture": "#foliage_gradient"},
-        {"texture_pos": [768, 512], "texture": "#tb"},
-        {"texture_pos": [768, 768], "texture": "textures/opengameart/vaious-vegetation-sprites/dry-slim-bush1.png"}
+        {"position": [0, 0], "texture": "#tc0"},
+        {"position": [256, 0], "texture": "#tc3"},
+        {"position": [512, 0], "texture": "#tc4"},
+        {"position": [0, 512], "texture": "#tc5"},
+        {"position": [256, 512], "texture": "#tc6"},
+        {"position": [512, 512], "texture": "#tcd0"},
+        {"position": [768, 3], "texture": "#grass_tbdpec3r_island_bright"},
+        {"position": [768, 130], "texture": "#grass_tbdpec3r_island_green1"},
+        {"position": [768, 258], "texture": "#foliage_gradient"},
+        {"position": [768, 512], "texture": "#tb"},
+        {"position": [768, 768], "texture": "textures/opengameart/vaious-vegetation-sprites/dry-slim-bush1.png"}
       ]
     }
   },

@@ -77,10 +77,10 @@
           "height": 512,
           "color_mode": "rgba",
           "images": [
-            {"texture_pos": [  0,   0], "texture": "#Trees0023$SUFFIX"},
-            {"texture_pos": [256,   0], "texture": "#Trees0024$SUFFIX"},
-            {"texture_pos": [  0, 256], "texture": "#Trees0029$SUFFIX"},
-            {"texture_pos": [256, 256], "texture": "#Trees0096$SUFFIX"}
+            {"position": [  0,   0], "texture": "#Trees0023$SUFFIX"},
+            {"position": [256,   0], "texture": "#Trees0024$SUFFIX"},
+            {"position": [  0, 256], "texture": "#Trees0029$SUFFIX"},
+            {"position": [256, 256], "texture": "#Trees0096$SUFFIX"}
           ]
         }
       },
