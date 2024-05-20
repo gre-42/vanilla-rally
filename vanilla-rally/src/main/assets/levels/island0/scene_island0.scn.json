@@ -30,13 +30,7 @@
       "DIRTMAP_RIGHT": null,
       "DIRTMAP_BOTTOM": null,
       "DIRTMAP_TOP": null,
-      "SUN_LEFT": -500,
-      "SUN_RIGHT": 500,
-      "SUN_BOTTOM": -500,
-      "SUN_TOP": 500,
-      "SOFT_LIGHT_TEXTURE": null,
-      "SKYBOX": "skybox",
-      "TIME_OF_DAY": "day"
+      "SOFT_LIGHT_TEXTURE": null
     }
   },
   {
