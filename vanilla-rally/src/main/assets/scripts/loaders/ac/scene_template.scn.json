@@ -72,7 +72,7 @@
           "IF_BURN_IN": false
         }
       }
-    }
+    ]
   },
   {
     "playback": "instantiate_transient_objects",
