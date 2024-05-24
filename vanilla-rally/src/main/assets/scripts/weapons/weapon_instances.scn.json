@@ -1,0 +1,317 @@
+[
+  {"include": "weapon_closeup.scn.json"},
+  {"include": "muzzle_flash_closeup.scn.json"},
+  {
+    "declare_macro": "delete_weapon",
+    "content": [
+      { "call": "clear_node", "arguments": { "node": "main_gun_end_node$SUFFIX" } },
+      { "call": "clear_node", "arguments": { "node": "main_gun_node_visual$SUFFIX" } }
+    ]
+  },
+  {
+    "declare_macro": "_set_node_hider",
+    "content": {
+      "call": "set_node_hider",
+      "arguments": {
+        "node_to_hide": "main_gun_node_visual$SUFFIX",
+        "camera_node": "human_head_camera_node$SUFFIX",
+        "punch_angle_node": "main_gun_punch_angle_node$SUFFIX",
+        "on_hide": {
+          "playback": "_add_weapon_closeup_scheduler_on_hide",
+          "context": "weapon_closeup",
+          "arguments": {
+            "RESOURCE": "%RESOURCE",
+            "PUNCH_ANGLE_PITCH": "%PUNCH_ANGLE_PITCH",
+            "PUNCH_ANGLE_YAW": "%PUNCH_ANGLE_YAW"
+          }
+        },
+        "on_destroy": {
+          "playback": "_add_weapon_closeup_scheduler_on_destroy",
+          "context": "weapon_closeup"
+        },
+        "on_update": {
+          "playback": "_add_weapon_closeup_scheduler_on_update",
+          "context": "weapon_closeup",
+          "arguments": {
+            "PUNCH_ANGLE_PITCH": "%PUNCH_ANGLE_PITCH",
+            "PUNCH_ANGLE_YAW": "%PUNCH_ANGLE_YAW"
+          }
+        },
+        "capture": {
+          "RESOURCE": "%RESOURCE"
+        }
+      }
+    }
+  },
+  {
+    "declare_macro": "add_weapon_m4a1",
+    "content": [
+      { "playback": "delete_weapon", "arguments": { "SUFFIX": "%SUFFIX" } },
+      {
+        "comment": {
+          "call": "renderable_instance",
+          "arguments": {
+            "name": "main_gun_node_visual-box",
+            "node": "main_gun_node_visual$SUFFIX",
+            "resource": "box"
+          }
+        }
+      },
+      {
+        "call": "renderable_instance",
+        "arguments": {
+          "name": "main_gun_node_visual-inst",
+          "node": "main_gun_node_visual$SUFFIX",
+          "resource": "M4A1"
+        }
+      },
+      {
+        "call": "gun",
+        "arguments": {
+          "node": "main_gun_end_node$SUFFIX",
+          "parent_rigid_body_node": "human_node$SUFFIX",
+          "punch_angle_node": "main_gun_punch_angle_node$SUFFIX",
+          "punch_angle_idle_std": 0.1,
+          "punch_angle_shoot_std": 0.3,
+          "muzzle_flash_resource": "muzzle_flash_0",
+          "muzzle_flash_position": [0, 0.05, -0.45],
+          "muzzle_flash_animation_time": 0.1,
+          "generate_muzzle_flash_hider": {
+            "playback": "_generate_muzzle_flash_hider",
+            "arguments": {
+              "RESOURCE": "muzzle_flash_0",
+              "ANIMATION_TIME": 0.1,
+              "POSITION": [0, 0.062, -0.66],
+              "MUZZLE_FLASH_SUFFIX": "%MUZZLE_FLASH_SUFFIX",
+              "SUFFIX": "%SUFFIX"
+            }
+          },
+          "cool_down": "%COOL_DOWN",
+          "ammo_type": "%AMMO_TYPE",
+          "bullet_type": "%BULLET_TYPE",
+          "capture": {
+            "SUFFIX": "%SUFFIX"
+          }
+        }
+      },
+      {
+        "call": "ypln_update_bullet_properties",
+        "arguments": {
+          "gun_node": "main_gun_end_node$SUFFIX",
+          "ypln_node": "human_node$SUFFIX",
+          "dpitch_head": 0,
+          "bullet_type": "%BULLET_TYPE"
+        }
+      },
+      {
+        "playback": "_set_node_hider",
+        "arguments": {
+          "SUFFIX": "%SUFFIX",
+          "RESOURCE": "M4A1"
+        }
+      }
+    ]
+  },
+  {
+    "declare_macro": "add_weapon_beretta92",
+    "content": [
+      { "playback": "delete_weapon", "arguments": { "SUFFIX": "%SUFFIX" } },
+      {
+        "comment": {
+          "call": "renderable_instance",
+          "arguments": {
+            "name": "main_gun_node_visual-box",
+            "node": "main_gun_node_visual$SUFFIX",
+            "resource": "box"
+          }
+        }
+      },
+      {
+        "call": "renderable_instance",
+        "arguments": {
+          "name": "main_gun_node_visual-inst",
+          "node": "main_gun_node_visual$SUFFIX",
+          "resource": "Beretta92"
+        }
+      },
+      {
+        "call": "gun",
+        "arguments": {
+          "node": "main_gun_end_node$SUFFIX",
+          "parent_rigid_body_node": "human_node$SUFFIX",
+          "punch_angle_node": "main_gun_punch_angle_node$SUFFIX",
+          "punch_angle_idle_std": 0.1,
+          "punch_angle_shoot_std": 0.3,
+          "muzzle_flash_resource": "muzzle_flash_0",
+          "muzzle_flash_position": [0, 0.05, 0],
+          "muzzle_flash_animation_time": 0.1,
+          "generate_muzzle_flash_hider": {
+            "playback": "_generate_muzzle_flash_hider",
+            "arguments": {
+              "RESOURCE": "muzzle_flash_0",
+              "ANIMATION_TIME": 0.1,
+              "POSITION": [0, 0.086, -0.265],
+              "MUZZLE_FLASH_SUFFIX": "%MUZZLE_FLASH_SUFFIX",
+              "SUFFIX": "%SUFFIX"
+            }
+          },
+          "cool_down": "%COOL_DOWN",
+          "ammo_type": "%AMMO_TYPE",
+          "bullet_type": "%BULLET_TYPE",
+          "capture": {
+            "SUFFIX": "%SUFFIX"
+          }
+        }
+      },
+      {
+        "call": "ypln_update_bullet_properties",
+        "arguments": {
+          "gun_node": "main_gun_end_node$SUFFIX",
+          "ypln_node": "human_node$SUFFIX",
+          "dpitch_head": 0,
+          "bullet_type": "%BULLET_TYPE"
+        }
+      },
+      {
+        "playback": "_set_node_hider",
+        "arguments": {
+          "RESOURCE": "Beretta92",
+          "SUFFIX": "%SUFFIX"
+        }
+      }
+    ]
+  },
+  {
+    "declare_macro": "add_weapon_frag_grenade",
+    "content": [
+      { "playback": "delete_weapon", "arguments": { "SUFFIX": "%SUFFIX" } },
+      {
+        "comment": {
+          "call": "renderable_instance",
+          "arguments": {
+            "name": "main_gun_node_visual-box",
+            "node": "main_gun_node_visual$SUFFIX",
+            "resource": "box"
+          }
+        }
+      },
+      {
+        "call": "renderable_instance",
+        "arguments": {
+          "name": "main_gun_node_visual-inst",
+          "node": "main_gun_node_visual$SUFFIX",
+          "resource": "frag_grenade"
+        }
+      },
+      {
+        "call": "gun",
+        "arguments": {
+          "node": "main_gun_end_node$SUFFIX",
+          "parent_rigid_body_node": "human_node$SUFFIX",
+          "punch_angle_node": "main_gun_punch_angle_node$SUFFIX",
+          "punch_angle_idle_std": 0.1,
+          "punch_angle_shoot_std": 0.3,
+          "cool_down": "%COOL_DOWN",
+          "ammo_type": "%AMMO_TYPE",
+          "bullet_type": "%BULLET_TYPE"
+        }
+      },
+      {
+        "call": "ypln_update_bullet_properties",
+        "arguments": {
+          "gun_node": "main_gun_end_node$SUFFIX",
+          "ypln_node": "human_node$SUFFIX",
+          "dpitch_head": -15,
+          "bullet_type": "%BULLET_TYPE"
+        }
+      },
+      {
+        "playback": "_set_node_hider",
+        "arguments": {
+          "RESOURCE": "frag_grenade",
+          "SUFFIX": "%SUFFIX"
+        }
+      }
+    ]
+  },
+  {
+    "declare_macro": "add_weapon_m72_law",
+    "content": [
+      { "playback": "delete_weapon", "arguments": { "SUFFIX": "%SUFFIX" } },
+      {
+        "comment": {
+          "call": "renderable_instance",
+          "arguments": {
+            "name": "main_gun_node_visual-box",
+            "node": "main_gun_node_visual$SUFFIX",
+            "resource": "box"
+          }
+        }
+      },
+      {
+        "call": "renderable_instance",
+        "arguments": {
+          "name": "main_gun_node_visual-inst",
+          "node": "main_gun_node_visual$SUFFIX",
+          "resource": "m72_law"
+        }
+      },
+      {
+        "call": "gun",
+        "arguments": {
+          "node": "main_gun_end_node$SUFFIX",
+          "parent_rigid_body_node": "human_node$SUFFIX",
+          "punch_angle_node": "main_gun_punch_angle_node$SUFFIX",
+          "punch_angle_idle_std": 0.1,
+          "punch_angle_shoot_std": 0.3,
+          "cool_down": "%COOL_DOWN",
+          "ammo_type": "%AMMO_TYPE",
+          "bullet_type": "%BULLET_TYPE"
+        }
+      },
+      {
+        "call": "ypln_update_bullet_properties",
+        "arguments": {
+          "gun_node": "main_gun_end_node$SUFFIX",
+          "ypln_node": "human_node$SUFFIX",
+          "dpitch_head": 0,
+          "bullet_type": "%BULLET_TYPE"
+        }
+      },
+      {
+        "playback": "_set_node_hider",
+        "arguments": {
+          "RESOURCE": "m72_law",
+          "SUFFIX": "%SUFFIX"
+        }
+      }
+    ]
+  },
+  {
+    "declare_macro": "create_none_weapon",
+    "content": [
+      {
+        "call": "gun",
+        "arguments": {
+          "node": "main_gun_end_node$SUFFIX",
+          "punch_angle_node": "main_gun_punch_angle_node$SUFFIX",
+          "cool_down": "inf",
+          "punch_angle_idle_std": 0,
+          "punch_angle_shoot_std": 0,
+          "parent_rigid_body_node": "%PARENT_RIGID_BODY_NODE",
+          "ammo_type": "%AMMO_TYPE",
+          "bullet_type": "%BULLET_TYPE"
+        }
+      },
+      {
+        "call": "ypln_update_bullet_properties",
+        "arguments": {
+          "gun_node": "main_gun_end_node$SUFFIX",
+          "ypln_node": "%PARENT_RIGID_BODY_NODE",
+          "dpitch_head": 0,
+          "bullet_type": "%BULLET_TYPE"
+        }
+      }
+    ]
+  }
+]
