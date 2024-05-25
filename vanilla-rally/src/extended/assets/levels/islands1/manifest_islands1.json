@@ -1,0 +1,17 @@
+{
+  "id": "islands1",
+  "title": "Islands 1",
+  "on_execute": {
+    "include": "scene_islands1.scn.json"
+  },
+  "globals": {
+    "LEVEL_ICON_FILE": "#black",
+    "MINIMAP_FILE": null,
+    "PLAYERS_JSON_BASENAME": "players.json"
+  },
+  "database": {
+    "IF_RACEWAY_CIRCULAR": false,
+    "game_modes": ["team_deathmatch"]
+  },
+  "required": ["%GAME_MODE in %%levels/$id/game_modes"]
+}

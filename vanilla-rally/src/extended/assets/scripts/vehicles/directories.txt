@@ -1,0 +1,7 @@
+cars
+cars_with_trailers
+humans
+trailers
+planes
+tanks
+turrets

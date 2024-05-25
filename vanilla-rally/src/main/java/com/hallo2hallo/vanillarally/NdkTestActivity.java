@@ -103,6 +103,10 @@ public class NdkTestActivity extends NativeActivity {
         return displaymetrics.ydpi;
     }
 
+    public String flavor() {
+        return BuildConfig.FLAVOR;
+    }
+
     public void requestReadExternalStoragePermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {

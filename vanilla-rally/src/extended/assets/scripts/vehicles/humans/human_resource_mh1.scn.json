@@ -1,0 +1,61 @@
+[
+  {
+    "call": "obj_resource",
+    "arguments": {
+      "name": "female_mh_orig",
+      "filename": "models/MakeHuman/female_mh/t_pose_lowpoly.mhx2",
+      "position": [0, 0, 0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1],
+      "center_distances": [0, 100],
+      "blend_mode": "off",
+      "alpha_distances": [0, 0, "inf", "inf"],
+      "occluded_pass": "none",
+      "occluder_pass": "none",
+      "aggregate_mode": "none",
+      "transformation_mode": "all",
+      "triangle_tangent_error_behavior": "zero",
+      "emissive_factor": "%META_HUMAN_EMISSIVE_FACTOR",
+      "ambient_factor": "%META_HUMAN_AMBIENT_FACTOR",
+      "diffuse_factor": "%META_HUMAN_DIFFUSE_FACTOR",
+      "specular_factor": "%META_HUMAN_SPECULAR_FACTOR"
+    }
+  },
+  {
+    "declare_macro": "load_mh1",
+    "content": [
+      {
+        "call": "obj_resource",
+        "arguments": {
+          "name": "$DIR$DECIMATE",
+          "filename": "models/MakeHuman/$DIR/t_pose_lowpoly$DECIMATE.obj",
+          "position": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scale": [1, 1, 1],
+          "center_distances": ["%DIST_MIN", "%DIST_MAX"],
+          "blend_mode": "off",
+          "alpha_distances": [0, 0, "inf", "inf"],
+          "occluded_pass": "lightmap_black_global_and_local",
+          "occluder_pass": "%OCCLUDER_PASS",
+          "aggregate_mode": "none",
+          "transformation_mode": "all",
+          "triangle_tangent_error_behavior": "zero",
+          "emissive_factor": "%META_HUMAN_EMISSIVE_FACTOR",
+          "ambient_factor": "%META_HUMAN_AMBIENT_FACTOR",
+          "diffuse_factor": "%META_HUMAN_DIFFUSE_FACTOR",
+          "specular_factor": "%META_HUMAN_SPECULAR_FACTOR"
+        }
+      },
+      {"call": "import_bone_weights", "arguments": {"destination": "$DIR$DECIMATE", "source": "female_mh_orig", "max_distance": 0.1}}
+    ]
+  },
+  {"playback": "load_mh1", "arguments": {"DIST_MIN":  0, "DIST_MAX": 100, "OCCLUDER_PASS": "none",                    "DECIMATE": "_d2", "DIR": "female_mh"}},
+  {"playback": "load_mh1", "arguments": {"DIST_MIN":100, "DIST_MAX":1000, "OCCLUDER_PASS": "lightmap_black_movables", "DECIMATE": "_d1", "DIR": "female_mh"}},
+  {
+    "exclude": ["%IF_ANDROID"],
+    "execute": [
+      {"playback": "load_mh1", "arguments": {"DIST_MIN":  0, "DIST_MAX": 100, "OCCLUDER_PASS": "none",                    "DECIMATE": "_d2", "DIR": "female_skirt"}},
+      {"playback": "load_mh1", "arguments": {"DIST_MIN":100, "DIST_MAX":1000, "OCCLUDER_PASS": "lightmap_black_movables", "DECIMATE": "_d1", "DIR": "female_skirt"}}
+    ]
+  }
+]

@@ -46,6 +46,27 @@ android {
             path '../../CMakeLists.txt'
         }
     }
+    flavorDimensions += "version"
+    productFlavors {
+        create("rally") {
+            // Assigns this product flavor to the "version" flavor dimension.
+            // If you are using only one dimension, this property is optional,
+            // and the plugin automatically assigns all the module's flavors to
+            // that dimension.
+            dimension = "version"
+            applicationIdSuffix = ".rally"
+            versionNameSuffix = "-rally"
+        }
+        create("extended") {
+            dimension = "version"
+            applicationIdSuffix = ".extended"
+            versionNameSuffix = "-extended"
+        }
+    }
+    // https://stackoverflow.com/questions/9206117/how-to-workaround-auto-omitting-files-folders-starting-with-underscore-in
+    aaptOptions{
+        ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+    }
     // sourceSets {
     //     main {
     //         // let gradle pack the shared library into apk
