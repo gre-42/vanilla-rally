@@ -46,7 +46,7 @@
           "can_shoot": true
         }
       },
-      "spawned_vehicle": { "type": "female_mh" }
+      "spawned_vehicle": { "type": "F_35" }
     },
     {
       "controller": "npc", "name": "npc1", "team": "red",
@@ -64,14 +64,6 @@
     {
       "controller": "npc", "name": "npc4", "team": "blue",
       "spawned_vehicle": { "type": "tiger_tank" }
-    },
-    {
-      "name": "extra_tiger_red", "team": "red",
-      "spawned_vehicle": { "type": "tiger_tank" }
-    },
-    {
-      "name": "extra_F_35", "team": "red",
-      "spawned_vehicle": { "type": "F_35" }
     }
   ]
 }
