@@ -17,7 +17,6 @@
 package com.hallo2hallo.vanillarally;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.NativeActivity;
 import android.content.pm.ActivityInfo;
@@ -25,7 +24,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 
 import androidx.core.app.ActivityCompat;
@@ -49,28 +47,13 @@ public class NdkTestActivity extends NativeActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
-    @TargetApi(19)    
     protected void onResume() {
         super.onResume();
 
         //Hide toolbar
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if(SDK_INT >= 11 && SDK_INT < 14)
-        {
-            getWindow().getDecorView().setSystemUiVisibility(View.STATUS_BAR_HIDDEN);
-        }
-        else if(SDK_INT >= 14 && SDK_INT < 19)
-        {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LOW_PROFILE);
-        }
-        else if(SDK_INT >= 19)
-        {
-            setImmersiveSticky();
-        }
+        setImmersiveSticky();
     }
-    // Our popup window, you will call it from your C/C++ code later
 
-    @TargetApi(19)    
     void setImmersiveSticky() {
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN

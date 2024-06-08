@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdk 34
-    ndkVersion '26.1.10909125'
+    ndkVersion '26.3.11579264'
 
     defaultConfig {
         applicationId = 'com.hallo2hallo.vanillarally'
-        minSdkVersion 18
+        minSdk 21
         targetSdkVersion 34
         versionCode 42
         versionName "0.42"
@@ -48,7 +48,7 @@ android {
     }
     flavorDimensions += "version"
     productFlavors {
-        create("rally") {
+        register("rally") {
             // Assigns this product flavor to the "version" flavor dimension.
             // If you are using only one dimension, this property is optional,
             // and the plugin automatically assigns all the module's flavors to
@@ -57,14 +57,14 @@ android {
             applicationIdSuffix = ".rally"
             versionNameSuffix = "-rally"
         }
-        create("extended") {
+        register("extended") {
             dimension = "version"
             applicationIdSuffix = ".extended"
             versionNameSuffix = "-extended"
         }
     }
     // https://stackoverflow.com/questions/9206117/how-to-workaround-auto-omitting-files-folders-starting-with-underscore-in
-    aaptOptions{
+    androidResources {
         ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
     }
     // sourceSets {
@@ -77,8 +77,9 @@ android {
 }
 
 dependencies {
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation project(':recast')
 }
