@@ -8,8 +8,8 @@ android {
         applicationId = 'com.hallo2hallo.vanillarally'
         minSdk 21
         targetSdkVersion 34
-        versionCode 42
-        versionName "0.42"
+        versionCode 43
+        versionName "0.43"
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
@@ -33,6 +33,9 @@ android {
             }
         }
     }
+    buildFeatures {
+        buildConfig = true
+    }
     buildTypes {
         release {
             minifyEnabled = false
@@ -54,8 +57,8 @@ android {
             // and the plugin automatically assigns all the module's flavors to
             // that dimension.
             dimension = "version"
-            applicationIdSuffix = ".rally"
-            versionNameSuffix = "-rally"
+            applicationIdSuffix = ""
+            versionNameSuffix = ""
         }
         register("extended") {
             dimension = "version"
