@@ -7,11 +7,11 @@
       "height": 512,
       "color_mode": "rgba",
       "images": [
-        {"position": [0,   0], "texture": "#smoke"},
-        {"position": [0,  64], "texture": "#particles_gravel"},
-        {"position": [0, 128], "texture": "#particles_dirt"},
-        {"position": [0, 192], "texture": "#particles_snow"},
-        {"position": [0, 256], "texture": "#particles_dust"}
+        {"target_position": [0,   0], "texture": "#smoke"},
+        {"target_position": [0,  64], "texture": "#particles_gravel"},
+        {"target_position": [0, 128], "texture": "#particles_dirt"},
+        {"target_position": [0, 192], "texture": "#particles_snow"},
+        {"target_position": [0, 256], "texture": "#particles_dust"}
       ]
     }
   },
