@@ -6,6 +6,8 @@
       "resource_files": "%resource_files",
       "ide_files": "%ide_files",
       "double_precision": false,
+      "resource_variable": "available_resources",
+      "# texture": "grid4",
       "config": {
         "position": [0, 0, 0],
         "rotation": [0, 0, 0],
@@ -13,7 +15,7 @@
         "max_triangle_distance": 1000,
         "blend_mode": "semi_continuous_02",
         "alpha_distances": [0, 0, "inf", "inf"],
-        "occluded_pass": "none",
+        "occluded_pass": "lightmap_black_movables",
         "occluder_pass": "none",
         "anisotropic_filtering_level": 16,
         "magnifying_interpolation_mode": "linear",
@@ -24,10 +26,12 @@
         "diffuse_factor": "%RW_DIFFUSE_FACTOR",
         "specular_factor": "%RW_SPECULAR_FACTOR",
         "fresnel_ambient": "%RW_FRESNEL_AMBIENT",
-        "physics_material": "attr_visible|attr_concave",
+        "physics_material": "obj_chassis|attr_visible|attr_collide|attr_concave",
         "fresnel_min": "%RW_FRESNEL_MIN",
         "fresnel_max": "%RW_FRESNEL_MAX",
-        "fresnel_exponent": "%RW_FRESNEL_EXPONENT"  ,
+        "fresnel_exponent": "%RW_FRESNEL_EXPONENT",
+        "fog_distances": [500, 3000],
+        "fog_ambient": [0.7, 0.7, 1],
         "triangle_tangent_error_behavior": "zero"
       }
     }
@@ -36,7 +40,23 @@
     "call": "modify_physics_material_tags",
     "arguments": {
       "resource_names": "%invisible_resources",
-      "remove": "attr_visible"
+      "remove": "attr_visible|attr_collide"
+    }
+  },
+  {
+    "call": "modify_physics_material_tags",
+    "arguments": {
+      "resource_names": "%available_resources",
+      "included_names": "%no_collide_included_names",
+      "remove": "attr_collide"
+    }
+  },
+  {
+    "call": "modify_physics_material_tags",
+    "arguments": {
+      "resource_names": "%available_resources",
+      "included_names": "%tarmac_included_names",
+      "add": "surface_base_tarmac|surface_contains_skidmarks"
     }
   },
   {
@@ -71,15 +91,35 @@
       "SOFT_LIGHT_TEXTURE": null
     }
   },
-  {
-    "call": "ipl_instances",
-    "context": "primary_scene",
-    "arguments": {
-      "files": "%ipl_files",
-      "except": "%ipl_exclude",
-      "dynamics": "static"
+  [
+    {
+      "call": "ipl_instances",
+      "context": "primary_scene",
+      "arguments": {
+        "files": "%ipl_files",
+        "except": "%ipl_exclude",
+        "dynamics": "static",
+        "min_vertex_distance": 0.05,
+        "instantiated_resources": "instantiated_resources"
+      }
+    },
+    {
+      "call": "set_textures_lazy",
+      "context": "primary_scene",
+      "let": {
+        "resources": "%instantiated_resources"
+      },
+      "arguments": {
+        "command": {
+          "call": "preload",
+          "arguments": {
+            "resources": "%resources",
+            "tire_contacts": "%resources"
+          }
+        }
+      }
     }
-  },
+  ],
   {
     "declare_macro": "instantiate_transient_objects",
     "content": [
