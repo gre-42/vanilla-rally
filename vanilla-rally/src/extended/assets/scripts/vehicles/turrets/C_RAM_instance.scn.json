@@ -123,10 +123,7 @@
   {
     "declare_macro": "create_player_car_externals_C_RAM",
     "content": [
-      {"required": ["%IF_PC"], "playback": "create_car_cameras_tank", "arguments": {
-        "SUFFIX": "%SUFFIX",
-        "PLAYER_NAME": "%PLAYER_NAME"
-      }},
+      {"required": ["%IF_PC"], "playback": "create_car_cameras_tank"},
       {"call": "player_set_aiming_gun", "arguments": {
         "player": "%PLAYER_NAME",
         "gun_node": "main_gun_end_node$SUFFIX"}}
