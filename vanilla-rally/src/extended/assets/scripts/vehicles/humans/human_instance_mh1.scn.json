@@ -4,7 +4,7 @@
     "declare_macro": "create_female_mh",
     "content": {
       "playback": "generic_avatar.create",
-      "arguments": {
+      "let": {
         "ASSET_ID": "female_mh",
         "DECIMATE": "_d2"
       }
@@ -15,7 +15,7 @@
     "declare_macro": "create_female_skirt",
     "content": {
       "playback": "generic_avatar.create",
-      "arguments": {
+      "let": {
         "ASSET_ID": "female_skirt",
         "DECIMATE": "_d2"
       }

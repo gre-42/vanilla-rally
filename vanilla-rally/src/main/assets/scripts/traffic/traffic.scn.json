@@ -101,7 +101,7 @@
     "content": [
       {
         "playback": "create_car",
-        "arguments": {
+        "let": {
           "IF_PLAYBACK_TRACK": false,
           "IF_PLAYBACK_WINNER": false,
           "IF_SPAWNER": true,
