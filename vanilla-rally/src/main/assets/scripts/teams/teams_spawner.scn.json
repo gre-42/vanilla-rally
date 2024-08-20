@@ -5,8 +5,6 @@
       {
         "playback": "create_avatar",
         "arguments": {
-          "HUMAN_NODE_POSITION": "%HUMAN_NODE_POSITION",
-          "HUMAN_NODE_ANGLE_Y": "%HUMAN_NODE_ANGLE_Y",
           "IF_WITH_GUN": true,
           "IF_SPAWNER": true,
           "IF_PLAYER": true,
