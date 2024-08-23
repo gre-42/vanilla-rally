@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdk 34
-    ndkVersion '26.3.11579264'
+    ndkVersion '27.0.12077973'
 
     defaultConfig {
         applicationId = 'com.hallo2hallo.vanillarally'
@@ -80,7 +80,7 @@ android {
 }
 
 dependencies {
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+    implementation(platform('org.jetbrains.kotlin:kotlin-bom:2.0.20'))
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
