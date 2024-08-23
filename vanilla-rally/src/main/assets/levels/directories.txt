@@ -2,6 +2,7 @@ canyon1
 desert1
 forest0
 island0
+jb_race
 main
 race_track0
 snow1
