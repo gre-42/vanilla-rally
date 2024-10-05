@@ -1,26 +1,48 @@
 [
   {
+    "comment": {
+      "call": "obj_resource",
+      "arguments": {
+        "name": "M3_hitbox",
+        "filename": "models/primitives/capsule.obj",
+        "config": {
+          "position": [0, 0, 0],
+          "rotation": [90, 0, 0],
+          "scale": [0.85, 1.075, 0.6],
+          "center_distances": [0, "inf"],
+          "blend_mode": "off",
+          "alpha_distances": [0, 0, "inf", "inf"],
+          "occluded_pass": "none",
+          "occluder_pass": "none",
+          "aggregate_mode": "none",
+          "transformation_mode": "all",
+          "rectangle_triangulation_mode": "delaunay"
+        }
+      }
+    }
+  },
+  {
     "call": "obj_resource",
     "arguments": {
       "name": "M3_hitbox",
       "filename": "models/primitives/box.obj",
       "config": {
-      "position": [0, 0, 0],
-      "rotation": [0, 0, 0],
-      "scale": [0.85, 0.6, 2.15],
-      "center_distances": [0, "inf"],
-      "blend_mode": "off",
-      "alpha_distances": [0, 0, "inf", "inf"],
-      "occluded_pass": "none",
-      "occluder_pass": "none",
-      "aggregate_mode": "none",
-      "transformation_mode": "all",
-      "rectangle_triangulation_mode": "disabled"
+        "position": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scale": [0.85, 0.6, 2.15],
+        "center_distances": [0, "inf"],
+        "blend_mode": "off",
+        "alpha_distances": [0, 0, "inf", "inf"],
+        "occluded_pass": "none",
+        "occluder_pass": "none",
+        "aggregate_mode": "none",
+        "transformation_mode": "all",
+        "rectangle_triangulation_mode": "disabled"
       }
     }
   },
   {"comment": {"call": "gen_triangle_rays", "arguments": {"name": "M3_hitbox", "npoints": 5, "lengths": [0.7, 0.7, 0.7], "delete_triangles": false}}},
-  {"call": "modify_physics_material_tags", "arguments": {"resource_name": "M3_hitbox", "add": "obj_chassis|attr_convex"}},
+  {"call": "modify_physics_material_tags", "arguments": {"resource_name": "M3_hitbox", "add": "obj_chassis|attr_convex|surface_base_metal"}},
   {
     "call": "obj_resource",
     "arguments": {
