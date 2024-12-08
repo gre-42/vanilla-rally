@@ -10,6 +10,7 @@ for ANDROID_ABI in armeabi-v7a arm64-v8a x86 x86_64; do
     mkdir -p freealut/build-$ANDROID_ABI
     pushd freealut/build-$ANDROID_ABI
     cmake .. \
+        -G Ninja \
         -DBUILD_SHARED_LIBS=off \
         -DBUILD_EXAMPLES=off \
         -DBUILD_TESTS=off \
