@@ -65,7 +65,7 @@
         "vegetation6.3(hitbox:box_02_1_02_hitbox)",
         "vegetation6.4(hitbox:box_02_1_02_hitbox)"],
       "default_street_width": 7,
-      "scale": 1e-3,
+      "scale": 1,
       "grass_foliagemap_period": 38.4,
       "uv_scale_terrain": 3e-1,
       "uv_period_terrain": 128,

@@ -1,6 +1,7 @@
 canyon1
 desert1
 forest0
+grossglockner_hochalpenstrasse
 island0
 jb_race
 main
