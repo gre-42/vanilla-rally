@@ -55,8 +55,8 @@
           "IF_CREATE_PC_CAR": true,
           "IF_PC_PLAYER_PLAYBACK": false,
           "CAR_NODE_POSITION": [
-            "'-113.32560724998946_deg'",
-            "'35.7395179190589403_deg'",
+            "'-113.325689622154286_deg'",
+            "'35.7395099330733927_deg'",
             "'142'"],
           "CAR_NODE_ANGLES": [0, 140, 0],
           "VEHICLE_VELOCITY": [0, 0, 0],
