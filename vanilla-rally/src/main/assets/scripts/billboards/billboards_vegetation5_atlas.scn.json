@@ -107,7 +107,7 @@
         "call": "add_texture_atlas",
         "arguments": {
           "name": "vegetation5$SUFFIX",
-          "width": 512,
+          "width": 1024,
           "height": 512,
           "color_mode": "rgba",
           "images": [

@@ -1,5 +1,5 @@
 [
-  {"include": "scripts/wheels/FN_wheel_resource.scn.json"},
+  {"include": "scripts/wheels/XZ_wheel_resource.scn.json"},
   {
     "call": "obj_resource",
     "arguments": {
@@ -8,7 +8,7 @@
       "config": {
         "position": [0, 0, 0],
         "rotation": [0, 0, 0],
-        "scale": [0.85, 0.6, 2.15],
+        "scale": [0.9, 0.5, 2.3],
         "center_distances": [0, "inf"],
         "blend_mode": "off",
         "alpha_distances": [0, 0, "inf", "inf"],
@@ -52,10 +52,10 @@
       }
     }
   },
-  {"call": "gen_ray", "arguments": {"name": "sedan0_tirelines", "from": [-0.87, -0.2, -1.42], "to": [-0.87, -1, -1.42]}}, {"comment": "left front"},
-  {"call": "gen_ray", "arguments": {"name": "sedan0_tirelines", "from": [ 0.87, -0.2, -1.42], "to": [ 0.87, -1, -1.42]}}, {"comment": "right front"},
-  {"call": "gen_ray", "arguments": {"name": "sedan0_tirelines", "from": [-0.87, -0.2,  1.42], "to": [-0.87, -1,  1.42]}}, {"comment": "left rear"},
-  {"call": "gen_ray", "arguments": {"name": "sedan0_tirelines", "from": [ 0.87, -0.2,  1.42], "to": [ 0.87, -1,  1.42]}}, {"comment": "right rear"},
+  {"call": "gen_ray", "arguments": {"name": "sedan0_tirelines", "from": [-0.83, -0.2, -1.42], "to": [-0.83, -1, -1.42]}}, {"comment": "left front"},
+  {"call": "gen_ray", "arguments": {"name": "sedan0_tirelines", "from": [ 0.83, -0.2, -1.42], "to": [ 0.83, -1, -1.42]}}, {"comment": "right front"},
+  {"call": "gen_ray", "arguments": {"name": "sedan0_tirelines", "from": [-0.83, -0.2,  1.42], "to": [-0.83, -1,  1.42]}}, {"comment": "left rear"},
+  {"call": "gen_ray", "arguments": {"name": "sedan0_tirelines", "from": [ 0.83, -0.2,  1.42], "to": [ 0.83, -1,  1.42]}}, {"comment": "right rear"},
 
   {"call": "compound_resource", "arguments": {"source_names": ["sedan0_hitbox", "sedan0_distancebox", "sedan0_tirelines"], "dest_name": "sedan0_hitboxes"}},
   {"call": "compound_resource", "arguments": {"source_names": ["sedan0_hitbox"], "dest_name": "sedan0_massbox"}},
@@ -99,11 +99,15 @@
   {
     "declare_macro": "load_sedan0",
     "content": [
-      {"playback": "load_sedan0_part",  "arguments": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "OCCLUDER_PASS": "%OCCLUDER_PASS", "REFLECTION_MAP": "car", "NAME": "sedan0/sedan0$DECIMATE"}},
+      {"playback": "load_sedan0_part",  "arguments": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "OCCLUDER_PASS": "%OCCLUDER_PASS", "REFLECTION_MAP": "car", "NAME": "sedan0/sedan0_chassis$DECIMATE"}},
+      {"playback": "load_sedan0_part",  "arguments": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "OCCLUDER_PASS": "%OCCLUDER_PASS", "REFLECTION_MAP": "car", "NAME": "sedan0/sedan0_glass$DECIMATE"}},
+      {"playback": "load_sedan0_part",  "arguments": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "OCCLUDER_PASS": "%OCCLUDER_PASS", "REFLECTION_MAP": "car", "NAME": "sedan0/sedan0_misc$DECIMATE"}},
       {"call": "compound_resource", "arguments": {"source_names": [], "dest_name": "sedan0/main$SUFFIX"}},
-      {"call": "add_companion_renderable", "arguments": {"resource": "sedan0/main$SUFFIX", "companion_resource": "sedan0/sedan0$DECIMATE"}},
-      {"call": "compound_resource", "arguments": {"source_names": ["FN/FN_wheel$DECIMATE"], "dest_name": "sedan0/wheel_front$SUFFIX"}},
-      {"call": "compound_resource", "arguments": {"source_names": ["FN/FN_wheel$DECIMATE"], "dest_name": "sedan0/wheel_rear$SUFFIX"}}
+      {"call": "add_companion_renderable", "arguments": {"resource": "sedan0/main$SUFFIX", "companion_resource": "sedan0/sedan0_chassis$DECIMATE"}},
+      {"call": "add_companion_renderable", "arguments": {"resource": "sedan0/main$SUFFIX", "companion_resource": "sedan0/sedan0_glass$DECIMATE"}},
+      {"call": "add_companion_renderable", "arguments": {"resource": "sedan0/main$SUFFIX", "companion_resource": "sedan0/sedan0_misc$DECIMATE"}},
+      {"call": "compound_resource", "arguments": {"source_names": ["XZ/XZ_wheel$DECIMATE"], "dest_name": "sedan0/wheel_front$SUFFIX"}},
+      {"call": "compound_resource", "arguments": {"source_names": ["XZ/XZ_wheel$DECIMATE"], "dest_name": "sedan0/wheel_rear$SUFFIX"}}
     ]
   },
   {"playback": "load_sedan0", "arguments": {"DIST_MIN": 0,   "DIST_MAX": 100,  "OCCLUDER_PASS": "none",               "DECIMATE": "", "SUFFIX": ""}},
