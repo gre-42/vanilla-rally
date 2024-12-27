@@ -8,8 +8,8 @@ android {
         applicationId = 'com.hallo2hallo.vanillarally'
         minSdk 21
         targetSdkVersion 34
-        versionCode 44
-        versionName "0.44"
+        versionCode 45
+        versionName "0.45"
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
@@ -83,6 +83,6 @@ dependencies {
     implementation(platform('org.jetbrains.kotlin:kotlin-bom:2.0.20'))
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation project(':recast')
 }
