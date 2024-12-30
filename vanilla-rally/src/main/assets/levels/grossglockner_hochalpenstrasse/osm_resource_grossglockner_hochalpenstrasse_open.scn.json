@@ -44,7 +44,6 @@
         "undefined": "none"},
       "street_materials": "surface_base_tarmac",
       "path_materials": "surface_base_gravel",
-      "grass_dirt_texture": "#Ground025",
       "street_alpha_textures": [
         "#PlusDetail",
         "#TimesBlend5",
