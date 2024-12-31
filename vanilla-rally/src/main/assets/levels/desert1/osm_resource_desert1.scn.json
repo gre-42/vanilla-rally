@@ -11,7 +11,8 @@
       "terrain_grass_textures": [
         "#Gravel010_Base",
         "#Rock028_Dune_8",
-        "#Rock028_Dune_128"],
+        "#Rock028_Dune_128",
+        "#Rock028_Dune_512"],
       "bounding_terrain_type": "grass",
       "default_terrain_type": "grass",
       "terrain_materials": {
