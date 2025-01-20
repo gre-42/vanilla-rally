@@ -112,8 +112,7 @@
           "VELOCITY_ERROR_STD": null,
           "YAW_ERROR_STD": null,
           "PITCH_ERROR_STD": null,
-          "ERROR_ALPHA": null,
-          "MUTE": false
+          "ERROR_ALPHA": null
         }
       },
       {
@@ -142,14 +141,6 @@
         }
       },
       {
-        "call": "set_pathfinding_way_points",
-        "arguments": {
-          "player": "%SPAWNER_NAME",
-          "transformation": "%OSM_LOCATION",
-          "resource": "osm_map"
-        }
-      },
-      {
         "call": "set_preferred_car_spawner",
         "arguments": {
           "spawner": "%SPAWNER_NAME",
@@ -159,9 +150,6 @@
               "RESPAWN_COOLDOWN_TIME": 0
             }
           }
-        },
-        "let": {
-          "COLOR": "%COLOR"
         }
       }
     ]
@@ -173,7 +161,7 @@
         "playback": "traffic.create_car_npc_player",
         "arguments": {
           "UNSTUCK_MODE": "off",
-          "behavior": "none"
+          "INITIAL_BEHAVIOR": "none"
         }
       },
       {
@@ -183,14 +171,11 @@
           "macro": {
             "playback": "traffic.create_car",
             "let": {
-              "HAND_BRAKE_PULLED": true,
-              "MUTE": false,
+              "hand_brake_pulled": true,
+              "mute": true,
               "RESPAWN_COOLDOWN_TIME": 0
             }
           }
-        },
-        "let": {
-          "COLOR": "%COLOR"
         }
       }
     ]
@@ -202,15 +187,7 @@
         "playback": "traffic.create_car_npc_player",
         "arguments": {
           "UNSTUCK_MODE": "delete",
-          "behavior": "city"
-        }
-      },
-      {
-        "call": "set_pathfinding_way_points",
-        "arguments": {
-          "player": "%SPAWNER_NAME",
-          "transformation": "%OSM_LOCATION",
-          "resource": "osm_map"
+          "INITIAL_BEHAVIOR": "city"
         }
       },
       {
@@ -219,14 +196,12 @@
           "spawner": "%SPAWNER_NAME",
           "macro": {
             "playback": "traffic.create_car",
-            "arguments": {
-              "HAND_BRAKE_PULLED": false,
+            "let": {
+              "hand_brake_pulled": false,
+              "mute": false,
               "RESPAWN_COOLDOWN_TIME": 0
             }
           }
-        },
-        "let": {
-          "COLOR": "%COLOR"
         }
       }
     ]
