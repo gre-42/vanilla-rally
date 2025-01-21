@@ -25,7 +25,7 @@
         "arguments": {
           "node": "car_node$SUFFIX",
           "hitboxes": "tiger_tank_hitboxes",
-          "mass": "%MASS",
+          "mass": "%mass",
           "size": [3.6, 3, 8],
           "com": [0, -0.5, 1],
           "collidable_mode": "%COLLIDABLE_MODE",
@@ -195,7 +195,7 @@
       {"required": ["%IF_WITH_GRAPHICS"], "playback": "create_tiger_tank_graphics", "arguments": {"node_suffix": "%SUFFIX", "suffix": "%SUFFIX", "decimate": "%DECIMATE"}},
       {"required": ["%IF_WITH_GRAPHICS"], "playback": "create_tiger_tank_graphics", "arguments": {"node_suffix": "%SUFFIX", "suffix": "_d3$SUFFIX", "decimate": "_d3"}},
       {"required": ["%IF_WITH_PHYSICS"], "playback": "create_tiger_tank_physics", "arguments": {
-        "MASS": 56e3,
+        "mass": 56e3,
         "COLLIDABLE_MODE": "moving"
       }}
     ]
