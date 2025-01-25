@@ -87,7 +87,7 @@
           "position": [0, -1, 0],
           "rotation": [0, 92, 0],
           "scale": [0.0025, 0.0025, 0.0025],
-          "center_distances": ["%DIST_MIN", "%DIST_MAX"],
+          "center_distances": ["%dist_min", "%dist_max"],
           "blend_mode": "off",
           "alpha_distances": [0, 0, "inf", "inf"],
           "occluded_pass": "lightmap_black_global_and_local",
@@ -95,16 +95,16 @@
           "aggregate_mode": "none",
           "transformation_mode": "all",
           "triangle_tangent_error_behavior": "zero",
-          "emissive_factor": "%FREE3D_EMISSIVE_FACTOR",
-          "ambient_factor": "%FREE3D_AMBIENT_FACTOR",
-          "diffuse_factor": "%FREE3D_DIFFUSE_FACTOR",
-          "specular_factor": "%FREE3D_SPECULAR_FACTOR",
+          "emissive_factor": "%free3d_emissive_factor",
+          "ambient_factor": "%free3d_ambient_factor",
+          "diffuse_factor": "%free3d_diffuse_factor",
+          "specular_factor": "%free3d_specular_factor",
           "dynamically_lighted": true
           }
         }
       }
     ]
   },
-  {"playback": "load_tiger_tank", "arguments": {"DIST_MIN": 0  , "DIST_MAX":   100, "occluder_pass": "none",                    "name": "Tiger"}},
-  {"playback": "load_tiger_tank", "arguments": {"DIST_MIN": 100, "DIST_MAX": "inf", "occluder_pass": "lightmap_black_movables", "name": "Tiger_d3"}}
+  {"playback": "load_tiger_tank", "arguments": {"dist_min": 0  , "dist_max":   100, "occluder_pass": "none",                    "name": "Tiger"}},
+  {"playback": "load_tiger_tank", "arguments": {"dist_min": 100, "dist_max": "inf", "occluder_pass": "lightmap_black_movables", "name": "Tiger_d3"}}
 ]

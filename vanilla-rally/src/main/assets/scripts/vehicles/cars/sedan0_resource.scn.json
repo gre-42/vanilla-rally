@@ -72,7 +72,7 @@
             "position": [0, -0.8, -0.4],
             "rotation": [0, -90, 0],
             "scale": [1, 1, 1],
-            "center_distances": ["%DIST_MIN", "%DIST_MAX"],
+            "center_distances": ["%dist_min", "%dist_max"],
             "blend_mode": "continuous",
             "alpha_distances": [0, 0, "inf", "inf"],
             "cull_faces_alpha": true,
@@ -80,16 +80,16 @@
             "occluder_pass": "%occluder_pass",
             "aggregate_mode": "none",
             "transformation_mode": "all",
-            "reflection_map": "%REFLECTION_MAP",
-            "reflectance": "%REFLECTANCE",
-            "emissive_factor": "%BLENDER_EMISSIVE_FACTOR",
-            "ambient_factor": "%BLENDER_AMBIENT_FACTOR",
-            "diffuse_factor": "%BLENDER_DIFFUSE_FACTOR",
-            "specular_factor": "%BLENDER_SPECULAR_FACTOR",
-            "fresnel_min": "%STUNT_RALLY_FRESNEL_MIN",
-            "fresnel_max": "%STUNT_RALLY_FRESNEL_MAX",
-            "fresnel_exponent": "%STUNT_RALLY_FRESNEL_EXPONENT",
-            "fresnel_ambient": "%BLENDER_FRESNEL_AMBIENT",
+            "reflection_map": "%reflection_map",
+            "reflectance": "%reflectance",
+            "emissive_factor": "%blender_emissive_factor",
+            "ambient_factor": "%blender_ambient_factor",
+            "diffuse_factor": "%blender_diffuse_factor",
+            "specular_factor": "%blender_specular_factor",
+            "fresnel_min": "%stunt_rally_fresnel_min",
+            "fresnel_max": "%stunt_rally_fresnel_max",
+            "fresnel_exponent": "%stunt_rally_fresnel_exponent",
+            "fresnel_ambient": "%blender_fresnel_AMBIENT",
             "triangle_tangent_error_behavior": "zero",
             "werror": false
           }
@@ -100,9 +100,9 @@
   {
     "declare_macro": "load_sedan0",
     "content": [
-      {"playback": "load_sedan0_part",  "arguments": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "occluder_pass": "%occluder_pass", "REFLECTANCE": [1, 1, 1], "REFLECTION_MAP": "car", "name": "sedan0/sedan0_chassis$decimate"}},
-      {"playback": "load_sedan0_part",  "arguments": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "occluder_pass": "%occluder_pass", "REFLECTANCE": [1, 1, 1], "REFLECTION_MAP": "car", "name": "sedan0/sedan0_glass$decimate"}},
-      {"playback": "load_sedan0_part",  "arguments": {"DIST_MIN": "%DIST_MIN", "DIST_MAX": "%DIST_MAX", "occluder_pass": "%occluder_pass", "REFLECTANCE": [0, 0, 0], "REFLECTION_MAP": null, "name": "sedan0/sedan0_misc$decimate"}},
+      {"playback": "load_sedan0_part",  "arguments": {"dist_min": "%dist_min", "dist_max": "%dist_max", "occluder_pass": "%occluder_pass", "reflectance": [1, 1, 1], "reflection_map": "car", "name": "sedan0/sedan0_chassis$decimate"}},
+      {"playback": "load_sedan0_part",  "arguments": {"dist_min": "%dist_min", "dist_max": "%dist_max", "occluder_pass": "%occluder_pass", "reflectance": [1, 1, 1], "reflection_map": "car", "name": "sedan0/sedan0_glass$decimate"}},
+      {"playback": "load_sedan0_part",  "arguments": {"dist_min": "%dist_min", "dist_max": "%dist_max", "occluder_pass": "%occluder_pass", "reflectance": [0, 0, 0], "reflection_map": null, "name": "sedan0/sedan0_misc$decimate"}},
       {"call": "compound_resource", "arguments": {"source_names": [], "dest_name": "sedan0/main$suffix"}},
       {"call": "add_companion_renderable", "arguments": {"resource": "sedan0/main$suffix", "companion_resource": "sedan0/sedan0_chassis$decimate"}},
       {"call": "add_companion_renderable", "arguments": {"resource": "sedan0/main$suffix", "companion_resource": "sedan0/sedan0_glass$decimate"}},
@@ -111,6 +111,6 @@
       {"call": "compound_resource", "arguments": {"source_names": ["XZ/XZ_wheel$decimate"], "dest_name": "sedan0/wheel_rear$suffix"}}
     ]
   },
-  {"playback": "load_sedan0", "arguments": {"DIST_MIN": 0,   "DIST_MAX": 100,  "occluder_pass": "none",               "decimate": "", "suffix": ""}},
-  {"playback": "load_sedan0", "arguments": {"DIST_MIN": 100, "DIST_MAX": 1000, "occluder_pass": "lightmap_black_movables", "decimate": "_d3", "suffix": "_lowres"}}
+  {"playback": "load_sedan0", "arguments": {"dist_min": 0,   "dist_max": 100,  "occluder_pass": "none",               "decimate": "", "suffix": ""}},
+  {"playback": "load_sedan0", "arguments": {"dist_min": 100, "dist_max": 1000, "occluder_pass": "lightmap_black_movables", "decimate": "_d3", "suffix": "_lowres"}}
 ]

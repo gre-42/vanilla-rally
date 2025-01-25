@@ -77,7 +77,7 @@
           "right": "tabmenu_right",
           "bottom": "tabmenu_bottom",
           "top": "tabmenu_top",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -98,7 +98,7 @@
           "bottom": "submenu_bottom",
           "top": "submenu_top",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -155,7 +155,7 @@
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "on_change": {
@@ -167,7 +167,7 @@
       {
         "playback": "parameter_setters",
         "arguments": {
-          "IF_DEVEL": "%IF_DEVEL"
+          "if_devel": "%if_devel"
         }
       },
       {
@@ -203,7 +203,7 @@
         "arguments": {
           "position": ["nan", "nan"],
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "huge",
           "line_distance": "huge",
           "focus_mask": "game_over",
@@ -270,7 +270,7 @@
         "arguments": { "SELECTED_PLAYER_VEHICLE_COLOR": [1, 1, 0] }
       },
       {
-        "required": ["%IF_DEVEL"],
+        "required": ["%if_devel"],
         "call": "parameter_setter",
         "arguments": {
           "id": "time_of_day_selector",
@@ -282,7 +282,7 @@
           "bottom": "submenu_bottom",
           "top": "submenu_top",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -294,7 +294,7 @@
         }
       },
       {
-        "exclude": ["%IF_DEVEL"],
+        "exclude": ["%if_devel"],
         "call": "parameter_setter",
         "arguments": {
           "id": "time_of_day_selector",
@@ -306,7 +306,7 @@
           "bottom": "submenu_bottom",
           "top": "submenu_top",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -328,7 +328,7 @@
           "bottom": "submenu_bottom",
           "top": "submenu_top",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -349,7 +349,7 @@
           "bottom": "submenu_bottom",
           "top": "submenu_top",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -372,7 +372,7 @@
           "bottom": "submenu_bottom",
           "top": "submenu_top",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -391,7 +391,7 @@
         }
       },
       {
-        "required": ["%IF_DEVEL"],
+        "required": ["%if_devel"],
         "call": "parameter_setter",
         "arguments": {
           "id": "session_selector",
@@ -403,7 +403,7 @@
           "bottom": "submenu_bottom",
           "top": "submenu_top",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -418,7 +418,7 @@
       },
       {
         "call": "globals",
-        "exclude": ["%IF_DEVEL"],
+        "exclude": ["%if_devel"],
         "arguments": { "RACE_SESSION": "session1" }
       },
       {
@@ -433,7 +433,7 @@
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -447,7 +447,7 @@
         }
       },
       {
-        "required": ["%IF_DEVEL"],
+        "required": ["%if_devel"],
         "call": "parameter_setter",
         "arguments": {
           "id": "playback_ranks_selector",
@@ -459,7 +459,7 @@
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
@@ -473,11 +473,11 @@
       },
       {
         "call": "globals",
-        "exclude": ["%IF_DEVEL"],
+        "exclude": ["%if_devel"],
         "arguments": { "IF_PLAYBACK_WINNER_0": false, "IF_PLAYBACK_WINNER_1": false, "IF_PLAYBACK_WINNER_2": false }
       },
       {
-        "required": ["%IF_DEVEL"],
+        "required": ["%if_devel"],
         "exclude": ["%if_android"],
         "call": "parameter_setter",
         "arguments": {
@@ -489,7 +489,7 @@
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 1,
@@ -506,7 +506,7 @@
         }
       },
       {
-        "required": ["%IF_DEVEL"],
+        "required": ["%if_devel"],
         "call": "parameter_setter",
         "arguments": {
           "id": "playback_speed_selector",
@@ -518,7 +518,7 @@
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 2,
@@ -533,11 +533,11 @@
       },
       {
         "call": "globals",
-        "exclude": ["%IF_DEVEL"],
+        "exclude": ["%if_devel"],
         "arguments": { "PLAYBACK_SPEED": 1 }
       },
       {
-        "required": ["%IF_DEVEL"],
+        "required": ["%if_devel"],
         "call": "parameter_setter",
         "arguments": {
           "id": "tripod_mode",
@@ -548,7 +548,7 @@
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
-          "font_color": "%UI_FONT_COLOR",
+          "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 1,
@@ -560,7 +560,7 @@
       },
       {
         "call": "globals",
-        "exclude": ["%IF_DEVEL"],
+        "exclude": ["%if_devel"],
         "arguments": { "IF_TRIPOD_MODE": false }
       }
     ]
