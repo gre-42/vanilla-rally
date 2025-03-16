@@ -276,7 +276,7 @@
           "player": "%externals_player_name",
           "surface_power_forward": "inf",
           "surface_power_backward": "-inf",
-          "max_tire_angle": "%%vehicles/tiger_tank/MAX_TIRE_ANGLE",
+          "max_tire_angle": "%%vehicles/tiger_tank/max_tire_angle",
           "tire_angle_pid": {"pid": [1, 0, 50], "alpha": 0}
         }
       }

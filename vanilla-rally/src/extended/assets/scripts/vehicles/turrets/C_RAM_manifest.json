@@ -14,8 +14,8 @@
   "database": {
     "suffix": "C_RAM",
     "class": "car",
-    "NODE_PREFIXES": ["car_node"],
-    "MAX_TIRE_ANGLE": null
+    "node_prefixes": ["car_node"],
+    "max_tire_angle": null
   },
   "required": {
     "fixed": [],

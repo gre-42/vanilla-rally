@@ -37,7 +37,7 @@
       "let": {
         "VEHICLE_NAME": "%%vehicles/$selected_vehicle_id/suffix",
         "VEHICLE_CLASS": "%%vehicles/$selected_vehicle_id/class",
-        "VEHICLE_COLOR": "%SELECTED_PLAYER_VEHICLE_COLOR"
+        "vehicle_color": "%selected_player_vehicle_color"
       }
     }
   },
@@ -62,12 +62,13 @@
         "arguments": {
           "id": "game_mode_selector",
           "focus_mask": "new_game_menu",
-          "title": "Game mode",
+          "title": "%%translations/main/Game_mode/$selected_language",
           "icon": "game_mode_icon",
           "left": "submenu_left",
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "font_color": "%ui_font_color",
           "font_height": "normal",
@@ -119,8 +120,9 @@
         "call": "scene_selector",
         "arguments": {
           "id": "scene_selector",
-          "title": "Scene",
+          "title": "%%translations/main/Scene/$selected_language",
           "icon": "scene_selector_icon",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "submenu_right",
@@ -154,18 +156,20 @@
         ]
       },
       {
-        "exclude": ["%if_android"],
-        "call": "controls",
-        "arguments": {
-          "id": "controls",
-          "title": "Controls",
-          "icon": "controls_icon",
-          "left": "submenu_left",
-          "right": "controls_right",
-          "bottom": "controls_bottom",
-          "top": "submenu_top",
-          "delay_load_policy": "no_delay",
-          "gamepad_texture": "textures/ui/menu/gamepad.png"
+        "comment": {
+          "exclude": ["%if_android"],
+          "call": "controls",
+          "arguments": {
+            "id": "controls",
+            "title": "Controls",
+            "icon": "controls_icon",
+            "left": "submenu_left",
+            "right": "controls_right",
+            "bottom": "controls_bottom",
+            "top": "submenu_top",
+            "delay_load_policy": "no_delay",
+            "gamepad_texture": "textures/ui/menu/gamepad.png"
+          }
         }
       },
       {
@@ -179,6 +183,7 @@
         "call": "focused_text",
         "arguments": {
           "position": ["nan", "nan"],
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "font_color": "%ui_font_color",
           "font_height": "huge",
@@ -248,15 +253,20 @@
           "focus_mask": "main_menu",
           "selection_marker": "selection_marker",
           "style": "icon",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "icon_left": "tabmenu_icon_left",
-          "icon_right": "tabmenu_icon_right",
-          "icon_bottom": "tabmenu_icon_bottom",
-          "icon_top": "tabmenu_icon_top",
-          "left": "tabmenu_left",
-          "right": "tabmenu_right",
-          "bottom": "tabmenu_bottom",
-          "top": "tabmenu_top",
+          "reference_widget": {
+            "left": "tabmenu_reference_left",
+            "right": "tabmenu_reference_right",
+            "bottom": "tabmenu_reference_bottom",
+            "top": "tabmenu_reference_top"
+          },
+          "widget": {
+            "left": "tabmenu_left",
+            "right": "tabmenu_right",
+            "bottom": "tabmenu_bottom",
+            "top": "tabmenu_top"
+          },
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
@@ -271,15 +281,32 @@
           "focus_mask": "settings_menu",
           "selection_marker": "selection_marker",
           "style": "icon",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "icon_left": "tabmenu_icon_left",
-          "icon_right": "tabmenu_icon_right",
-          "icon_bottom": "tabmenu_icon_bottom",
-          "icon_top": "tabmenu_icon_top",
-          "left": "tabmenu_left",
-          "right": "tabmenu_right",
-          "bottom": "tabmenu_bottom",
-          "top": "tabmenu_top",
+          "reference_widget": {
+            "left": "tabmenu_reference_left",
+            "right": "tabmenu_reference_right",
+            "bottom": "tabmenu_reference_bottom",
+            "top": "tabmenu_reference_top"
+          },
+          "icon_widget": {
+            "left": "tabmenu_icon_left",
+            "right": "tabmenu_icon_right",
+            "bottom": "tabmenu_icon_bottom",
+            "top": "tabmenu_icon_top"
+          },
+          "title_widget": {
+            "left": "tabmenu_title_left",
+            "right": "tabmenu_title_right",
+            "bottom": "tabmenu_title_bottom",
+            "top": "tabmenu_title_top"
+          },
+          "widget": {
+            "left": "tabmenu_left",
+            "right": "tabmenu_right",
+            "bottom": "tabmenu_bottom",
+            "top": "tabmenu_top"
+          },
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
@@ -294,15 +321,20 @@
           "focus_mask": "controls_menu",
           "selection_marker": "selection_marker",
           "style": "text",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "icon_left": "tabmenu_icon_left",
-          "icon_right": "tabmenu_icon_right",
-          "icon_bottom": "tabmenu_icon_bottom",
-          "icon_top": "tabmenu_icon_top",
-          "left": "tabmenu_left",
-          "right": "tabmenu_right",
-          "bottom": "tabmenu_bottom",
-          "top": "tabmenu_top",
+          "reference_widget": {
+            "left": "tabmenu_reference_left",
+            "right": "tabmenu_reference_right",
+            "bottom": "tabmenu_reference_bottom",
+            "top": "tabmenu_reference_top"
+          },
+          "widget": {
+            "left": "tabmenu_left",
+            "right": "tabmenu_right",
+            "bottom": "tabmenu_bottom",
+            "top": "tabmenu_top"
+          },
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
@@ -317,15 +349,32 @@
           "focus_mask": "new_game_menu",
           "selection_marker": "selection_marker",
           "style": "icon",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "icon_left": "tabmenu_icon_left",
-          "icon_right": "tabmenu_icon_right",
-          "icon_bottom": "tabmenu_icon_bottom",
-          "icon_top": "tabmenu_icon_top",
-          "left": "tabmenu_left",
-          "right": "tabmenu_right",
-          "bottom": "tabmenu_bottom",
-          "top": "tabmenu_top",
+          "reference_widget": {
+            "left": "tabmenu_reference_left",
+            "right": "tabmenu_reference_right",
+            "bottom": "tabmenu_reference_bottom",
+            "top": "tabmenu_reference_top"
+          },
+          "icon_widget": {
+            "left": "tabmenu_icon_left",
+            "right": "tabmenu_icon_right",
+            "bottom": "tabmenu_icon_bottom",
+            "top": "tabmenu_icon_top"
+          },
+          "title_widget": {
+            "left": "tabmenu_title_left",
+            "right": "tabmenu_title_right",
+            "bottom": "tabmenu_title_bottom",
+            "top": "tabmenu_title_top"
+          },
+          "widget": {
+            "left": "tabmenu_left",
+            "right": "tabmenu_right",
+            "bottom": "tabmenu_bottom",
+            "top": "tabmenu_top"
+          },
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
@@ -334,7 +383,10 @@
             {
               "required": ["%selected_level_id != %loaded_level_id"],
               "execute": {
-                "call": "reload_scene"
+                "call": "reload_scene",
+                "arguments": {
+                  "change_scene": true
+                }
               }
             },
             {
@@ -353,6 +405,80 @@
     "declare_macro": "parameter_setters",
     "content": [
       {
+        "call": "add_charset",
+        "arguments": {
+          "name": "language",
+          "chars": "'. 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-+*/<>,;:()[]{}$€£%'\"ç'"
+        }
+      },
+      {
+        "call": "parameter_setter",
+        "arguments": {
+          "id": "language",
+          "charset": "language",
+          "focus_mask": "settings_menu",
+          "title": "%%translations/main/Language/$selected_language",
+          "icon": "language_icon",
+          "left": "submenu_left",
+          "right": "submenu_right",
+          "bottom": "submenu_bottom",
+          "top": "submenu_top",
+          "ttf_file": "fonts/RobotoMono-Bold.ttf",
+          "font_color": "%ui_font_color",
+          "font_height": "normal",
+          "line_distance": "normal",
+          "deflt": 0,
+          "persistent": "language",
+          "assets": "languages",
+          "# on_change": [
+            {
+              "required": ["%selected_language != %loaded_language"],
+              "execute": {
+                "call": "set_requires_reload",
+                "arguments": {
+                  "id": "language",
+                  "reason": "'%%translations/main/Language_changed/$selected_language'",
+                  "indicator": "reload_required"
+                }
+              }
+            },
+            {
+              "required": ["%selected_language == %loaded_language"],
+              "execute": {
+                "call": "clear_requires_reload",
+                "arguments": {
+                  "id": "language",
+                  "indicator": "reload_required"
+                }
+              }
+            }
+          ],
+          "on_execute": {
+            "call": "set_focuses",
+            "arguments": {
+              "focuses": ["main_menu"]
+            }
+          }
+        }
+      },
+      {
+        "call": "reload_required",
+        "arguments": {
+          "title": "$$translations/main/Reload_required/$selected_language:",
+          "focus_mask": "main_menu",
+          "left": "showroom_left",
+          "right": "showroom_right",
+          "bottom": "showroom_bottom",
+          "top": "showroom_top",
+          "charset": "%selected_language",
+          "ttf_file": "fonts/RobotoMono-Bold.ttf",
+          "font_color": "%ui_highlighted_font_color",
+          "font_height": "normal",
+          "line_distance": "normal",
+          "z_order": 2
+        }
+      },
+      {
         "call": "parameter_setter",
         "arguments": {
           "id": "main_menu",
@@ -365,69 +491,108 @@
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
           "parameters": [
-            {"id": "new_game", "title": "New game", "on_execute": { "call": "append_focuses", "arguments": {"content": ["new_game_menu"]}}},
-            {"id": "controls", "title": "Controls", "on_execute": { "call": "append_focuses", "arguments": {"content": ["controls_menu"]}}},
-            {"id": "exit", "title": "Exit", "on_execute": { "call": "exit" }}
+            {
+              "id": "new_game",
+              "title": "%%translations/main/New_game/$selected_language",
+              "on_execute": { "call": "append_focuses", "arguments": {"content": ["new_game_menu"]}}
+            },
+            {
+              "required": {
+                "fixed": [],
+                "dynamic": [],
+                "focus_mask": "query_contains|scene"
+              },
+              "id": "continue_game",
+              "title": "%%translations/main/Continue_game/$selected_language",
+              "on_execute": { "call": "pop_focus", "arguments": {"expected": "main_menu", "preserve_last": true}}
+            },
+            {
+              "id": "settings",
+              "title": "$$translations/main/Settings/$selected_language (Ѭҿ)",
+              "on_execute": { "call": "append_focuses", "arguments": {"content": ["settings_menu"]}}
+            },
+            {
+              "required": {
+                "fixed": [],
+                "dynamic": ["%reload_required"]
+              },
+              "id": "reload",
+              "title": "%%translations/main/Reload/$selected_language",
+              "on_execute": { "call": "reload_scene", "arguments": {"change_scene": false}}
+            },
+            {
+              "id": "exit",
+              "title": "%%translations/main/Exit/$selected_language",
+              "on_execute": { "call": "exit" }
+            }
           ]
         }
       },
       {
         "#comment": "Some initial color so the code does not crash until the real color is defined",
         "call": "globals",
-        "arguments": { "SELECTED_PLAYER_VEHICLE_COLOR": [1, 1, 0] }
+        "arguments": { "selected_player_vehicle_color": [1, 1, 0] }
       },
       {
-        "required": ["%if_devel"],
         "call": "parameter_setter",
         "arguments": {
           "id": "time_of_day_selector",
           "focus_mask": "new_game_menu",
-          "title": "Time of day",
+          "title": "%%translations/main/Time_of_day/$selected_language",
           "icon": "time_of_day_icon",
           "required": [],
           "left": "submenu_left",
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
           "parameters": [
-            {"id": "day", "title": "Day", "on_before_select": { "call": "globals", "arguments": {"skybox": "skybox", "time_of_day": "day"}}},
-            {"id": "night", "title": "Night", "on_before_select": { "call": "globals", "arguments": {"skybox": "skybox_night", "time_of_day": "night"}}},
-            {"id": "synthwave", "title": "Synthwave", "on_before_select": { "call": "globals", "arguments": {"skybox": "skybox_night", "time_of_day": "synthwave"}}}
-          ]
-        }
-      },
-      {
-        "exclude": ["%if_devel"],
-        "call": "parameter_setter",
-        "arguments": {
-          "id": "time_of_day_selector",
-          "focus_mask": "new_game_menu",
-          "title": "Time of day",
-          "icon": "time_of_day_icon",
-          "required": [],
-          "left": "submenu_left",
-          "right": "submenu_right",
-          "bottom": "submenu_bottom",
-          "top": "submenu_top",
-          "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%ui_font_color",
-          "font_height": "normal",
-          "line_distance": "normal",
-          "deflt": 0,
-          "parameters": [
-            {"id": "day", "title": "Day", "on_before_select": { "call": "globals", "arguments": {"skybox": "skybox", "time_of_day": "day"}}},
-            {"id": "night", "title": "Night", "on_before_select": { "call": "globals", "arguments": {"skybox": "skybox_night", "time_of_day": "night"}}}
+            {
+              "id": "day",
+              "title": "%%translations/main/Day/$selected_language",
+              "on_before_select": {
+                "call": "globals",
+                "arguments": {
+                  "skybox": "skybox",
+                  "time_of_day": "day"
+                }
+              }
+            },
+            {
+              "id": "night",
+              "title": "%%translations/main/Night/$selected_language",
+              "on_before_select": {
+                "call": "globals",
+                "arguments": {
+                  "skybox": "skybox_night",
+                  "time_of_day": "night"
+                }
+              }
+            },
+            {
+              "required": {"fixed": ["%if_devel"], "dynamic": []},
+              "id": "synthwave",
+              "title": "%%translations/main/Synthwave/$selected_language",
+              "on_before_select": {
+                "call": "globals",
+                "arguments": {
+                  "skybox": "skybox_night",
+                  "time_of_day": "synthwave"
+                }
+              }
+            }
           ]
         }
       },
@@ -436,21 +601,22 @@
         "arguments": {
           "id": "restrictions_selector",
           "focus_mask": "new_game_menu",
-          "title": "Restrictions",
+          "title": "%%translations/main/Restrictions/$selected_language",
           "icon": "restrictions_icon",
           "required": ["%game_mode == 'rally'"],
           "left": "submenu_left",
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
           "parameters": [
-            {"id": "car", "title": "Car", "on_before_select": { "call": "globals", "arguments": {"RACE_RESTRICTIONS": "car"}}},
-            {"id": "car_with_trailer", "title": "Car with trailer", "on_before_select": { "call": "globals", "arguments": {"RACE_RESTRICTIONS": "car_with_trailer"}}}
+            {"id": "car", "title": "%%translations/main/Car/$selected_language", "on_before_select": { "call": "globals", "arguments": {"RACE_RESTRICTIONS": "car"}}},
+            {"id": "car_with_trailer", "title": "%%translations/main/Car_with_trailer/$selected_language", "on_before_select": { "call": "globals", "arguments": {"RACE_RESTRICTIONS": "car_with_trailer"}}}
           ]
         }
       },
@@ -459,12 +625,13 @@
         "arguments": {
           "id": "car_selector",
           "focus_mask": "new_game_menu",
-          "title": "Car",
+          "title": "%%translations/main/Vehicle/$selected_language",
           "icon": "car_icon",
           "left": "submenu_left",
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "font_color": "%ui_font_color",
           "font_height": "normal",
@@ -482,13 +649,14 @@
         "arguments": {
           "id": "car_color_selector",
           "focus_mask": "new_game_menu",
-          "title": "Color",
+          "title": "%%translations/main/Color/$selected_language",
           "icon": "color_icon",
           "required": ["%game_mode == 'rally'"],
           "left": "submenu_left",
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "font_color": "%ui_font_color",
           "font_height": "normal",
@@ -499,12 +667,12 @@
             "context": "showroom"
           },
           "parameters": [
-            {"id": "white", "title": "White", "on_before_select": { "call": "globals", "arguments": {"SELECTED_PLAYER_VEHICLE_COLOR": [1,    1,    1]}}},
-            {"id": "gray", "title": "Gray",  "on_before_select": { "call": "globals", "arguments": {"SELECTED_PLAYER_VEHICLE_COLOR": [0.5,  0.5,  0.5]}}},
-            {"id": "red", "title": "Red",   "on_before_select": { "call": "globals", "arguments": {"SELECTED_PLAYER_VEHICLE_COLOR": [0.7,  0.05, 0.09]}}},
-            {"id": "green", "title": "Green", "on_before_select": { "call": "globals", "arguments": {"SELECTED_PLAYER_VEHICLE_COLOR": [0.52, 0.63, 0.54]}}},
-            {"id": "blue", "title": "Blue",  "on_before_select": { "call": "globals", "arguments": {"SELECTED_PLAYER_VEHICLE_COLOR": [0.51, 0.56, 0.62]}}},
-            {"id": "black", "title": "Black", "on_before_select": { "call": "globals", "arguments": {"SELECTED_PLAYER_VEHICLE_COLOR": [0.06, 0.07, 0.06]}}}
+            {"id": "white", "title": "%%translations/main/White/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [1,    1,    1]}}},
+            {"id": "gray", "title": "%%translations/main/Gray/$selected_language",  "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.5,  0.5,  0.5]}}},
+            {"id": "red", "title": "%%translations/main/Red/$selected_language",   "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.7,  0.05, 0.09]}}},
+            {"id": "green", "title": "%%translations/main/Green/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.52, 0.63, 0.54]}}},
+            {"id": "blue", "title": "%%translations/main/Blue/$selected_language",  "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.51, 0.56, 0.62]}}},
+            {"id": "black", "title": "%%translations/main/Black/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.06, 0.07, 0.06]}}}
           ]
         }
       },
@@ -514,13 +682,14 @@
         "arguments": {
           "id": "session_selector",
           "focus_mask": "new_game_menu",
-          "title": "Session",
+          "title": "%%translations/main/Session/$selected_language",
           "icon": "session_icon",
           "required": ["%game_mode == 'rally'"],
           "left": "submenu_left",
           "right": "submenu_right",
           "bottom": "submenu_bottom",
           "top": "submenu_top",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "font_color": "%ui_font_color",
           "font_height": "normal",
@@ -545,9 +714,10 @@
         "arguments": {
           "id": "laps_selector",
           "focus_mask": "new_game_menu",
-          "title": "Laps",
+          "title": "%%translations/main/Laps/$selected_language",
           "icon": "laps_icon",
           "required": ["%game_mode == 'rally'", "%%levels/$selected_level_id/if_raceway_circular"],
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "submenu_right",
@@ -572,9 +742,10 @@
         "arguments": {
           "id": "playback_ranks_selector",
           "focus_mask": "new_game_menu",
-          "title": "Playback ranks",
+          "title": "%%translations/main/Playback_ranks/$selected_language",
           "icon": "replay_icon",
           "required": ["%game_mode == 'rally'"],
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "submenu_right",
@@ -604,8 +775,9 @@
         "arguments": {
           "id": "render_fps_selector",
           "focus_mask": "settings_menu",
-          "title": "Render FPS",
+          "title": "%%translations/main/Render_FPS/$selected_language",
           "icon": "render_fps_icon",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "submenu_right",
@@ -633,9 +805,10 @@
         "arguments": {
           "id": "playback_speed_selector",
           "focus_mask": "new_game_menu",
-          "title": "Playback speed",
+          "title": "%%translations/main/Playback_speed/$selected_language",
           "icon": "missing_icon",
           "required": ["%game_mode == 'rally'"],
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "submenu_right",
@@ -646,18 +819,18 @@
           "line_distance": "normal",
           "deflt": 2,
           "parameters": [
-            {"id": "'80'", "title": "'80%'", "on_before_select": { "call": "globals", "arguments": {"PLAYBACK_SPEED": 0.8}}},
-            {"id": "'90'", "title": "'90%'", "on_before_select": { "call": "globals", "arguments": {"PLAYBACK_SPEED": 0.9}}},
-            {"id": "'100'", "title": "'100%'", "on_before_select": { "call": "globals", "arguments": {"PLAYBACK_SPEED": 1}}},
-            {"id": "'110'", "title": "'110%'", "on_before_select": { "call": "globals", "arguments": {"PLAYBACK_SPEED": 1.1}}},
-            {"id": "'120'", "title": "'120%'", "on_before_select": { "call": "globals", "arguments": {"PLAYBACK_SPEED": 1.2}}}
+            {"id": "'80'", "title": "'80%'", "on_before_select": { "call": "globals", "arguments": {"playback_speed": 0.8}}},
+            {"id": "'90'", "title": "'90%'", "on_before_select": { "call": "globals", "arguments": {"playback_speed": 0.9}}},
+            {"id": "'100'", "title": "'100%'", "on_before_select": { "call": "globals", "arguments": {"playback_speed": 1}}},
+            {"id": "'110'", "title": "'110%'", "on_before_select": { "call": "globals", "arguments": {"playback_speed": 1.1}}},
+            {"id": "'120'", "title": "'120%'", "on_before_select": { "call": "globals", "arguments": {"playback_speed": 1.2}}}
           ]
         }
       },
       {
         "call": "globals",
         "exclude": ["%if_devel"],
-        "arguments": { "PLAYBACK_SPEED": 1 }
+        "arguments": { "playback_speed": 1 }
       },
       {
         "required": ["%if_devel"],
@@ -665,8 +838,9 @@
         "arguments": {
           "id": "tripod_mode",
           "focus_mask": "new_game_menu",
-          "title": "Tripod mode",
+          "title": "%%translations/main/Spectator_mode/$selected_language",
           "icon": "tripod_icon",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "submenu_right",
@@ -677,8 +851,8 @@
           "line_distance": "normal",
           "deflt": 1,
           "parameters": [
-            {"id": "enabled", "title": "Enabled", "on_before_select": { "call": "globals", "arguments": {"if_tripod_mode": true}}},
-            {"id": "disabled", "title": "Disabled", "on_before_select": { "call": "globals", "arguments": {"if_tripod_mode": false}}}
+            {"id": "enabled", "title": "%%translations/main/Enabled/$selected_language", "on_before_select": { "call": "globals", "arguments": {"if_tripod_mode": true}}},
+            {"id": "disabled", "title": "%%translations/main/Disabled/$selected_language", "on_before_select": { "call": "globals", "arguments": {"if_tripod_mode": false}}}
           ]
         }
       },
@@ -691,9 +865,10 @@
         "call": "parameter_setter",
         "arguments": {
           "id": "input_type",
-          "focus_mask": "controls_menu",
-          "title": "Input type",
-          "icon": null,
+          "focus_mask": "settings_menu",
+          "title": "%%translations/main/Input_type/$selected_language",
+          "icon": "controls_icon",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "submenu_right",
@@ -703,6 +878,12 @@
           "font_height": "normal",
           "line_distance": "normal",
           "deflt": 0,
+          "on_execute": {
+            "call": "append_focuses",
+            "arguments": {
+              "content": ["controls_menu"]
+            }
+          },
           "parameters": [
             {"id": "keyboard", "title": "Keyboard", "on_before_select": { "call": "globals", "arguments": {"input_type": "keyboard"}}},
             {"id": "mouse", "title": "Mouse", "on_before_select": { "call": "globals", "arguments": {"input_type": "mouse"}}},
@@ -713,12 +894,14 @@
         }
       },
       {
+        "required": ["%if_devel"],
         "call": "key_bindings",
         "arguments": {
           "id": "key_bindings_debug",
           "focus_mask": "controls_menu",
           "section": "debug",
-          "title": "Debug",
+          "title": "%%translations/main/Debug/$selected_language",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "end",
@@ -736,7 +919,8 @@
           "id": "key_bindings_avatar",
           "focus_mask": "controls_menu",
           "section": "avatar",
-          "title": "Avatar",
+          "title": "%%translations/main/Avatar/$selected_language",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "end",
@@ -754,7 +938,8 @@
           "id": "key_bindings_car_heli",
           "focus_mask": "controls_menu",
           "section": "car_or_heli",
-          "title": "Car or heli",
+          "title": "%%translations/main/Car_or_heli/$selected_language",
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "left": "submenu_left",
           "right": "end",

@@ -14,8 +14,8 @@
   "database": {
     "suffix": "tiger_tank",
     "class": "car",
-    "NODE_PREFIXES": ["car_node"],
-    "MAX_TIRE_ANGLE": 45
+    "node_prefixes": ["car_node"],
+    "max_tire_angle": 45
   },
   "required": {
     "fixed": [],

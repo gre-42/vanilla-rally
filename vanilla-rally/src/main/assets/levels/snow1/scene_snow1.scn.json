@@ -57,8 +57,6 @@
           "'35.7395099330733927_deg'",
           "'142'"],
         "car_node_angles": [0, 140, 0],
-        "vehicle_velocity": [0, 0, 0],
-        "vehicle_angular_velocity": [0, 0, 0],
         "recordings_dir": "%__DIR__",
         "checkpoints_file": "$__APPDATA__/$loaded_level_id.checkpoints.m",
         "checkpoints": null,

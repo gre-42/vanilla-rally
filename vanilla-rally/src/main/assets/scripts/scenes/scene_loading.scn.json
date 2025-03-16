@@ -25,6 +25,7 @@
       {
         "call": "thread_top",
         "arguments": {
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "position": ["nan", 0],
           "font_color": "%ui_font_color",
@@ -37,13 +38,14 @@
       {
         "call": "focused_text",
         "arguments": {
+          "charset": "%selected_language",
           "ttf_file": "fonts/RobotoMono-Bold.ttf",
           "position": ["nan", "nan"],
           "font_color": "%ui_font_color",
           "font_height": "huge",
           "line_distance": "huge",
           "focus_mask": "always",
-          "text": "Loading..."
+          "text": "$$translations/main/Loading/$selected_language..."
         }
       }
     ]
@@ -67,7 +69,8 @@
           "high_pass": false,
           "with_skybox": false,
           "with_flying_logic": false,
-          "clear_mode": "color_and_depth"
+          "clear_mode": "color_and_depth",
+          "gid": { "group": "translations", "id": "scene" }
         }
       },
       {
