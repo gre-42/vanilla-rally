@@ -2,9 +2,9 @@
   {
     "declare_macro": "create_C_RAM_graphics",
     "content": [
-      {"call": "child_renderable_instance", "arguments": {"name": "chassis$suffix", "node": "car_node$node_suffix", "resource": "C_RAM$decimate", "included_names": "^Base$"}},
-      {"call": "child_renderable_instance", "arguments": {"name": "turret$suffix", "node": "turret_shift_node$node_suffix", "resource": "C_RAM$decimate", "included_names": "Yaw"}},
-      {"call": "child_renderable_instance", "arguments": {"name": "main_gun$suffix", "node": "main_gun_shift_node$node_suffix", "resource": "C_RAM$decimate", "included_names": "Gun"}}
+      {"call": "child_renderable_instance", "arguments": {"name": "chassis$lod_suffix", "node": "car_node$node_suffix", "resource": "C_RAM$lod_decimate", "included_names": "^Base$"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "turret$lod_suffix", "node": "turret_shift_node$node_suffix", "resource": "C_RAM$lod_decimate", "included_names": "Yaw"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "main_gun$lod_suffix", "node": "main_gun_shift_node$node_suffix", "resource": "C_RAM$lod_decimate", "included_names": "Gun"}}
     ]
   },
   {
@@ -102,10 +102,10 @@
       {"call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "main_gun_punch_angle_node$suffix", "name": "main_gun_shift_node$suffix", "position": [0, -0.2, 0]}},
 
       {"call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "main_gun_punch_angle_node$suffix", "name": "main_gun_end_node$suffix", "position": [0, 0, -10]}},
-      {"required": ["%IF_WITH_GRAPHICS"], "playback": "create_C_RAM_graphics", "arguments": {"node_suffix": "%suffix", "suffix": "%suffix", "decimate": "%decimate"}},
-      {"required": ["%IF_WITH_GRAPHICS"], "playback": "create_C_RAM_graphics", "arguments": {"node_suffix": "%suffix", "suffix": "_d$suffix", "decimate": "_d"}},
+      {"required": ["%if_with_graphics"], "playback": "create_C_RAM_graphics", "arguments": {"node_suffix": "%suffix", "lod_suffix": "%suffix", "lod_decimate": "%decimate"}},
+      {"required": ["%if_with_graphics"], "playback": "create_C_RAM_graphics", "arguments": {"node_suffix": "%suffix", "lod_suffix": "_d$suffix", "lod_decimate": "_d"}},
       {"comment": {"call": "child_renderable_instance", "arguments": {"name": "C_RAM_hitbox", "node": "car_node$suffix", "resource": "C_RAM_hitbox"}}},
-      {"required": ["%IF_WITH_PHYSICS"], "playback": "create_C_RAM_physics", "arguments": {
+      {"required": ["%if_with_physics"], "playback": "create_C_RAM_physics", "arguments": {
         "mass": 56e3,
         "collidable_mode": "moving"
       }}

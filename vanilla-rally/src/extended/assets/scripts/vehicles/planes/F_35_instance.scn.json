@@ -2,19 +2,19 @@
   {
     "declare_macro": "create_F_35_graphics",
     "content": [
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35$suffix", "node": "car_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Mesh_*"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35$lod_suffix", "node": "car_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Mesh_*"}},
       {"comment": "Ailerons"},
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35_left_front_aileron$suffix", "node": "left_front_aileron_shift_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Left_Front_Aileron"}},
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35_right_front_aileron$suffix", "node": "right_front_aileron_shift_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Right_Front_Aileron"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35_left_front_aileron$lod_suffix", "node": "left_front_aileron_shift_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Left_Front_Aileron"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35_right_front_aileron$lod_suffix", "node": "right_front_aileron_shift_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Right_Front_Aileron"}},
       {"comment": "Flaps"},
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35_left_flap$suffix", "node": "left_flap_shift_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Left_Flap"}},
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35_right_flap$suffix", "node": "right_flap_shift_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Right_Flap"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35_left_flap$lod_suffix", "node": "left_flap_shift_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Left_Flap"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35_right_flap$lod_suffix", "node": "right_flap_shift_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Right_Flap"}},
       {"comment": "Rear wings"},
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35_left_rear_wing$suffix", "node": "left_rear_wing_shift_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Left_Rear_Wing"}},
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35_right_rear_wing$suffix", "node": "right_rear_wing_shift_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Right_Rear_Wing"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35_left_rear_wing$lod_suffix", "node": "left_rear_wing_shift_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Left_Rear_Wing"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35_right_rear_wing$lod_suffix", "node": "right_rear_wing_shift_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Right_Rear_Wing"}},
       {"comment": "Rudders"},
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35_left_rudder$suffix", "node": "left_rudder_shift_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Left_Rudder"}},
-      {"call": "child_renderable_instance", "arguments": {"name": "F_35_right_rudder$suffix", "node": "right_rudder_shift_node$node_suffix", "resource": "F_35$decimate", "included_names": "^Right_Rudder"}}
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35_left_rudder$lod_suffix", "node": "left_rudder_shift_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Left_Rudder"}},
+      {"call": "child_renderable_instance", "arguments": {"name": "F_35_right_rudder$lod_suffix", "node": "right_rudder_shift_node$node_suffix", "resource": "F_35$lod_decimate", "included_names": "^Right_Rudder"}}
     ]
   },
   {
@@ -201,7 +201,7 @@
           "powers": [0],
           "gear_ratios": [0],
           "w_clutch": 0,
-          "hand_brake_pulled": "%HAND_BRAKE_PULLED"
+          "hand_brake_pulled": "%hand_brake_pulled"
         }
       },
       {
@@ -213,7 +213,7 @@
           "powers": [260],
           "gear_ratios": [0],
           "w_clutch": 0,
-          "hand_brake_pulled": "%HAND_BRAKE_PULLED"
+          "hand_brake_pulled": "%hand_brake_pulled"
         }
       },
       {
@@ -513,25 +513,25 @@
       {"call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "car_node$suffix", "name": "main_gun_end_node$suffix", "position": [0, -3, 0]}},
       {"call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "car_node$suffix", "name": "missile0_launcher_node$suffix", "position": [1, -3, 0]}},
       {"comment": "Graphics"},
-      {"required": ["%IF_WITH_GRAPHICS"], "call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "wheel_right_front_node$suffix", "name": "wheel_right_front_node_visual$suffix", "rotation": [0, 180, 0]}},
-      {"required": ["%IF_WITH_GRAPHICS"], "call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "wheel_right_rear_node$suffix",  "name": "wheel_right_rear_node_visual$suffix",  "rotation": [0, 180, 0]}},
+      {"required": ["%if_with_graphics"], "call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "wheel_right_front_node$suffix", "name": "wheel_right_front_node_visual$suffix", "rotation": [0, 180, 0]}},
+      {"required": ["%if_with_graphics"], "call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "wheel_right_rear_node$suffix",  "name": "wheel_right_rear_node_visual$suffix",  "rotation": [0, 180, 0]}},
       {"comment": {"call": "child_renderable_instance", "arguments": {"name": "F_35_hitbox_front", "node": "car_node$suffix", "resource": "F_35_hitbox_front"}}},
       {"comment": {"call": "child_renderable_instance", "arguments": {"name": "F_35_hitbox_mid", "node": "car_node$suffix", "resource": "F_35_hitbox_mid"}}},
       {"comment": {"call": "child_renderable_instance", "arguments": {"name": "F_35_hitbox_rear", "node": "car_node$suffix", "resource": "F_35_hitbox_rear"}}},
       {"comment": {"call": "child_renderable_instance", "arguments": {"name": "F_35_hitbox_rudder_left", "node": "car_node$suffix", "resource": "F_35_hitbox_rudder_left"}}},
       {"comment": {"call": "child_renderable_instance", "arguments": {"name": "F_35_hitbox_rudder_right", "node": "car_node$suffix", "resource": "F_35_hitbox_rudder_right"}}},
-      {"required": ["%IF_WITH_GRAPHICS"], "playback": "create_F_35_graphics", "arguments": {"node_suffix": "%suffix", "suffix": "%suffix", "decimate": "%decimate"}},
-      {"required": ["%IF_WITH_GRAPHICS"], "playback": "create_F_35_graphics", "arguments": {"node_suffix": "%suffix", "suffix": "_d1$suffix", "decimate": "_d1"}},
+      {"required": ["%if_with_graphics"], "playback": "create_F_35_graphics", "arguments": {"node_suffix": "%suffix", "lod_suffix": "%suffix", "lod_decimate": "%decimate"}},
+      {"required": ["%if_with_graphics"], "playback": "create_F_35_graphics", "arguments": {"node_suffix": "%suffix", "lod_suffix": "_d1$suffix", "lod_decimate": "_d1"}},
       {"comment": [
-        "IF_WITH_GRAPHICS child_node_instance type=dynamic parent=car_node$suffix name=gizmo_node$suffix position=0 0 0 rotation=0 0 0 scale=1",
-        "IF_WITH_GRAPHICS renderable_instance name=gizmo node=gizmo_node$suffix resource=gizmo",
+        "if_with_graphics child_node_instance type=dynamic parent=car_node$suffix name=gizmo_node$suffix position=0 0 0 rotation=0 0 0 scale=1",
+        "if_with_graphics renderable_instance name=gizmo node=gizmo_node$suffix resource=gizmo",
 
-        "IF_WITH_GRAPHICS child_node_instance type=dynamic parent=car_node$suffix name=turbine_node$suffix position=0 -0.2 5.5 rotation=0 0 0 scale=1",
-        "IF_WITH_GRAPHICS renderable_instance name=box node=turbine_node$suffix resource=flag_z"
+        "if_with_graphics child_node_instance type=dynamic parent=car_node$suffix name=turbine_node$suffix position=0 -0.2 5.5 rotation=0 0 0 scale=1",
+        "if_with_graphics renderable_instance name=box node=turbine_node$suffix resource=flag_z"
       ]},
       {"comment": "Physics"},
       {
-        "required": ["%IF_WITH_PHYSICS"],
+        "required": ["%if_with_physics"],
         "playback": "create_F_35_physics",
         "arguments": {
             "mass": 20000,
@@ -637,9 +637,7 @@
               "vehicle_way_points_filter": "runway_or_taxiway_or_airway"
             }
           }
-        ],
-        "arguments": {
-            }
+        ]
       }
     ]
   },
