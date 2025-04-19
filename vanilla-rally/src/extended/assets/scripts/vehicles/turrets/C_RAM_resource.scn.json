@@ -47,7 +47,7 @@
           "ambient_factor": "%blender_ambient_factor",
           "diffuse_factor": "%blender_diffuse_factor",
           "specular_factor": "%blender_specular_factor",
-          "fresnel_ambient": "%blender_fresnel_AMBIENT"
+          "fresnel_ambient": "%blender_fresnel_ambient"
           }
         }
       }
