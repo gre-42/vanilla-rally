@@ -185,11 +185,11 @@
             "vegetation6.21",
             "vegetation6.22"],
           "default_street_width": 14,
-          "wayside_resource_names": [
+          "waysides_vertex": [
             {
               "min_dist": 4.5,
               "max_dist": 6,
-              "resource_names": [
+              "resources": [
                 "Stone_model_tex_small_d4(p:0.2)(hitbox:box_02_1_02_hitbox)",
                 "desert_rock01_small_d2_s15(p:0.2)(hitbox:box_02_1_02_hitbox)"]}],
           "water_height": "%water_height",
