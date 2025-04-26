@@ -4,94 +4,128 @@
     "call": "globals",
     "arguments": {
       "loaded_level_id": "%selected_level_id",
+      "osm_location": {
+        "position": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scale": 1
+      },
       "aggregate_mode": "none",
-      "vip_name": "you"
+      "vip_name": "you",
+      "player_role": "driver"
     }
   },
   {
-    "call": "resource_locations",
+    "call": "obj_resource",
     "arguments": {
-      "filters": [
-        {"included_tags": "attr_visible"},
-        {"included_tags": "attr_collide"}
-      ],
-      "rw_resource_files": "%%levels/$loaded_level_id/rw_resource_files",
-      "rw_ide_files": "%%levels/$loaded_level_id/rw_ide_files",
-      "pssg_files": "%%levels/$loaded_level_id/pssg_files",
-      "double_precision": false,
-      "resource_variable": "available_resources",
-      "instantiables_variable": "available_instantiables",
-      "# texture": "grid4",
+      "name": "%loaded_level_id",
+      "filename": "%stage_ini_filename",
+      "double_precision": true,
       "config": {
         "position": [0, 0, 0],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
-        "max_triangle_distance": 1000,
+        "max_triangle_distance": 300,
         "blend_mode": "semi_continuous_02",
         "alpha_distances": [0, 0, "inf", "inf"],
-        "occluded_pass": "lightmap_black_movables",
+        "occluded_pass": "none",
         "occluder_pass": "none",
         "anisotropic_filtering_level": 16,
         "magnifying_interpolation_mode": "linear",
         "aggregate_mode": "%aggregate_mode",
         "transformation_mode": "all",
-        "emissive_factor": "%rw_emissive_factor",
-        "ambient_factor": "%rw_ambient_factor",
-        "diffuse_factor": "%rw_diffuse_factor",
-        "specular_factor": "%rw_specular_factor",
-        "physics_material": "obj_chassis|attr_visible|attr_collide|attr_concave",
+        "emissive_factor": "%ac_emissive_factor",
+        "ambient_factor": "%ac_ambient_factor",
+        "diffuse_factor": "%ac_diffuse_factor",
+        "specular_factor": "%ac_specular_factor",
         "fresnel": {
-          "min": "%rw_fresnel_min",
-          "max": "%rw_fresnel_max",
-          "exponent": "%rw_fresnel_exponent",
-          "ambient": "%rw_fresnel_ambient"
+          "min": -1,
+          "max": -1,
+          "exponent": -1,
+          "ambient": "%ac_fresnel_ambient"
         },
-        "fog_distances": "%fog_distances",
-        "fog_ambient": "%fog_ambient",
+        "physics_material": "none",
         "triangle_tangent_error_behavior": "zero"
       }
     }
   },
   {
+    "call": "register_geographic_mapping",
+    "arguments": {
+      "name": "world",
+      "transformation": "%osm_location",
+      "resource": "%loaded_level_id"
+    }
+  },
+  {
     "comment": {
-      "call": "save_to_obj_file",
+      "call": "delete_mesh",
       "arguments": {
-        "resource": "tracksplit.pssg#!1g",
-        "prefix": "/tmp/tracksplit_elem.obj"
+        "resource_name": "%loaded_level_id",
+        "where": "obj_grass"
       }
     }
   },
   {
-    "comment": {
-      "call": "modify_physics_material_tags",
-      "arguments": {
-        "resource_names": "%%levels/$loaded_level_id/invisible_resources",
-        "remove": "attr_visible|attr_collide"
-      }
+    "call": "cleanup_mesh",
+    "arguments": {
+      "resource_name": "%loaded_level_id",
+      "min_distance_material_filter": "attr_collide",
+      "min_vertex_distance": 1e-2
     }
   },
   {
-    "call": "modify_physics_material_tags",
+    "call": "merge_textures",
     "arguments": {
-      "resource_names": "%available_resources",
-      "included_names": "%%levels/$loaded_level_id/no_collide_included_names",
-      "remove": "attr_collide"
+      "resource_name": "%loaded_level_id",
+      "merged_resource_name": "$loaded_level_id-_trees",
+      "merged_texture_name": "$loaded_level_id-_trees",
+      "merged_array_name": "$loaded_level_id-_trees",
+      "merged_blend_mode": "semi_continuous_02",
+      "merged_continuous_blending_z_order": 1,
+      "merged_occluded_pass": "none",
+      "merged_occluder_pass": "lightmap_black_global_and_local",
+      "merged_aggregate_mode": "sorted",
+      "merged_max_triangle_distance": 300,
+      "merged_cull_faces": true,
+      "merged_mip_level_count": 8,
+      "merged_anisotropic_filtering_level": 0
     }
   },
   {
-    "call": "modify_physics_material_tags",
+    "exclude": ["%if_android"],
+    "call": "add_foliage",
     "arguments": {
-      "resource_names": "%available_resources",
-      "included_names": "%%levels/$loaded_level_id/tarmac_included_names",
-      "add": "surface_base_tarmac|attr_contains_skidmarks"
+      "mesh_resource_name": "%loaded_level_id",
+      "foliage_resource_name": "$loaded_level_id-_foliage",
+      "near_grass_resource_names": ["vegetation10_close.0"],
+      "dirty_near_grass_resource_names": ["vegetation10_close.1"],
+      "near_grass_distance": 3,
+      "near_grass_foliagemap": "textures/noise/foliagemap.png",
+      "near_grass_foliagemap_period": 0.01
     }
   },
   {
-    "call": "modify_physics_material_tags",
+    "call": "replace_terrain_material",
     "arguments": {
-      "resource_names": "%available_resources",
-      "excluded_names": "%%levels/$loaded_level_id/tarmac_included_names",
-      "add": "surface_base_concrete"
+      "resource_name": "%loaded_level_id",
+      "textures": [
+        "#Ground037_Sl_1",
+        "#Ground037_Sl_8_1",
+        "#Ground037_Sl_64",
+        "#Ground037_Sl_256"],
+      "uv_scale": 3e-1,
+      "uv_period": 256
+    }
+  },
+  {
+    "call": "cluster_elements",
+    "arguments": {
+      "resource_names": ["%loaded_level_id", "$loaded_level_id-_trees"],
+      "width": [500, 500, 500],
+      "center_distances": [0, 3000],
+      "rendering_dynamics": "static",
+      "resource_variable": "available_resources",
+      "instantiables_variable": "available_instantiables"
     }
   },
   {
@@ -104,9 +138,6 @@
       "stadium_camera_position": [0, 500, 500],
       "score_board": "player|history|laps|rank|race_time",
       "osm_map_resource": null,
-      "osm_position": null,
-      "osm_rotation": null,
-      "osm_scale": null,
       "if_has_overlay": false,
       "if_dirtmap": false,
       "if_extract_alignment_planes": false,
@@ -114,7 +145,7 @@
       "if_gen_instances": false,
       "barrier_depth": 0,
       "if_with_geographic_mapping": true,
-      "dirtmap_texture": "#dirtmap_dense",
+      "dirtmap_texture": null,
       "dirtmap_offset": 0,
       "dirtmap_discreteness": 1,
       "dirt_scale": 0.5,
@@ -129,10 +160,10 @@
     "call": "instantiate",
     "context": "primary_scene",
     "arguments": {
-      "ipl_files": "%%levels/$loaded_level_id/ipl_files",
+      "ipl_files": [],
       "instantiables": "%available_instantiables",
-      "required_prefixes": "%%levels/$loaded_level_id/instantiated_required_prefixes",
-      "except": "%%levels/$loaded_level_id/instantiated_exclude",
+      "required_prefixes": [""],
+      "except": [],
       "dynamics": "static",
       "instantiated_resources": "instantiated_resources"
     }
@@ -142,16 +173,6 @@
     "context": "primary_scene",
     "arguments": {
       "min_vertex_distance": 0.05
-    }
-  },
-  {
-    "required": ["%%levels/$loaded_level_id/grass_files != %null"],
-    "call": "instantiate_grass",
-    "context": "primary_scene",
-    "arguments": {
-      "filenames": "%%levels/$loaded_level_id/grass_files",
-      "resources": "%%levels/$loaded_level_id/grass_resources",
-      "height_tolerance": 1.5
     }
   },
   {
@@ -185,6 +206,8 @@
         "checkpoints_file": null,
         "checkpoints": "%%levels/$loaded_level_id/checkpoints",
         "pacenotes_file": null,
+        "teams_spawn_points_resource": null,
+        "teams_way_points_resource": null,
         "if_playback_checkpoints": false,
         "if_playback_track_1": false,
         "if_playback_track_2": false,
