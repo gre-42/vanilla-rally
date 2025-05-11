@@ -169,8 +169,8 @@
         "transformation_mode": "all",
         "textures": ["fueguito"],
         "billboards": [
-          {"uv_scale": [0.5625, 0.84375], "uv_offset": [0, 0], "vertex_scale": [0.1, 0.1, 0.25], "alpha_distances": [0, 0, 250, 400], "max_center_distance": 503, "occluder_pass": "none"},
-          {"uv_scale": [0.5625, 0.84375], "uv_offset": [0.5, 0], "vertex_scale": [0.5, 0.5, 1], "alpha_distances": [0, 0, 250, 400], "max_center_distance": 503, "occluder_pass": "none"}
+          {"uv_scale": [0.28125, 0.84375], "uv_offset": [0, 0], "vertex_scale": [0.1, 0.1, 0.25], "alpha_distances": [0, 0, 250, 400], "max_center_distance": 503, "occluder_pass": "none"},
+          {"uv_scale": [0.28125, 0.84375], "uv_offset": [0.5, 0], "vertex_scale": [0.5, 0.5, 1], "alpha_distances": [0, 0, 250, 400], "max_center_distance": 503, "occluder_pass": "none"}
         ]
       }
     }
