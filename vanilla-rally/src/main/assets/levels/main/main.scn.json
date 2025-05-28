@@ -33,7 +33,7 @@
     "context": "primary_scene",
     "arguments": {
       "if_dirtmap": false,
-      "IF_SKYBOX": false
+      "if_skybox": false
     }
   },
   {

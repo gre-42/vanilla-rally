@@ -8,11 +8,19 @@
           "thread can read the global parameters without data races"]
       },
       {
-        "call": "set_focuses",
-        "arguments": {"focuses": []}
+        "call": "for_each_user",
+        "context": "primary_scene",
+        "arguments": {
+          "content": {
+            "call": "set_focuses",
+            "context": "primary_scene_$user_name",
+            "arguments": {"focuses": []}
+          }
+        }
       },
       {
         "call": "execute_in_physics_thread",
+        "context": "primary_scene",
         "arguments": {
           "command": { "playback": "scene_racing_setup_new_round" }
         }
@@ -35,58 +43,60 @@
     "content": {
       "playback": "__change_showroom_vehicle_in_physics_thread",
       "let": {
-        "vehicle_name": "%%vehicles/$selected_vehicle_id/suffix",
-        "vehicle_class": "%%vehicles/$selected_vehicle_id/class",
+        "vehicle_name": "%%vehicles/${selected_vehicle_id_$user_name}/suffix",
+        "vehicle_class": "%%vehicles/${selected_vehicle_id_$user_name}/class",
         "vehicle_color": "%selected_player_vehicle_color"
       }
     }
   },
   {
-    "declare_macro": "_setup_menu_primary_scene_game_mode_selector",
-    "content": [
-      {
-        "call": "ui_background",
-        "arguments": {
-          "z_order": 1,
-          "texture": "#ui_background_cars",
-          "left": "min",
-          "right": "end",
-          "bottom": "min",
-          "top": "end",
-          "delay_load_policy": "no_delay",
-          "focus_mask": "menu_any|loading"
-        }
-      },
-      {
-        "call": "parameter_setter",
-        "arguments": {
-          "id": "game_mode_selector",
-          "focus_mask": "new_game_menu",
-          "title": "%%translations/main/Game_mode/$selected_language",
-          "icon": "game_mode_icon",
-          "left": "submenu_left",
-          "right": "submenu_right",
-          "bottom": "submenu_bottom",
-          "top": "submenu_top",
-          "charset": "%selected_language",
-          "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "font_color": "%ui_font_color",
-          "font_height": "normal",
-          "line_distance": "normal",
-          "deflt": 0,
-          "database_filter": {
-            "database": "levels",
-            "variable": "game_modes"
-          },
-          "hide_if_trivial": true,
-          "parameters": [
-            {"id": "rally", "title": "Rally", "on_before_select": { "call": "globals", "arguments": {"game_mode": "rally"}}},
-            {"id": "skating", "title": "Skating", "on_before_select": { "call": "globals", "arguments": {"game_mode": "skating"}}},
-            {"id": "team_deathmatch", "title": "Team deathmatch", "on_before_select": { "call": "globals", "arguments": {"game_mode": "team_deathmatch"}}}
-          ]
-        }
+    "declare_macro": "_setup_menu_primary_scene_background",
+    "content": {
+      "call": "ui_background",
+      "arguments": {
+        "z_order": 1,
+        "texture": "#ui_background_cars",
+        "left": "min",
+        "right": "end",
+        "bottom": "min",
+        "top": "end",
+        "delay_load_policy": "no_delay",
+        "focus_mask": "menu_any|loading"
       }
-    ]
+    }
+  },
+  {
+    "declare_macro": "_setup_game_mode_selector",
+    "content": {
+      "call": "parameter_setter",
+      "arguments": {
+        "id": "game_mode_selector",
+        "focus_mask": "new_game_menu",
+        "title": "%%translations/main/Game_mode/$selected_language",
+        "icon": "game_mode_icon",
+        "left": "submenu_left",
+        "right": "submenu_right",
+        "bottom": "submenu_bottom",
+        "top": "submenu_top",
+        "charset": "%selected_language",
+        "ttf_file": "fonts/RobotoMono-Bold.ttf",
+        "font_color": "%ui_font_color",
+        "font_height": "normal",
+        "line_distance": "normal",
+        "user_id": "%user_id",
+        "deflt": 0,
+        "database_filter": {
+          "database": "levels",
+          "variable": "game_modes"
+        },
+        "hide_if_trivial": true,
+        "parameters": [
+          {"id": "rally", "title": "Rally", "on_before_select": { "call": "globals", "arguments": {"game_mode": "rally"}}},
+          {"id": "skating", "title": "Skating", "on_before_select": { "call": "globals", "arguments": {"game_mode": "skating"}}},
+          {"id": "team_deathmatch", "title": "Team deathmatch", "on_before_select": { "call": "globals", "arguments": {"game_mode": "team_deathmatch"}}}
+        ]
+      }
+    }
   },
   {
     "declare_macro": "_update_scene_icon",
@@ -103,6 +113,7 @@
     "declare_macro": "_setup_menu_primary_scene_rest",
     "content": [
       {
+        "required": ["%user_id == 0"],
         "call": "ui_exhibit",
         "arguments": {
           "z_order": 1,
@@ -117,6 +128,7 @@
         }
       },
       {
+        "required": ["%user_id == 0"],
         "call": "scene_selector",
         "arguments": {
           "id": "scene_selector",
@@ -131,6 +143,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "on_change": {
             "playback": "_update_scene_icon"
           },
@@ -202,19 +215,35 @@
     "declare_macro": "create_main_menu",
     "content": [
       {
-        "playback": "_setup_menu_primary_scene_game_mode_selector",
-        "context": "primary_scene"
+        "playback": "_create_showroom_resources"
       },
       {
-        "playback": "create_showroom_scene"
-      },
-      {
-        "playback": "_setup_menu_showroom",
-        "context": "showroom"
-      },
-      {
-        "playback": "_setup_menu_primary_scene_rest",
-        "context": "primary_scene"
+        "call": "for_each_user",
+        "context": "primary_scene",
+        "arguments": {
+          "content": [
+            {
+              "playback": "_setup_menu_primary_scene_background",
+              "context": "primary_scene_$user_name"
+            },
+            {
+              "required": ["%user_id == 0"],
+              "playback": "_setup_game_mode_selector",
+              "context": "primary_scene_$user_name"
+            },
+            {
+              "playback": "create_showroom_scene"
+            },
+            {
+              "playback": "_setup_menu_showroom",
+              "context": "showroom_$user_name"
+            },
+            {
+              "playback": "_setup_menu_primary_scene_rest",
+              "context": "primary_scene_$user_name"
+            }
+          ]
+        }
       }
     ]
   },
@@ -232,7 +261,7 @@
     "content": {
       "call": "scene_to_pixel_region",
       "arguments": {
-        "target_scene": "primary_scene",
+        "target_scene": "primary_scene_$user_name",
         "z_order": 2,
         "left": "showroom_left",
         "right": "showroom_right",
@@ -270,6 +299,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "z_order": 2
         }
@@ -310,6 +340,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "z_order": 2
         }
@@ -338,6 +369,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "z_order": 2
         }
@@ -378,6 +410,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "on_execute": [
             {
@@ -392,7 +425,8 @@
             {
               "required": ["%selected_level_id == %loaded_level_id"],
               "execute": {
-                "playback": "_reload_transient_objects_in_physics_thread"
+                "playback": "_reload_transient_objects_in_physics_thread",
+                "without": ["user_id", "user_name"]
               }
             }
           ],
@@ -405,6 +439,7 @@
     "declare_macro": "parameter_setters",
     "content": [
       {
+        "required": ["%user_id == 0"],
         "call": "add_charset",
         "arguments": {
           "name": "language",
@@ -412,6 +447,7 @@
         }
       },
       {
+        "required": ["%user_id == 0"],
         "call": "parameter_setter",
         "arguments": {
           "id": "language",
@@ -427,6 +463,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "persistent": "language",
           "assets": "languages",
@@ -462,6 +499,7 @@
         }
       },
       {
+        "required": ["%user_id == 0"],
         "call": "reload_required",
         "arguments": {
           "title": "$$translations/main/Reload_required/$selected_language:",
@@ -496,6 +534,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "parameters": [
             {
@@ -545,6 +584,7 @@
         "arguments": { "selected_player_vehicle_color": [1, 1, 0] }
       },
       {
+        "required": ["%user_id == 0"],
         "call": "parameter_setter",
         "arguments": {
           "id": "time_of_day_selector",
@@ -561,6 +601,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "parameters": [
             {
@@ -601,6 +642,7 @@
         }
       },
       {
+        "required": ["%user_id == 0"],
         "call": "parameter_setter",
         "arguments": {
           "id": "restrictions_selector",
@@ -617,6 +659,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "parameters": [
             {"id": "car", "title": "%%translations/main/Car/$selected_language", "on_before_select": { "call": "globals", "arguments": {"race_restrictions": "car"}}},
@@ -640,10 +683,11 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "on_change": {
             "playback": "_change_showroom_vehicle_in_physics_thread",
-            "context": "showroom"
+            "context": "showroom_$user_name"
           },
           "assets": "vehicles"
         }
@@ -665,10 +709,11 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "on_change": {
             "playback": "_change_showroom_vehicle_in_physics_thread",
-            "context": "showroom"
+            "context": "showroom_$user_name"
           },
           "parameters": [
             {"id": "white", "title": "%%translations/main/White/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [1,    1,    1]}}},
@@ -681,7 +726,7 @@
         }
       },
       {
-        "required": ["%if_devel"],
+        "required": ["%if_devel", "%user_id == 0"],
         "call": "parameter_setter",
         "arguments": {
           "id": "session_selector",
@@ -698,6 +743,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "parameters": [
             {"id": "'1'", "title": "Session1", "on_before_select": { "call": "globals", "arguments": {"race_session": "session1"}}},
@@ -710,10 +756,12 @@
       },
       {
         "call": "globals",
+        "required": ["%user_id == 0"],
         "exclude": ["%if_devel"],
         "arguments": { "race_session": "session1" }
       },
       {
+        "required": ["%user_id == 0"],
         "call": "parameter_setter",
         "arguments": {
           "id": "laps_selector",
@@ -730,6 +778,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "parameters": [
             {"id": "'1'", "title": "'1 Lap'",   "on_before_select": { "call": "globals", "arguments": {"race_laps": 1}}},
@@ -741,7 +790,7 @@
         }
       },
       {
-        "required": ["%if_devel"],
+        "required": ["%if_devel", "%user_id == 0"],
         "call": "parameter_setter",
         "arguments": {
           "id": "playback_ranks_selector",
@@ -758,6 +807,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "parameters": [
             {"id": "none", "title": "No replay", "on_before_select": { "call": "globals", "arguments": {"if_playback_winner_0": false, "if_playback_winner_1": false, "if_playback_winner_2": false}}},
@@ -769,11 +819,12 @@
       },
       {
         "call": "globals",
+        "required": ["%user_id == 0"],
         "exclude": ["%if_devel"],
         "arguments": { "if_playback_winner_0": false, "if_playback_winner_1": false, "if_playback_winner_2": false }
       },
       {
-        "required": ["%if_devel"],
+        "required": ["%if_devel", "%user_id == 0"],
         "exclude": ["%if_android"],
         "call": "parameter_setter",
         "arguments": {
@@ -790,6 +841,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 1,
           "on_change": {
             "call": "set_render_fps",
@@ -804,7 +856,7 @@
         }
       },
       {
-        "required": ["%if_devel"],
+        "required": ["%if_devel", "%user_id == 0"],
         "call": "parameter_setter",
         "arguments": {
           "id": "playback_speed_selector",
@@ -821,6 +873,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 2,
           "parameters": [
             {"id": "'80'", "title": "'80%'", "on_before_select": { "call": "globals", "arguments": {"playback_speed": 0.8}}},
@@ -833,11 +886,12 @@
       },
       {
         "call": "globals",
+        "required": ["%user_id == 0"],
         "exclude": ["%if_devel"],
         "arguments": { "playback_speed": 1 }
       },
       {
-        "required": ["%if_devel"],
+        "required": ["%if_devel", "%user_id == 0"],
         "call": "parameter_setter",
         "arguments": {
           "id": "tripod_mode",
@@ -853,6 +907,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 1,
           "parameters": [
             {"id": "enabled", "title": "%%translations/main/Enabled/$selected_language", "on_before_select": { "call": "globals", "arguments": {"if_tripod_mode": true}}},
@@ -862,6 +917,7 @@
       },
       {
         "call": "globals",
+        "required": ["%user_id == 0"],
         "exclude": ["%if_devel"],
         "arguments": { "if_tripod_mode": false }
       },
@@ -881,6 +937,7 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
+          "user_id": "%user_id",
           "deflt": 0,
           "on_execute": {
             "call": "append_focuses",
@@ -889,11 +946,11 @@
             }
           },
           "parameters": [
-            {"id": "keyboard", "title": "Keyboard", "on_before_select": { "call": "globals", "arguments": {"input_type": "keyboard"}}},
-            {"id": "mouse", "title": "Mouse", "on_before_select": { "call": "globals", "arguments": {"input_type": "mouse"}}},
-            {"id": "tap_button", "title": "Tap button", "on_before_select": { "call": "globals", "arguments": {"input_type": "tap_button"}}},
-            {"id": "joystick", "title": "Joystick/gamepad", "on_before_select": { "call": "globals", "arguments": {"input_type": "joystick"}}},
-            {"id": "all", "title": "All", "on_before_select": { "call": "globals", "arguments": {"input_type": "all"}}}
+            {"id": "keyboard", "title": "Keyboard", "on_before_select": { "call": "globals", "arguments": {"input_type_$user_name": "keyboard"}}},
+            {"id": "mouse", "title": "Mouse", "on_before_select": { "call": "globals", "arguments": {"input_type_$user_name": "mouse"}}},
+            {"id": "tap_button", "title": "Tap button", "on_before_select": { "call": "globals", "arguments": {"input_type_$user_name": "tap_button"}}},
+            {"id": "joystick", "title": "Joystick/gamepad", "on_before_select": { "call": "globals", "arguments": {"input_type_$user_name": "joystick"}}},
+            {"id": "all", "title": "All", "on_before_select": { "call": "globals", "arguments": {"input_type_$user_name": "all"}}}
           ]
         }
       },
@@ -914,7 +971,8 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
-          "deflt": 0
+          "deflt": 0,
+          "user_id": "%user_id"
         }
       },
       {
@@ -933,7 +991,8 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
-          "deflt": 0
+          "deflt": 0,
+          "user_id": "%user_id"
         }
       },
       {
@@ -952,7 +1011,8 @@
           "font_color": "%ui_font_color",
           "font_height": "normal",
           "line_distance": "normal",
-          "deflt": 0
+          "deflt": 0,
+          "user_id": "%user_id"
         }
       }
     ]
