@@ -430,7 +430,7 @@
       "playback": "add_attached_light_sedan",
       "arguments": {
         "lsuffix": "%lsuffix",
-        "CSUFFIX": "%CSUFFIX"
+        "csuffix": "%csuffix"
       }
     }
   }

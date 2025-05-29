@@ -8,8 +8,8 @@
           "dynamics": "moving",
           "name": "skater_node$suffix",
           "scale": 1,
-          "position": "%skater_node_position",
-          "rotation": [0, "%skater_node_angle_y", 0]
+          "position": "%human_node_position",
+          "rotation": [0, "%human_node_angle_y", 0]
         }
       },
       {
@@ -53,7 +53,7 @@
         }
       },
       {
-        "comment": "if_shadow macro_playback add_attached_light-asset_id lsuffix:_skater$suffix CSUFFIX:suffix"
+        "comment": "if_shadow macro_playback add_attached_light-asset_id lsuffix:_skater$suffix csuffix:suffix"
       },
       {
         "required": ["%if_spawner"],
@@ -95,9 +95,9 @@
     "declare_macro": "create_player_skater_internals",
     "content": [
       {
-        "playback": "create_player_skater_internals_$skater_name",
+        "playback": "create_player_skater_internals_$asset_id",
         "arguments": {
-          "name": "%skater_name"
+          "name": "%asset_id"
         }
       }
     ]

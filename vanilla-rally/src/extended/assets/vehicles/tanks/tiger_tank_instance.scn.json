@@ -288,7 +288,7 @@
     "content": [
       {"playback": "add_attached_light_tank", "arguments": {
         "lsuffix": "%lsuffix",
-        "CSUFFIX": "%CSUFFIX"}}
+        "csuffix": "%csuffix"}}
     ]
   }
 ]
