@@ -16,8 +16,9 @@
   {"include": "textures/textures.scn.json"},
   
   {"include": "animations.scn.json"},
-  {"include": "vehicle_classes/create_car.scn.json"},
   {"include": "vehicle_classes/create_avatar.scn.json"},
+  {"include": "vehicle_classes/create_car.scn.json"},
+  {"include": "vehicle_classes/create_ship.scn.json"},
   {"include": "vehicle_classes/create_skater.scn.json"},
   {"include": "billboards/billboards.scn.json"},
   {"required": ["%flavor == 'extended'"], "include": "weapons/weapon_instances.scn.json"},
@@ -36,6 +37,8 @@
 
   {"include": "lights/lights.scn.json"},
   {"include": "local_skidmarks.scn.json"},
+  {"include": "local_water_waves.scn.json"},
+  {"include": "local_sea_spray.scn.json"},
   {"include": "main_menu/main_menu.scn.json"},
   {"include": "scenes/scene_racing.scn.json"},
   {"include": "scenes/showroom.scn.json"},
