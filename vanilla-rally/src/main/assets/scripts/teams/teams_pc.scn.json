@@ -16,7 +16,7 @@
           "driving_direction": "center"
         }
       },
-      { "call": "spawner_create", "arguments": { "name": "%player_name", "team": "%team" } },
+      { "call": "spawner_create", "arguments": { "name": "%player_name", "team": "%team", "group": "%spawn_group" } },
       { "call": "spawner_set_player", "arguments": { "name": "%player_name", "seat": "%seat" } },
       {
         "playback": "set_player_skills"
@@ -121,5 +121,11 @@
         }
       }
     ]
+  },
+  {
+    "declare_macro": "teams.create_player_and_ship_for_pc",
+    "content": {
+      "playback": "teams.create_player_and_car_for_pc"
+    }
   }
 ]
