@@ -16,7 +16,6 @@
     "vehicle_class": "avatar",
     "node_prefixes": ["human_node"],
     "spawn_y_offset": 0.7,
-    "door_distance": 3,
     "max_tire_angle": null
   },
   "required": {
