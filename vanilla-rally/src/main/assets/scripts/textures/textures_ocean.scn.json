@@ -45,8 +45,8 @@
     "call": "add_texture_atlas",
     "arguments": {
       "name": "ocean_uniform_normal_atlas",
-      "width": 512,
-      "height": 512,
+      "width": 128,
+      "height": 128,
       "layers": 3,
       "depth_interpolation": "linear",
       "mipmap_mode": "with_mipmaps_2d",
