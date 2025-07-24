@@ -6,6 +6,10 @@ if [ ! -d openal-soft ]; then
     git clone https://github.com/kcat/openal-soft.git
 fi
 
+pushd openal-soft
+git checkout d9cfd6ab31a996797c36717a7d3887aa564f4847
+popd
+
 if [[ ! -v NPROC ]]; then NPROC=$(nproc); fi
 
 for ANDROID_ABI in armeabi-v7a arm64-v8a x86 x86_64; do
