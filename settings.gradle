@@ -1,2 +1,1 @@
-include ':recast'
 include ':vanilla-rally'
