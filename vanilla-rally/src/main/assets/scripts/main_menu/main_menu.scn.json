@@ -254,11 +254,6 @@
             {
               "playback": "_setup_menu_primary_scene_rest",
               "context": "primary_scene_$user_name"
-            },
-            {
-              "call": "try_append_focuses",
-              "context": "primary_scene_$user_name",
-              "arguments": { "content": ["main_menu"] }
             }
           ]
         }
