@@ -5,8 +5,7 @@
   {
     "call": "globals",
     "arguments": {
-      "loaded_level_id": "",
-      "user_count": "%selected_user_count"
+      "loaded_level_id": ""
     }
   },
   {
@@ -50,11 +49,6 @@
             "layout": "tiled",
             "user_id": "%user_id"
           }
-        },
-        {
-          "call": "try_append_focuses",
-          "context": "primary_scene_$user_name",
-          "arguments": { "content": ["main_menu"] }
         }
       ]
     }
