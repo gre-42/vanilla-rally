@@ -45,7 +45,7 @@
       "let": {
         "vehicle_name": "%%vehicles/${selected_vehicle_id_$user_name}/suffix",
         "vehicle_class": "%%vehicles/${selected_vehicle_id_$user_name}/vehicle_class",
-        "vehicle_color": "%selected_player_vehicle_color"
+        "vehicle_color": "%selected_player_vehicle_color_$user_name"
       }
     }
   },
@@ -595,7 +595,7 @@
       {
         "#comment": "Some initial color so the code does not crash until the real color is defined",
         "call": "globals",
-        "arguments": { "selected_player_vehicle_color": [1, 1, 0] }
+        "arguments": { "selected_player_vehicle_color_$user_name": [1, 1, 0] }
       },
       {
         "required": ["%user_id == 0"],
@@ -731,12 +731,12 @@
             "context": "showroom_$user_name"
           },
           "parameters": [
-            {"id": "white", "title": "%%translations/main/White/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [1, 1, 1]}}},
-            {"id": "gray", "title": "%%translations/main/Gray/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.5, 0.5, 0.5]}}},
-            {"id": "red", "title": "%%translations/main/Red/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.7, 0.05, 0.09]}}},
-            {"id": "green", "title": "%%translations/main/Green/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.52, 0.63, 0.54]}}},
-            {"id": "blue", "title": "%%translations/main/Blue/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.51, 0.56, 0.62]}}},
-            {"id": "black", "title": "%%translations/main/Black/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color": [0.06, 0.07, 0.06]}}}
+            {"id": "white", "title": "%%translations/main/White/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color_$user_name": [1, 1, 1]}}},
+            {"id": "gray", "title": "%%translations/main/Gray/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color_$user_name": [0.5, 0.5, 0.5]}}},
+            {"id": "red", "title": "%%translations/main/Red/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color_$user_name": [0.7, 0.05, 0.09]}}},
+            {"id": "green", "title": "%%translations/main/Green/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color_$user_name": [0.52, 0.63, 0.54]}}},
+            {"id": "blue", "title": "%%translations/main/Blue/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color_$user_name": [0.51, 0.56, 0.62]}}},
+            {"id": "black", "title": "%%translations/main/Black/$selected_language", "on_before_select": { "call": "globals", "arguments": {"selected_player_vehicle_color_$user_name": [0.06, 0.07, 0.06]}}}
           ]
         }
       },
@@ -772,7 +772,7 @@
       {
         "call": "globals",
         "required": ["%user_id == 0"],
-        "exclude": ["%if_devel"],
+        "exclude": "%if_devel",
         "arguments": { "race_session": "session1" }
       },
       {
@@ -803,6 +803,12 @@
             {"id": "'16'", "title": "'16 Laps'", "on_before_select": { "call": "globals", "arguments": {"race_laps": 16}}}
           ]
         }
+      },
+      {
+        "call": "globals",
+        "required": ["%user_id == 0", "%selected_game_mode == 'rally'"],
+        "exclude": "%%levels/$selected_level_id/if_raceway_circular",
+        "arguments": { "race_laps": 1 }
       },
       {
         "required": ["%if_devel", "%user_id == 0"],
