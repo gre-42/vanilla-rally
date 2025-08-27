@@ -14,7 +14,7 @@
       },
       {
         "call": "add_color_style",
-        "required": ["%if_human_style"],
+        "required": "%if_human_style",
         "arguments": {
           "node": "human_node$suffix",
           "ambient": "%color",
@@ -22,7 +22,7 @@
         }
       },
       {
-        "required": ["%if_human_style"],
+        "required": "%if_human_style",
         "call": "set_animation_state",
         "arguments": {
           "nodes": ["human_node$suffix"],
@@ -39,7 +39,7 @@
         "playback": "create_avatar_cameras_persistent"
       },
       {
-        "required": ["%if_spawner"],
+        "required": "%if_spawner",
         "call": "spawner_set_nodes",
         "arguments": {
           "asset_id": "%asset_id",
@@ -48,7 +48,7 @@
         }
       },
       {
-        "required": ["%if_spawner"],
+        "required": "%if_spawner",
         "call": "set_respawn_cooldown_time",
         "arguments": {
           "spawner": "%spawner_name",
@@ -59,7 +59,25 @@
         "comment": "if_shadow macro_playback add_attached_light_$asset_id lsuffix:_human$suffix csuffix:suffix;"
       },
       {
-        "required": ["%if_spawner"],
+        "required": "%if_damageable",
+        "call": "damageable",
+        "arguments": {
+          "node": "human_node$suffix",
+          "health": 200,
+          "delete_node_when_health_leq_zero": false,
+          "gid": { "group": "translations", "id": "scene" }
+        }
+      },
+      {
+        "required": "%if_damageable",
+        "call": "crash",
+        "arguments": {
+          "node": "human_node$suffix",
+          "damage": 0.000001
+        }
+      },
+      {
+        "required": "%if_spawner",
         "call": "set_externals_creator",
         "without": ["user_id", "user_name", "player_name"],
         "arguments": {
@@ -74,13 +92,15 @@
       },
       {
         "comment": {
-          "playback": "visual_node_status_3rd",
-          "node": "human_node$suffix",
-          "format": 8,
-          "ttf_file": "fonts/RobotoMono-Bold.ttf",
-          "offset": "0 0.3",
-          "font_height": 16,
-          "line_distance": 16
+          "call": "visual_node_status_3rd",
+          "arguments": {
+            "node": "human_node$suffix",
+            "format": 8,
+            "ttf_file": "fonts/RobotoMono-Bold.ttf",
+            "offset": [0, 0.3],
+            "font_height": 16,
+            "line_distance": 16
+          }
         }
       }
     ]
@@ -89,7 +109,7 @@
     "declare_macro": "create_player_avatar_externals",
     "content": [
       {
-        "required": ["%if_pc"],
+        "required": "%if_pc",
         "playback": "create_avatar_cameras_pc"
       }
     ]
@@ -101,12 +121,12 @@
         "playback": "create_player_avatar_internals_$asset_id"
       },
       {
-        "required": ["%if_pc"],
+        "required": "%if_pc",
         "playback": "create_avatar_key_bindings",
         "context": "primary_scene_$user_name"
       },
       {
-        "required": ["%if_pc"],
+        "required": "%if_pc",
         "call": "hud_target_point",
         "context": "primary_scene_$user_name",
         "arguments": {
@@ -120,7 +140,7 @@
           "filename": "textures/hud/crosshair.png"}
       },
       {
-        "required": ["%if_pc"],
+        "required": "%if_pc",
         "call": "visual_player_bullet_count",
         "context": "primary_scene_$user_name",
         "arguments": {
@@ -138,7 +158,7 @@
         }
       },
       {
-        "required": ["%if_with_gun"],
+        "required": "%if_with_gun",
         "call": "player_set_aiming_gun",
         "arguments": {
           "player": "%player_name",
