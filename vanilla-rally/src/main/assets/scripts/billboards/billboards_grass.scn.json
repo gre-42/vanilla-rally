@@ -10,7 +10,13 @@
       "texture_filename": "textures/grass.png",
       "min": [-2, 0],
       "max": [2, 4],
-      "aggregate_mode": "sorted"
+      "occluded_pass": "none",
+      "occluder_pass": "none",
+      "ambient": [1, 1, 1],
+      "blend_mode": "continuous",
+      "alpha_distances": [0, 0, "inf", "inf"],
+      "aggregate_mode": "sorted",
+      "transformation_mode": "all"
     }
   },
   {
@@ -21,7 +27,13 @@
       "texture_filename": "textures/00210_Baeume_Key_LOW-cropped.png",
       "min": [-5, 0],
       "max": [5, 10],
-      "aggregate_mode": "sorted"
+      "occluded_pass": "none",
+      "occluder_pass": "none",
+      "ambient": [1, 1, 1],
+      "blend_mode": "continuous",
+      "alpha_distances": [0, 0, "inf", "inf"],
+      "aggregate_mode": "sorted",
+      "transformation_mode": "all"
     }
   },
   {
@@ -32,7 +44,13 @@
       "texture_filename": "textures/pine_norm_gr1.png",
       "min": [-5, 0],
       "max": [5, 10],
-      "aggregate_mode": "sorted"
+      "occluded_pass": "none",
+      "occluder_pass": "none",
+      "ambient": [1, 1, 1],
+      "blend_mode": "continuous",
+      "alpha_distances": [0, 0, "inf", "inf"],
+      "aggregate_mode": "sorted",
+      "transformation_mode": "all"
     }
   },
   {
