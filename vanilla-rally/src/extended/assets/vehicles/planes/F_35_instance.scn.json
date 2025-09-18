@@ -155,10 +155,10 @@
           "cool_down": 0.5,
           "range_min": 0,
           "range_max": 2000,
-          "create": {
+          "create_externals": {
             "call": "player_change_aiming_gun",
             "arguments": {
-              "player": "%weapon_demander",
+              "player": "%player_name",
               "gun_node": "main_gun_end_node$suffix"
             }
           }
@@ -174,10 +174,10 @@
           "cool_down": 0.5,
           "range_min": 0,
           "range_max": 2000,
-          "create": {
+          "create_externals": {
             "call": "player_change_aiming_gun",
             "arguments": {
-              "player": "%weapon_demander",
+              "player": "%player_name",
               "gun_node": "missile0_launcher_node$suffix"
             }
           }
