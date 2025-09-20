@@ -612,7 +612,7 @@
         }
       },
       {
-        "required": ["%behavior != 'none'"],
+        "required": "(%behavior != 'none')",
         "execute": [
           {
             "call": "create_drive_or_walk_ai",
