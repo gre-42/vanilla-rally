@@ -147,6 +147,7 @@
       },
       {
         "call": "add_weapon_to_cycle",
+        "without": ["user_id", "user_name", "player_name"],
         "arguments": {
           "cycle_node": "car_node$suffix",
           "entry_name": "dumb_bomb",
@@ -166,6 +167,7 @@
       },
       {
         "call": "add_weapon_to_cycle",
+        "without": ["user_id", "user_name", "player_name"],
         "arguments": {
           "cycle_node": "car_node$suffix",
           "entry_name": "missile0",
@@ -184,6 +186,15 @@
         }
       },
       {
+        "call": "set_desired_weapon",
+        "arguments": {
+          "player": null,
+          "cycle_node": "car_node$suffix",
+          "weapon": "dumb_bomb",
+          "equip_instantly": true
+        }
+      },
+      {
         "comment": [
           "28000 pounds = 124550 Newton",
           "43000 pounds = 191274 Newton"
@@ -197,8 +208,7 @@
           "angular_vels": [0],
           "powers": [0],
           "gear_ratios": [0],
-          "w_clutch": 0,
-          "hand_brake_pulled": "%hand_brake_pulled"
+          "w_clutch": 0
         }
       },
       {
@@ -210,9 +220,13 @@
           "powers": [260],
           "gear_ratios": [0],
           "w_clutch": 0,
-          "hand_brake_pulled": "%hand_brake_pulled",
           "exhaust": "%%vehicles/F_35/engine_exhaust"
         }
+      },
+      {
+        "required": "%parking_brake_pulled",
+        "call": "park_vehicle",
+        "arguments": { "rigid_body": "car_node$suffix" }
       },
       {
         "call": "wheel",
@@ -541,7 +555,7 @@
         "required": "%if_with_physics",
         "playback": "create_F_35_physics",
         "arguments": {
-            "mass": 20000,
+          "mass": 20000,
           "collidable_mode": "moving"
         }
       },
@@ -588,7 +602,7 @@
         "context": "primary_scene_$user_name",
         "arguments": {
           "player": "%player_name",
-          "exclusive_node": null,
+          "exclusive_nodes": null,
           "center": [0, 0],
           "size": [0.05, 0.05],
           "error_behavior": "hide",
@@ -601,7 +615,7 @@
         "context": "primary_scene_$user_name",
         "arguments": {
           "player": "%player_name",
-          "exclusive_node": null,
+          "exclusive_nodes": null,
           "left": "opponent_zoom_left",
           "right": "opponent_zoom_right",
           "bottom": "opponent_zoom_bottom",
