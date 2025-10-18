@@ -5,6 +5,7 @@ grossglockner_hochalpenstrasse
 island0
 jb_race
 main
+nyc_td0
 nyc_track1
 nyc_track2
 race_track0

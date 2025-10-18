@@ -1,7 +1,9 @@
 cars
 cars_with_trailers
+helicopters
 humans
-trailers
 planes
+ships
 tanks
+trailers
 turrets
