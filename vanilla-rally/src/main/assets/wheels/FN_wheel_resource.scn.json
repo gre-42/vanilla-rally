@@ -1,12 +1,13 @@
 [
   {
     "declare_macro": "load_FN_wheel",
-    "content": [
-      {
+    "content": {
+      "required": "%if_graphics",
+      "execute": {
         "call": "obj_resource",
         "arguments": {
           "name": "%name",
-          "filename": "models/SR/$name.obj",
+          "filename": "file://models/SR/$name.$mesh",
           "config": {
             "position": [0, 0, 0],
             "rotation": [0, 0, 0],
@@ -26,8 +27,15 @@
             "werror": false
           }
         }
+      },
+      "else_": {
+        "call": "invisible_resource",
+        "arguments": {
+          "name": "%name",
+          "aggregate_mode": "none"
+        }
       }
-    ]
+    }
   },
   {
     "declare_macro": "load_FN_wheels",

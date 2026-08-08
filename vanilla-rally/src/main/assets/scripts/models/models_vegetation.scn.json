@@ -3,27 +3,28 @@
     "call": "obj_resource",
     "arguments": {
       "name": "bamboo",
-      "filename": "models/deviantart.com/yughues-Free-Houseplants-356618110/bamboo/bamboo.obj",
+      "filename": "file://models/deviantart.com/yughues-Free-Houseplants-356618110/bamboo/bamboo.$mesh",
       "config": {
         "position": [0, 0, 0],
         "rotation": [0, 0, 0],
         "scale": [0.05, 0.05, 0.05],
-        "center_distances": [0, 100],
+        "center_distances": [0, 500],
         "blend_mode": "semi_continuous_02",
-        "alpha_distances": [0, 0, 50, 80],
+        "alpha_distances": [0, 0, "inf", "inf"],
         "occluded_pass": "lightmap_black_global_static",
         "occluder_pass": "lightmap_black_local_instances",
         "aggregate_mode": "instances_sorted",
         "transformation_mode": "position",
         "triangle_tangent_error_behavior": "zero",
-        "emissive_factor": "%vanilla_rally_emissive_factor",
-        "ambient_factor": "%vanilla_rally_ambient_factor",
-        "diffuse_factor": "%vanilla_rally_diffuse_factor",
-        "specular_factor": "%vanilla_rally_specular_factor",
+        "emissive_factor": "%default_emissive_factor",
+        "ambient_factor": "%default_ambient_factor",
+        "diffuse_factor": "%default_diffuse_factor",
+        "specular_factor": "%default_specular_factor",
         "shading": {
           "fog_distances": "%fog_distances",
           "fog_ambient": "%fog_ambient"
-        }
+        },
+        "physics_material": "attr_visible"
       }
     }
   },
@@ -31,27 +32,28 @@
     "call": "obj_resource",
     "arguments": {
       "name": "palm",
-      "filename": "models/deviantart.com/yughues-Free-Houseplants-356618110/palm/palm.obj",
+      "filename": "file://models/deviantart.com/yughues-Free-Houseplants-356618110/palm/palm.$mesh",
       "config": {
         "position": [0, 0, 0],
         "rotation": [0, 0, 0],
         "scale": [0.05, 0.05, 0.05],
-        "center_distances": [0, 100],
+        "center_distances": [0, 500],
         "blend_mode": "semi_continuous_02",
-        "alpha_distances": [0, 0, 50, 80],
+        "alpha_distances": [0, 0, "inf", "inf"],
         "occluded_pass": "lightmap_black_global_static",
         "occluder_pass": "lightmap_black_local_instances",
         "aggregate_mode": "instances_sorted",
         "transformation_mode": "position",
         "triangle_tangent_error_behavior": "zero",
-        "emissive_factor": "%vanilla_rally_emissive_factor",
-        "ambient_factor": "%vanilla_rally_ambient_factor",
-        "diffuse_factor": "%vanilla_rally_diffuse_factor",
-        "specular_factor": "%vanilla_rally_specular_factor",
+        "emissive_factor": "%default_emissive_factor",
+        "ambient_factor": "%default_ambient_factor",
+        "diffuse_factor": "%default_diffuse_factor",
+        "specular_factor": "%default_specular_factor",
         "shading": {
           "fog_distances": "%fog_distances",
           "fog_ambient": "%fog_ambient"
-        }
+        },
+        "physics_material": "attr_visible"
       }
     }
   },
@@ -59,27 +61,28 @@
     "call": "obj_resource",
     "arguments": {
       "name": "pine",
-      "filename": "models/deviantart.com/yughues-Free-Houseplants-356618110/pine/pine.obj",
+      "filename": "file://models/deviantart.com/yughues-Free-Houseplants-356618110/pine/pine.$mesh",
       "config": {
         "position": [0, 0, 0],
         "rotation": [0, 0, 0],
         "scale": [0.05, 0.05, 0.05],
-        "center_distances": [0, 100],
+        "center_distances": [0, 500],
         "blend_mode": "semi_continuous_02",
-        "alpha_distances": [0, 0, 50, 80],
+        "alpha_distances": [0, 0, "inf", "inf"],
         "occluded_pass": "lightmap_black_global_static",
         "occluder_pass": "lightmap_black_local_instances",
         "aggregate_mode": "instances_sorted",
         "transformation_mode": "position",
         "triangle_tangent_error_behavior": "zero",
-        "emissive_factor": "%vanilla_rally_emissive_factor",
-        "ambient_factor": "%vanilla_rally_ambient_factor",
-        "diffuse_factor": "%vanilla_rally_diffuse_factor",
-        "specular_factor": "%vanilla_rally_specular_factor",
+        "emissive_factor": "%default_emissive_factor",
+        "ambient_factor": "%default_ambient_factor",
+        "diffuse_factor": "%default_diffuse_factor",
+        "specular_factor": "%default_specular_factor",
         "shading": {
           "fog_distances": "%fog_distances",
           "fog_ambient": "%fog_ambient"
-        }
+        },
+        "physics_material": "attr_visible"
       }
     }
   },
@@ -87,27 +90,28 @@
     "call": "obj_resource",
     "arguments": {
       "name": "shrub",
-      "filename": "models/deviantart.com/yughues-Free-Houseplants-356618110/shrub/shrub.obj",
+      "filename": "file://models/deviantart.com/yughues-Free-Houseplants-356618110/shrub/shrub.$mesh",
       "config": {
         "position": [0, 0, 0],
         "rotation": [0, 0, 0],
         "scale": [0.05, 0.05, 0.05],
-        "center_distances": [0, 100],
+        "center_distances": [0, 500],
         "blend_mode": "semi_continuous_02",
-        "alpha_distances": [0, 0, 50, 80],
+        "alpha_distances": [0, 0, "inf", "inf"],
         "occluded_pass": "lightmap_black_global_static",
         "occluder_pass": "lightmap_black_local_instances",
         "aggregate_mode": "instances_sorted",
         "transformation_mode": "position",
         "triangle_tangent_error_behavior": "zero",
-        "emissive_factor": "%vanilla_rally_emissive_factor",
-        "ambient_factor": "%vanilla_rally_ambient_factor",
-        "diffuse_factor": "%vanilla_rally_diffuse_factor",
-        "specular_factor": "%vanilla_rally_specular_factor",
+        "emissive_factor": "%default_emissive_factor",
+        "ambient_factor": "%default_ambient_factor",
+        "diffuse_factor": "%default_diffuse_factor",
+        "specular_factor": "%default_specular_factor",
         "shading": {
           "fog_distances": "%fog_distances",
           "fog_ambient": "%fog_ambient"
-        }
+        },
+        "physics_material": "attr_visible"
       }
     }
   },
@@ -115,27 +119,28 @@
     "call": "obj_resource",
     "arguments": {
       "name": "spikes",
-      "filename": "models/deviantart.com/yughues-Free-Houseplants-356618110/spikes/spikes.obj",
+      "filename": "file://models/deviantart.com/yughues-Free-Houseplants-356618110/spikes/spikes.$mesh",
       "config": {
         "position": [0, 0, 0],
         "rotation": [0, 0, 0],
         "scale": [0.05, 0.05, 0.05],
-        "center_distances": [0, 100],
+        "center_distances": [0, 500],
         "blend_mode": "semi_continuous_02",
-        "alpha_distances": [0, 0, 50, 80],
+        "alpha_distances": [0, 0, "inf", "inf"],
         "occluded_pass": "lightmap_black_global_static",
         "occluder_pass": "lightmap_black_local_instances",
         "aggregate_mode": "instances_sorted",
         "transformation_mode": "position",
         "triangle_tangent_error_behavior": "zero",
-        "emissive_factor": "%vanilla_rally_emissive_factor",
-        "ambient_factor": "%vanilla_rally_ambient_factor",
-        "diffuse_factor": "%vanilla_rally_diffuse_factor",
-        "specular_factor": "%vanilla_rally_specular_factor",
+        "emissive_factor": "%default_emissive_factor",
+        "ambient_factor": "%default_ambient_factor",
+        "diffuse_factor": "%default_diffuse_factor",
+        "specular_factor": "%default_specular_factor",
         "shading": {
           "fog_distances": "%fog_distances",
           "fog_ambient": "%fog_ambient"
-        }
+        },
+        "physics_material": "attr_visible"
       }
     }
   }

@@ -3,7 +3,7 @@
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 if [ ! -d recastnavigation ]; then
-    git clone https://github.com/recastnavigation/recastnavigation
+    git clone -b WithRtti https://github.com/gre-42/recastnavigation
 fi
 
 if [[ ! -v NPROC ]]; then NPROC=$(nproc); fi

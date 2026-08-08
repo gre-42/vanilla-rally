@@ -13,4 +13,6 @@ vanilla-rally:
 	./gradlew :vanilla-rally:bundleRallyRelease
 
 install-debug:
-	./gradlew :vanilla-rally:installDebug
+	# $ adb devices
+	# $ ANDROID_SERIAL=12345ABCDE
+	ANDROID_SERIAL=$(DEVICE) ./gradlew :vanilla-rally:installExtendedDebug -PtargetAbi=$(ABI)

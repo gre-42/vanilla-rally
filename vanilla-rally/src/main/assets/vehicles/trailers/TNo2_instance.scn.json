@@ -5,35 +5,24 @@
       "playback": "generic_car.create",
       "let": {
         "name": "TNo2",
-        "tesuffix": "%TRAILER_SUFFIX",
-        "tedecimate": "",
+        "decimate": "",
         "wheels": "%%vehicles/TNo2/wheels",
         "engine_audio": "%%vehicles/TNo2/engine_audio"
       }
     },
     "content": {
-      "call": "create_generic_car",
-      "arguments": {
-        "name": "TNo2",
-        "tesuffix": "%TRAILER_SUFFIX",
-        "tedecimate": "",
-        "if_with_graphics": "%if_with_graphics",
-        "if_with_physics": "%if_with_physics",
-        "mute": "%mute",
-        "velocity": "%velocity",
-        "angular_velocity": "%angular_velocity",
-        "parking_brake_pulled": "%parking_brake_pulled"
-      }
+      "playback": "generic_car.create_fast",
+      "let": { "asset_id": "TNo2" }
     }
   },
   {
-    "declare_macro": "create_player_car_internals_TNo2",
+    "declare_macro": "create_player_vehicle_internals_TNo2",
     "content": {
       "playback": "generic_car.create_player_internals"
     }
   },
   {
-    "declare_macro": "create_player_car_externals_TNo2",
+    "declare_macro": "create_player_vehicle_externals_TNo2",
     "content": {
       "playback": "generic_car.create_player_externals",
       "let": {

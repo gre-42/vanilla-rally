@@ -1,18 +1,26 @@
 {
   "id": "ambulance0",
   "title": "Ambulance 0",
-  "on_init": {"include": "ambulance0.scn.json"},
+  "on_init": [
+    { "include": "ambulance0.scn.json" },
+    {
+      "declare_macro": "remote.vehicle.create_ambulance0",
+      "content": { "playback": "create_ambulance0" }
+    }
+  ],
   "on_before_select": {
     "call": "globals",
     "arguments": {
-      "selected_vehicle_id_$user_name": "ambulance0"
+      "selected_vehicle_id_$full_user_name": "ambulance0"
     }
   },
   "database": {
     "suffix": "ambulance0",
     "vehicle_class": "car",
     "node_prefixes": ["car_node"],
+    "decimate": "",
     "spawn_y_offset": 0.7,
+    "waypoint_dy": 1.2,
     "door_distance": 3,
     "trailer_hitch_position_female": null,
     "trailer_hitch_position_male": null,
@@ -35,7 +43,7 @@
     "wheel_right_rear_mount_1":  [ 0.78, 0,  1.6],
 
     "size": [1.8, 1, 4.6],
-    "com": [0, -0.5, 0.2],
+    "com": [0, -0.7, 0.2],
 
     "mass": 2000,
 
@@ -90,6 +98,6 @@
   },
   "required": {
     "fixed": [],
-    "dynamic": ["(%selected_game_mode == 'rally')", "(%race_restrictions in {'', 'car'})"]
+    "dynamic": ["(%selected_game_mode == 'rally')", "(%selected_race_restrictions in {'', 'car'})"]
   }
 }

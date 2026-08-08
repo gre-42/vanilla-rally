@@ -1,0 +1,24 @@
+{
+  "declare_macro": "create_spectator_cameras",
+  "content": [
+    {
+      "playback": "create_spectator_camera",
+      "arguments": {
+        "node_name": "spectator_node_$user_name",
+        "position": [
+          "'-113.3258598_deg'",
+          "'35.7393636_deg'",
+          "'142'"],
+        "rotation": [0, 0, 0]
+      }
+    },
+    {
+      "call": "set_camera_cycle",
+      "context": "primary_scene_$full_user_name",
+      "arguments": {
+        "name": "spectator",
+        "cameras": ["spectator_node_$user_name"]
+      }
+    }
+  ]
+}

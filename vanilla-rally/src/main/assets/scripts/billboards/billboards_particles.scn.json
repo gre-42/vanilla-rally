@@ -1,5 +1,6 @@
 [
   {
+    "required": "(%flavor == 'extended')",
     "call": "square_resource",
     "arguments": {
       "name": "small_explosion",
@@ -20,6 +21,7 @@
     }
   },
   {
+    "required": "(%flavor == 'extended')",
     "call": "square_resource",
     "arguments": {
       "name": "large_explosion",
@@ -40,6 +42,7 @@
     }
   },
   {
+    "required": "(%flavor == 'extended')",
     "call": "blending_x_resource",
     "arguments": {
       "name": "large_explosion_cross",
@@ -134,6 +137,7 @@
     }
   },
   {
+    "required": "(%flavor == 'extended')",
     "call": "square_resource",
     "arguments": {
       "name": "muzzle_flash_0",
@@ -154,12 +158,32 @@
     }
   },
   {
+    "required": "(%flavor == 'extended')",
     "call": "blending_x_resource",
     "arguments": {
       "name": "bullet_impact_cross",
       "texture_filename": "#bullet_impact_3d",
       "min": [-0.5, -0.5],
       "max": [0.5, 0.5],
+      "occluded_pass": "none",
+      "occluder_pass": "none",
+      "emissive": [1, 1, 1],
+      "ambient": [0, 0, 0],
+      "blend_mode": "continuous",
+      "alpha_distances": [0, 0, "inf", "inf"],
+      "aggregate_mode": "none",
+      "transformation_mode": "all",
+      "has_animated_textures": true
+    }
+  },
+  {
+    "required": "(%flavor == 'extended')",
+    "call": "blending_x_resource",
+    "arguments": {
+      "name": "bullet_impact_red_cross",
+      "texture_filename": "#bullet_impact_red_3d",
+      "min": [-0.25, -0.25],
+      "max": [0.25, 0.25],
       "occluded_pass": "none",
       "occluder_pass": "none",
       "emissive": [1, 1, 1],

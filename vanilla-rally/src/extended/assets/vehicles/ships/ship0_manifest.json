@@ -1,18 +1,26 @@
 {
   "id": "ship0",
   "title": "Ship 0",
-  "on_init": {"include": "ship0.scn.json"},
+  "on_init": [
+    {"include": "ship0.scn.json"},
+    {
+      "declare_macro": "remote.vehicle.create_ship0",
+      "content": { "playback": "create_ship0" }
+    }
+  ],
   "on_before_select": {
     "call": "globals",
     "arguments": {
-      "selected_vehicle_id_$user_name": "ship0"
+      "selected_vehicle_id_$full_user_name": "ship0"
     }
   },
   "database": {
     "suffix": "ship0",
     "vehicle_class": "ship",
     "node_prefixes": ["car_node"],
+    "decimate": "",
     "spawn_y_offset": 0.7,
+    "waypoint_dy": 1.2,
     "door_distance": 3,
     "trailer_hitch_position_female": null,
     "trailer_hitch_position_male": [0, -0.2, 2],

@@ -1,4 +1,6 @@
 [
+  {"include": "vehicles/create_common_hud.scn.json"},
+  {"include": "vehicles/make_vehicle_damageable.scn.json"},
   {
     "declare_macro": "create_tiger_tank_graphics",
     "content": [
@@ -74,7 +76,7 @@
           "parent_rigid_body_node": "car_node$suffix",
           "ypln_node": "turret_node$suffix",
           "punch_angle_node": "main_gun_punch_angle_node$suffix",
-          "cool_down": 10,
+          "cool_down": 4,
           "ammo_type": "tiger_tank_ammo",
           "bullet_type": "tiger_tank_bullet",
           "shot_audio": "explodemini_fast",
@@ -88,7 +90,7 @@
           "arguments": {
             "node": "car_node$suffix",
             "format": 264,
-            "ttf_file": "fonts/RobotoMono-Bold.ttf",
+            "ttf_file": "file://fonts/RobotoMono-Bold.ttf",
             "offset": [0, 0.3],
             "font_height": 16,
             "line_distance": 16
@@ -146,20 +148,12 @@
           "delta_power": 2e3
         }
       },
-      {
-        "call": "set_available_seats",
-        "arguments": {
-          "node": "car_node$suffix",
-          "value": ["driver"]
-        }
-      }
+      {"call": "set_available_seats", "arguments": {"node": "car_node$suffix", "value": ["driver"]}},
+      {"required": "%if_damageable", "playback": "make_vehicle_damageable"}
     ]
   },
   {
     "declare_macro": "create_tiger_tank",
-    "let": {
-      "decimate": ""
-    },
     "content": [
       {"call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "car_node$suffix", "name": "wheel_left_0_node$suffix",  "position": [-1.8, -0.0, -2.4]}},
       {"call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "car_node$suffix", "name": "wheel_right_0_node$suffix", "position": [ 1.8, -0.0, -2.4]}},
@@ -199,7 +193,7 @@
         "collidable-mesh rigid_body-node=car_node$suffix node=car_node$suffix resource=tiger_tank_hitbox"]
       },
       {"call": "child_node_instance", "arguments": {"type": "dynamic", "parent": "main_gun_punch_angle_node$suffix", "name": "main_gun_end_node$suffix", "position": [0, 0, -10]}},
-      {"required": "%if_with_graphics", "playback": "create_tiger_tank_graphics", "arguments": {"node_suffix": "%suffix", "lod_suffix": "%suffix", "lod_decimate": "%decimate"}},
+      {"required": "%if_with_graphics", "playback": "create_tiger_tank_graphics", "arguments": {"node_suffix": "%suffix", "lod_suffix": "%suffix", "lod_decimate": "%%vehicles/tiger_tank/decimate"}},
       {"required": "%if_with_graphics", "playback": "create_tiger_tank_graphics", "arguments": {"node_suffix": "%suffix", "lod_suffix": "_d3$suffix", "lod_decimate": "_d3"}},
       {"required": "%if_with_physics", "playback": "create_tiger_tank_physics", "arguments": {
         "mass": 56e3,
@@ -208,12 +202,12 @@
     ]
   },
   {
-    "declare_macro": "create_player_car_internals_tiger_tank",
+    "declare_macro": "create_player_vehicle_internals_tiger_tank",
     "content": [
       {
         "required": "%if_pc",
         "playback": "create_tank_key_bindings",
-        "context": "primary_scene_$user_name",
+        "context": "primary_scene_$full_user_name",
         "arguments": {
           "if_has_gun": true
         }
@@ -221,13 +215,13 @@
       {
         "required": "%if_pc",
         "call": "hud_target_point",
-        "context": "primary_scene_$user_name",
+        "context": "primary_scene_$full_user_name",
         "arguments": {
           "player": "%player_name",
           "gun_node": "main_gun_end_node$suffix",
           "exclusive_nodes": ["main_gun_camera_node$suffix"],
           "ypln_node": "turret_node$suffix",
-          "filename": "textures/hud/crosshair.png",
+          "filename": "file://textures/hud/crosshair.png",
           "center": [0, 0],
           "size": [0.05, 0.05],
           "error_behavior": "center"
@@ -236,13 +230,13 @@
       {
         "required": "%if_pc",
         "call": "hud_target_point",
-        "context": "primary_scene_$user_name",
+        "context": "primary_scene_$full_user_name",
         "arguments": {
           "player": "%player_name",
           "gun_node": "main_gun_end_node$suffix",
-          "exclusive_nodes": ["follower_camera_$user_name"],
+          "exclusive_nodes": ["follower_camera_$full_user_name"],
           "ypln_node": "turret_node$suffix",
-          "filename": "textures/hud/crosshair.png",
+          "filename": "file://textures/hud/crosshair.png",
           "center": [0, 0],
           "size": [0.05, 0.05],
           "error_behavior": "hide"
@@ -282,11 +276,13 @@
             }
           }
         ]
-      }
+      },
+      { "playback": "create_speed_hud" },
+      { "playback": "create_common_hud" }
     ]
   },
   {
-    "declare_macro": "create_player_car_externals_tiger_tank",
+    "declare_macro": "create_player_vehicle_externals_tiger_tank",
     "content": [
       {
         "required": "%if_pc",
@@ -301,10 +297,10 @@
       },
       {
         "comment": {
-          "exclude": ["%if_android"],
+          "exclude": "%if_android",
           "required": "%if_pc",
-          "playback": "create_player_car_engine_rpm_meter",
-          "context": "primary_scene_$user_name",
+          "playback": "create_rpm_hud",
+          "context": "primary_scene_$full_user_name",
           "arguments": {
             "engine_name": "left"
           }
@@ -324,14 +320,12 @@
   },
   {
     "declare_macro": "add_attached_light_tiger_tank",
-    "content": [
-      {
+    "content": {
         "playback": "add_attached_light_tank",
         "arguments": {
           "lsuffix": "%lsuffix",
           "csuffix": "%csuffix"
         }
       }
-    ]
   }
 ]

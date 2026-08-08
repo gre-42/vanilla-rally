@@ -3,6 +3,7 @@
     "call": "globals",
     "arguments": {
       "loaded_level_id": "%selected_level_id",
+      "game_mode": "rally",
       "aggregate_mode": "instances_sorted",
       "vip_name": "you",
       "player_seat": "driver",
@@ -12,13 +13,13 @@
         "scale": 1
       },
       "loaded_game_level": "'1'",
-      "loaded_racing_line_track": "$__DIR__/racing_line_nyc_track1.m",
-      "loaded_racing_line_playback": "$__APPDATA__/$selected_level_id.checkpoints.m"
+      "loaded_racing_line_track": "file://$__DIR__/racing_line_nyc_track1.m",
+      "loaded_racing_line_playback": "file://$__APPDATA__/$selected_level_id.checkpoints.m"
     }
   },
   {"include": "scripts/include_all.scn.json"},
   {"include": "../nyc/osm_resource_nyc.scn.json"},
-  {"include": "create_tripod_cameras_nyc_track1.scn.json"},
+  {"include": "create_spectator_cameras_nyc_track1.scn.json"},
   {
     "playback": "scene_racing_static",
     "arguments": {
@@ -29,7 +30,7 @@
       "stadium_camera_position": [0, 500, 500],
       "score_board": "player|history|laps|rank|race_time",
       "osm_map_resource": "osm_resource_nyc",
-      "osm_layers": ["$__DIR__/../nyc/map_nyc.osm"],
+      "osm_layers": ["file://$__DIR__/../nyc/map_nyc.osm"],
       "if_has_overlay": false,
       "if_primary_dirtmap": true,
       "if_extract_alignment_planes": false,
@@ -73,5 +74,6 @@
     "playback": "scene_racing_setup_new_round",
     "context": "primary_scene"
   },
+  {"playback": "setup_traffic_with_pedestrians", "context": "primary_scene"},
   {"playback": "create_main_menu"}
 ]

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdk 36
-    ndkVersion '29.0.13599879 rc2'
+    ndkVersion = '29.0.13599879 rc2'
 
     defaultConfig {
         applicationId = 'com.hallo2hallo.vanillarally'
@@ -11,7 +11,11 @@ android {
         versionCode 58
         versionName '0.58'
         ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            if (project.hasProperty('targetAbi')) {
+                abiFilters project.property('targetAbi').split(',')
+            } else {
+                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            }
         }
         externalNativeBuild {
             cmake {
@@ -39,13 +43,11 @@ android {
     buildTypes {
         release {
             minifyEnabled = false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'),
-                    'proguard-rules.pro'
         }
     }
     externalNativeBuild {
         cmake {
-            version '3.22.1'
+            version '4.2.3'
             path '../../CMakeLists.txt'
         }
     }
@@ -76,8 +78,11 @@ android {
     //         jniLibs.srcDirs = ['build/intermediates/merged_native_libs/debug/out/lib']
     //     }
     // }
+    tasks.register("testClasses") {
+        // Dummy task for Android Studio
+    }
     namespace 'com.hallo2hallo.vanillarally'
-    buildToolsVersion '36.0.0'
+    buildToolsVersion '37.0.0'
 }
 
 dependencies {

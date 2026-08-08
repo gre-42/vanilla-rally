@@ -6,10 +6,11 @@
         "call": "add_texture_descriptor",
         "arguments": {
           "color_mode": "rgba",
-          "histogram": "textures/histograms/TexturesCom_Trees0130_1.png",
+          "histogram": "file://textures/histograms/TexturesCom_Trees0130_1.png",
           "anisotropic_filtering_level": 16,
           "name": "%name",
-          "color": "%filename"
+          "color": "%filename",
+          "add_aliases": false
         }
       }
     ]
@@ -18,21 +19,21 @@
     "playback": "_add_hist_tree",
     "arguments": {
       "name": "Trees0058_2",
-      "filename": "textures/textures.com/TexturesCom_Trees0058_2_masked_S_1k.png"
+      "filename": "file://textures/textures.com/trees/TexturesCom_Trees0058_2_masked_S_1k.png"
     }
   },
   {
     "playback": "_add_hist_tree",
     "arguments": {
       "name": "Trees0058_3",
-      "filename": "textures/textures.com/TexturesCom_Trees0058_3_masked_S_1k.png"
+      "filename": "file://textures/textures.com/trees/TexturesCom_Trees0058_3_masked_S_1k.png"
     }
   },
   {
     "playback": "_add_hist_tree",
     "arguments": {
       "name": "Trees0122_1",
-      "filename": "textures/textures.com/TexturesCom_Trees0122_1_masked_S_1k.png"
+      "filename": "file://textures/textures.com/trees/TexturesCom_Trees0122_1_masked_S_1k.png"
     }
   }
 ]

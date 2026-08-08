@@ -8,7 +8,7 @@
           "name": "showroom_$user_name",
           "world": "common",
           "gid": { "group": "translations", "id": "scene" },
-          "primary_user_id": "%user_id"
+          "primary_user_id": "%local_user_id"
         }
       },
       {
@@ -32,7 +32,7 @@
           "with_flying_logic": false,
           "clear_mode": "depth",
           "layout": "child",
-          "user_id": "%user_id"
+          "local_user_id": "%local_user_id"
         }
       },
       {
@@ -44,8 +44,9 @@
   {
     "declare_macro": "_create_showroom_vehicle",
     "content": {
-      "playback": "create_$vehicle_class",
+      "playback": "local.create_$vehicle_class",
       "let": {
+        "make_remote": false,
         "asset_id": "%vehicle_name",
         "human_node_position": [0, "%%vehicles/$vehicle_name/spawn_y_offset", -11],
         "skater_node_position": [0, "%%vehicles/$vehicle_name/spawn_y_offset", -11],
@@ -62,12 +63,9 @@
         "if_car_body_renderable_style": true,
         "color": "%vehicle_color",
         "suffix": "",
-        "bullet_suffix": "",
         "if_with_graphics": true,
         "if_with_physics": true,
         "if_with_gun": false,
-        "if_with_graphics_bullet": true,
-        "if_with_physics_bullet": true,
         "parking_brake_pulled": true,
         "mute": true,
         "velocity_error_std": 0,
@@ -105,7 +103,7 @@
         "call": "obj_resource",
         "arguments": {
           "name": "showroom_garage",
-          "filename": "models/garage/garage.obj",
+          "filename": "file://models/garage/garage.$mesh",
           "config": {
             "position": [0, 0, 0],
             "rotation": [0, 0, 0],
@@ -117,10 +115,10 @@
             "occluder_pass": "none",
             "aggregate_mode": "none",
             "transformation_mode": "all",
-            "emissive_factor": "%vanilla_rally_emissive_factor",
-            "ambient_factor": "%vanilla_rally_ambient_factor",
-            "diffuse_factor": "%vanilla_rally_diffuse_factor",
-            "specular_factor": "%vanilla_rally_specular_factor",
+            "emissive_factor": "%default_emissive_factor",
+            "ambient_factor": "%default_ambient_factor",
+            "diffuse_factor": "%default_diffuse_factor",
+            "specular_factor": "%default_specular_factor",
             "shading": {
               "fresnel": {
                 "min": 0,
@@ -137,7 +135,7 @@
         "call": "obj_resource",
         "arguments": {
           "name": "showroom_ground_hitbox",
-          "filename": "models/cylinder_hitbox.obj",
+          "filename": "file://models/cylinder_hitbox.$mesh",
           "config": {
             "position": [0, 0.03, 0],
             "rotation": [0, 0, 0],
@@ -179,7 +177,7 @@
         "call": "modify_rendering_material",
         "arguments": {
           "resource_name": "showroom_garage",
-          "histogram": "textures/histograms/google_maps/bricks.png",
+          "histogram": "file://textures/histograms/google_maps/bricks.png",
           "included_names": "'^Walls$'"
         }
       },

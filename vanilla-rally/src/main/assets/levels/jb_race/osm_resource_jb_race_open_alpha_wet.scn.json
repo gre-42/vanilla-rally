@@ -8,11 +8,11 @@
       "dense_triangle_cluster_width": "%dense_triangle_cluster_width",
       "object_cluster_width": "%object_cluster_width",
       "name": "osm_map",
-      "filenames": ["$__DIR__/../jb/map_jb.osm"],
-      "cache_filename": "$__APPDATA__/$loaded_level_id.cereal.binary",
+      "filenames": ["file://$__DIR__/../jb/map_jb.osm"],
+      "cache_filename": "file://$__APPDATA__/$loaded_level_id.cereal.binary",
       "heightmap": "%loaded_heightmap",
-      "grass_foliagemap": "textures/noise/foliagemap.png",
-      "terrain_undefined_textures": ["textures/debug/pink.png"],
+      "grass_foliagemap": "file://textures/noise/foliagemap.png",
+      "terrain_undefined_textures": ["#pink"],
       "terrain_grass_textures": [
         "#Gravel010_Base",
         "#Ground037_1",
@@ -46,10 +46,10 @@
       "street_materials": "surface_base_tarmac|surface_wet",
       "path_materials": "surface_base_dirt|surface_wet",
       "wall_materials": "surface_base_stone",
-      "street_reflection_map": "wet_street",
-      "path_reflection_map": "wet_street",
-      "terrain_stone_reflection_map": "wet_street",
-      "terrain_asphalt_reflection_map": "wet_street",
+      "street_reflection_map": "#wet_street",
+      "path_reflection_map": "#wet_street",
+      "terrain_stone_reflection_map": "#wet_street",
+      "terrain_asphalt_reflection_map": "#wet_street",
       "# grass_dirt_texture": "#Ground025",
       "# flowers_dirt_texture": "#Ground025",
       "# trees_dirt_texture": "#Ground025",
@@ -66,7 +66,7 @@
         "#TimesBlend_Mud",
         "#Ramp_Mud"
       ],
-      "path_mudmap": "textures/Way_Alpha/Way_Alpha_Long_Grf.png",
+      "path_mudmap": "file://textures/Way_Alpha/Way_Alpha_Long_Grf.png",
       "street_alpha_textures": [
         "#PlusDetail",
         "#TimesBlend_Narrow_Wet",
@@ -79,29 +79,29 @@
         {"lanes": 1, "textures": ["#Way_Wheels_7_Detail_Base", "#Gravel010_Detail"]}],
       "path_textures": [
         {"lanes": 1, "textures": ["#Way_Wheels_7_Detail_Base", "#Gravel010_Detail"]}],
-      "window_reflection_map": "window",
+      "window_reflection_map": "#window",
       "wall_textures": [
         {"lanes": 1, "textures": ["#PavingStones046"], "uvx": 0.15}],
       "socle_textures": [
         {
-          "textures": ["Bricks058_Base", "concrete1_2K_wh_Detail"],
+          "textures": ["#Bricks058_Base", "#concrete1_2K_wh_Detail"],
           "material": "surface_base_stone"
         }
       ],
       "facade_textures": [
         {
-          "facade": ["Plaster003_Base", "concrete1_2K_wh_Detail"],
+          "facade": ["#Plaster003_Base", "#concrete1_2K_wh_Detail"],
           "material": "surface_base_stone",
           "max_height": 5
         },
         {
-          "facade": ["Plaster003_Gray_Base", "concrete1_2K_wh_Detail"],
+          "facade": ["#Plaster003_Gray_Base", "#concrete1_2K_wh_Detail"],
           "material": "surface_base_stone",
           "max_height": 5
         },
         {
           "selector": "brick",
-          "facade": ["wall_facade_bricks_red_Base", "concrete1_2K_wh_Detail"],
+          "facade": ["#wall_facade_bricks_red_Base", "#concrete1_2K_wh_Detail"],
           "material": "surface_base_stone",
           "min_height": 5,
           "max_height": 20,
@@ -109,44 +109,44 @@
             "facade_edge_size": [1, 1],
             "facade_inner_size": [2, 1.5],
             "interior_size": [2, 2.5, 0.2],
-            "left": "DE21F2_industryWindow00001_left",
-            "right": "DE21F2_industryWindow00001_right",
-            "floor": "DE21F2_industryWindow00001_bottom",
-            "ceiling": "DE21F2_industryWindow00001_top",
-            "back": "DE21F2_industryWindow00001_512",
-            "back_specular": "DE21F2_industryWindow00001_512_specular"
+            "left": "#DE21F2_industryWindow00001_left",
+            "right": "#DE21F2_industryWindow00001_right",
+            "floor": "#DE21F2_industryWindow00001_bottom",
+            "ceiling": "#DE21F2_industryWindow00001_top",
+            "back": "#DE21F2_industryWindow00001_512",
+            "back_specular": "#DE21F2_industryWindow00001_512_specular"
           }
         },
         {
-          "facade": ["Concrete020_Base", "concrete1_2K_wh_Detail"],
+          "facade": ["#Concrete020_Base", "#concrete1_2K_wh_Detail"],
           "material": "surface_base_stone",
           "min_height": 5,
           "interior": {
             "facade_edge_size": [1, 1],
             "facade_inner_size": [2, 1.5],
             "interior_size": [2, 2.5, 0.2],
-            "left": "DE21F2_industryWindow00001_left",
-            "right": "DE21F2_industryWindow00001_right",
-            "floor": "DE21F2_industryWindow00001_bottom",
-            "ceiling": "DE21F2_industryWindow00001_top",
-            "back": "DE21F2_industryWindow00001_512",
-            "back_specular": "DE21F2_industryWindow00001_512_specular"
+            "left": "#DE21F2_industryWindow00001_left",
+            "right": "#DE21F2_industryWindow00001_right",
+            "floor": "#DE21F2_industryWindow00001_bottom",
+            "ceiling": "#DE21F2_industryWindow00001_top",
+            "back": "#DE21F2_industryWindow00001_512",
+            "back_specular": "#DE21F2_industryWindow00001_512_specular"
           }
         },
         {
-          "facade": ["wall_facade_plaster_white_Base", "concrete1_2K_wh_Detail"],
+          "facade": ["#wall_facade_plaster_white_Base", "#concrete1_2K_wh_Detail"],
           "material": "surface_base_stone",
           "min_height": 5,
           "interior": {
             "facade_edge_size": [1, 1],
             "facade_inner_size": [2, 1.5],
             "interior_size": [2, 2.5, 0.2],
-            "left": "DE21F2_industryWindow00001_left",
-            "right": "DE21F2_industryWindow00001_right",
-            "floor": "DE21F2_industryWindow00001_bottom",
-            "ceiling": "DE21F2_industryWindow00001_top",
-            "back": "DE21F2_industryWindow00001_512",
-            "back_specular": "DE21F2_industryWindow00001_512_specular"
+            "left": "#DE21F2_industryWindow00001_left",
+            "right": "#DE21F2_industryWindow00001_right",
+            "floor": "#DE21F2_industryWindow00001_bottom",
+            "ceiling": "#DE21F2_industryWindow00001_top",
+            "back": "#DE21F2_industryWindow00001_512",
+            "back_specular": "#DE21F2_industryWindow00001_512_specular"
           }
         }
       ],
@@ -170,12 +170,12 @@
             "ambient": [1, 1, 1]
           }
         }],
-      "roof_texture": "textures/cc0textures/RoofingTiles002_2K_Color.jpg",
+      "roof_texture": "#RoofingTiles002Black",
       "roof_rail_texture": "#Metal038",
       "roof_model": "roof",
       "racing_line_texture": "#racing_line",
-      "racing_line_track": "$__DIR__/racing_line_jb_race.m",
-      "racing_line_playback": "$__APPDATA__/$loaded_level_id.checkpoints.m",
+      "racing_line_track": "file://$__DIR__/racing_line_jb_race.m",
+      "racing_line_playback": "file://$__APPDATA__/$loaded_level_id.checkpoints.m",
       "grass_resource_names": [
         "vegetation1.0(p:1)(hitbox:box_02_1_02_hitbox)",
         "vegetation1.1(p:1)(hitbox:box_02_1_02_hitbox)",
@@ -231,8 +231,8 @@
           "min_dist": 1.5,
           "max_dist": 3,
           "resources": [
-            "Stone_model_tex_small_d4  (p:0.2)(hitbox:box_02_1_02_hitbox)",
-            "desert_rock01_small_d2_s15(p:0.2)(hitbox:box_02_1_02_hitbox)"]}],
+            "Stone_model_tex_small(p:0.2)(hitbox:box_02_1_02_hitbox)",
+            "desert_rock01_small(p:0.2)(hitbox:box_02_1_02_hitbox)"]}],
       "default_street_width": 10,
       "scale": 1,
       "grass_foliagemap_period": 38.4,
@@ -300,12 +300,12 @@
       "street_node_smoothing_iterations": 500,
       "street_edge_smoothness": 0.1,
       "terrain_edge_smoothness": 0.1,
-      "displacementmap": "textures/noise/hf_heightmap0.png",
+      "displacementmap": "file://textures/noise/hf_heightmap0.png",
       "displacementmap_min": 0,
       "displacementmap_uv_scale": 1e-2,
       "displacementmap_distances": [0, 5],
       "displacementmap_heights": [0, 1],
-      "zonemap": "textures/noise/checkerboard.png",
+      "zonemap": "file://textures/noise/checkerboard.png",
       "zonemap_width": 1000,
       "zonemap_height": 1000,
       "driving_direction": "right",
@@ -338,10 +338,10 @@
       "# path_surface_endpoint0_resource_name": "road_cylinder2_endpoint_0",
       "# path_surface_endpoint1_resource_name": "road_cylinder2_endpoint_1",
       "game_level": "%loaded_game_level",
-      "emissive_factor": "%vanilla_rally_emissive_factor",
-      "ambient_factor": "%vanilla_rally_ambient_factor",
-      "diffuse_factor": "%vanilla_rally_diffuse_factor",
-      "specular_factor": "%vanilla_rally_specular_factor",
+      "emissive_factor": "%default_emissive_factor",
+      "ambient_factor": "%default_ambient_factor",
+      "diffuse_factor": "%default_diffuse_factor",
+      "specular_factor": "%default_specular_factor",
       "fog_distances": "%fog_distances",
       "fog_ambient": "%fog_ambient"
     }

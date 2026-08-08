@@ -14,7 +14,19 @@
           "driving_direction": "center"
         }
       },
-      { "call": "spawner_create", "arguments": { "name": "%player_name", "team": "%team", "group": "%spawn_group", "trigger": "team_deathmatch" } },
+      {
+        "call": "spawner_create",
+        "arguments": {
+          "name": "%player_name",
+          "team": "%team",
+          "group": "%spawn_group",
+          "trigger": "team_deathmatch",
+          "node": {
+            "if_with_graphics": "%if_graphics",
+            "if_with_physics": true
+          }
+        }
+      },
       { "call": "spawner_set_player", "arguments": { "name": "%player_name", "seat": "%seat" } },
       {
         "playback": "set_player_skills"
@@ -36,7 +48,19 @@
           "driving_direction": "center"
         }
       },
-      { "call": "spawner_create", "arguments": { "name": "%player_name", "team": "%team", "group": "%spawn_group", "trigger": "team_deathmatch" } },
+      {
+        "call": "spawner_create",
+        "arguments": {
+          "name": "%player_name",
+          "team": "%team",
+          "group": "%spawn_group",
+          "trigger": "team_deathmatch",
+          "node": {
+            "if_with_graphics": "%if_graphics",
+            "if_with_physics": true
+          }
+        }
+      },
       { "call": "spawner_set_player", "arguments": { "name": "%player_name", "seat": "%seat" } },
       {
         "playback": "set_player_skills"
@@ -47,8 +71,9 @@
     "declare_macro": "teams.create_avatar_for_npc",
     "content": [
       {
-        "playback": "create_avatar",
+        "playback": "local.create_avatar",
         "let": {
+          "make_remote": true,
           "if_with_gun": true,
           "if_spawner": true,
           "if_player": true,
@@ -82,8 +107,9 @@
     "declare_macro": "teams.create_car_for_npc",
     "content": [
       {
-        "playback": "create_car",
+        "playback": "local.create_car",
         "let": {
+          "make_remote": true,
           "if_playback_track": false,
           "if_playback_winner": false,
           "if_spawner": true,
@@ -98,12 +124,12 @@
         "arguments": {
           "content": {
             "call": "visual_node_status_3rd",
-            "context": "primary_scene_$user_name",
+            "context": "primary_scene_$full_user_name",
             "arguments": {
               "node": "car_node$suffix",
               "format": "health",
               "charset": "%selected_language",
-              "ttf_file": "fonts/RobotoMono-Bold.ttf",
+              "ttf_file": "file://fonts/RobotoMono-Bold.ttf",
               "offset": [0, 0.3],
               "font_color": "%scene_font_color",
               "font_height": "normal",
