@@ -2,7 +2,8 @@
   {
     "call": "globals",
     "arguments": {
-      "loaded_level_id": "%selected_level_id",
+      "loaded_racing_line_track": null,
+      "loaded_racing_line_playback": null,
       "game_mode": "team_deathmatch",
       "aggregate_mode": "instances_sorted",
       "vip_name": "you",
@@ -11,15 +12,12 @@
         "position": [0, -220, 0],
         "rotation": [-90, 0, 0],
         "scale": 1
-      },
-      "loaded_game_level": "td0",
-      "loaded_racing_line_track": null,
-      "loaded_racing_line_playback": null
+      }
     }
   },
   {"include": "scripts/include_all.scn.json"},
   {"include": "../nyc/osm_resource_nyc.scn.json"},
-  {"include": "create_tripod_cameras_nyc_td0.scn.json"},
+  {"include": "create_spectator_cameras_nyc_td0.scn.json"},
   {
     "playback": "scene_racing_static",
     "arguments": {
@@ -28,9 +26,9 @@
       "pc_player_playback": null,
       "pc_player_playback_speedup": null,
       "stadium_camera_position": [0, 500, 500],
-      "score_board": "player|history|laps|rank|race_time",
+      "score_board": "player|team|nkills",
       "osm_map_resource": "osm_resource_nyc",
-      "osm_layers": ["$__DIR__/../nyc/map_nyc.osm", "$__DIR__/map_nyc_td0.osm"],
+      "osm_layers": ["file://$__DIR__/../nyc/map_nyc.osm", "file://$__DIR__/map_nyc_td0.osm"],
       "if_has_overlay": false,
       "if_primary_dirtmap": true,
       "if_extract_alignment_planes": false,
@@ -62,18 +60,40 @@
     "content": []
   },
   {
-    "playback": "setup_teams",
-    "context": "primary_scene",
-    "arguments": {
-      "players_json": "$__DIR__/players.json",
-      "teams_spawn_points_resource": "osm_map",
-      "teams_way_points_resource": "osm_map",
-      "objective": "kill_count"
+    "required": "(%remote_role != 'client')",
+    "execute": {
+      "playback": "setup_teams",
+      "context": "primary_scene",
+      "arguments": {
+        "players_json": "file://$__DIR__/players.json",
+        "teams_spawn_points_resource": "osm_map",
+        "teams_way_points_resource": "osm_map",
+        "objective": "kill_count"
+      }
     }
   },
   {
     "playback": "scene_racing_setup_new_round",
     "context": "primary_scene"
   },
-  {"playback": "create_main_menu"}
+  {
+    "required": "%if_graphics",
+    "execute": {
+      "playback": "create_main_menu"
+    },
+    "else_": {
+      "playback": "create_html_scene_selector"
+    }
+  },
+  {
+    "call": "preload",
+    "context": "primary_scene",
+    "arguments": {
+      "files": {
+        "resources": "file://$__DIR__/resources.json",
+        "trails": "file://$__DIR__/trails.json"
+      },
+      "throw_if_file_resource_unknown": "%if_graphics"
+    }
+  }
 ]

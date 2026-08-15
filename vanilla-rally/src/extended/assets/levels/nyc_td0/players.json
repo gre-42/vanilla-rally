@@ -2,40 +2,45 @@
   "library": "teams",
   "teams": {
     "red": { "style": { "color": [1, 0.8, 0.8] } },
-    "blue": { "style": { "color": [0.8, 0.8, 1] } }
+    "blue": { "style": { "color": [0.8, 0.8, 1] } },
+    "green": { "style": { "color": [0.8, 1, 0.8] } },
+    "none": { "style": { "color": [1, 1, 1] } }
   },
-  "defaults": {
-    "player_role": "competitor",
-    "unstuck_mode": "reverse",
-    "behavior": "city",
-    "seat": "driver",
-    "skills": {
-      "ai": {
-        "can_drive": true,
-        "can_aim": true,
-        "can_shoot": true,
-        "can_select_opponent": true,
-        "can_select_weapon": true,
-        "velocity_error_std": 1,
-        "yaw_error_std": 0,
-        "pitch_error_std": 0,
-        "error_alpha": 0.002,
-        "respawn_cooldown_time": 0
-      },
-      "user": {
-        "can_drive": false,
-        "can_aim": false,
-        "can_shoot": false
+  "prototypes": {
+    "spawner": {
+      "skills": {
+        "ai": {
+          "velocity_error_std": 1,
+          "yaw_error_std": 0,
+          "pitch_error_std": 0,
+          "error_alpha": 0.002,
+          "respawn_cooldown_time": 0
+        }
       }
-    }
-  },
-  "players": [
-    {
-      "controller": "pc", "name": "you_0", "team": "red",
-      "user": {
-        "id": 0,
-        "name": "'0'"
-      },
+    },
+    "player": {
+      "player_role": "competitor",
+      "unstuck_mode": "reverse",
+      "behavior": "city",
+      "seat": "driver"
+    },
+    "npc": {
+      "skills": {
+        "ai": {
+          "can_drive": true,
+          "can_aim": true,
+          "can_shoot": true,
+          "can_select_opponent": true,
+          "can_select_weapon": true
+        },
+        "user": {
+          "can_drive": false,
+          "can_aim": false,
+          "can_shoot": false
+        }
+      }
+    },
+    "pc": {
       "skills": {
         "ai": {
           "can_drive": false,
@@ -49,6 +54,16 @@
           "can_aim": true,
           "can_shoot": true
         }
+      }
+    }
+  },
+  "players": [
+    {
+      "required": [["%true", "(%total_user_count >= 1)"]],
+      "inherits_from": ["spawner", "player", "pc"],
+      "controller": "pc", "name": "you", "team": "red", "behavior": "none",
+      "user": {
+        "rank": 0
       },
       "spawn": {
         "group": "player0",
@@ -56,25 +71,11 @@
       }
     },
     {
-      "required": "(%user_count >= 2)",
-      "controller": "pc", "name": "you_1", "team": "red",
+      "required": [["%true", "(%total_user_count >= 2)"]],
+      "inherits_from": ["spawner", "player", "pc"],
+      "controller": "pc", "name": "you", "team": "blue", "behavior": "none",
       "user": {
-        "id": 1,
-        "name": "'1'"
-      },
-      "skills": {
-        "ai": {
-          "can_drive": false,
-          "can_aim": false,
-          "can_shoot": false,
-          "can_select_opponent": false,
-          "can_select_weapon": false
-        },
-        "user": {
-          "can_drive": true,
-          "can_aim": true,
-          "can_shoot": true
-        }
+        "rank": 1
       },
       "spawn": {
         "group": "player1",
@@ -82,28 +83,68 @@
       }
     },
     {
-      "name": "extra_AH_64", "team": "red",
+      "required": [["%true", "(%total_user_count >= 3)"]],
+      "inherits_from": ["spawner", "player", "pc"],
+      "controller": "pc", "name": "you", "team": "green", "behavior": "none",
+      "user": {
+        "rank": 2
+      },
+      "spawn": {
+        "group": "player2",
+        "vehicle": { "type": "female_mh" }
+      }
+    },
+    {
+      "inherits_from": ["spawner"],
+      "name": "extra_AH_64", "team": "none",
       "spawn": {
         "group": "heli0",
         "vehicle": { "type": "AH_64" }
       }
     },
     {
-      "name": "extra_van0", "team": "red",
+      "inherits_from": ["spawner"],
+      "name": "extra_tiger_tank0", "team": "none",
       "spawn": {
-        "group": "car0",
-        "vehicle": { "type": "van0" }
+        "group": "tank0",
+        "vehicle": { "type": "tiger_tank" }
       }
     },
     {
-      "name": "extra_sports_car0", "team": "red",
+      "inherits_from": ["spawner"],
+      "name": "extra_tiger_tank1", "team": "none",
       "spawn": {
-        "group": "car1",
+        "group": "tank1",
+        "vehicle": { "type": "tiger_tank" }
+      }
+    },
+    {
+      "inherits_from": ["spawner"],
+      "name": "extra_tiger_tank2", "team": "none",
+      "spawn": {
+        "group": "tank2",
+        "vehicle": { "type": "tiger_tank" }
+      }
+    },
+    {
+      "inherits_from": ["spawner"],
+      "name": "extra_sports_car0", "team": "none",
+      "spawn": {
+        "group": "car0",
         "vehicle": { "type": "sports_car0" }
       }
     },
     {
-      "name": "extra_ship0", "team": "red",
+      "inherits_from": ["spawner"],
+      "name": "extra_F_35", "team": "none",
+      "spawn": {
+        "group": "plane0",
+        "vehicle": { "type": "F_35" }
+      }
+    },
+    {
+      "inherits_from": ["spawner"],
+      "name": "extra_ship0", "team": "none",
       "spawn": {
         "group": "ship0",
         "vehicle": { "type": "ship0" }

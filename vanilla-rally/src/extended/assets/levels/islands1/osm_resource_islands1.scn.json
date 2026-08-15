@@ -15,11 +15,11 @@
           "dense_triangle_cluster_width": "%dense_triangle_cluster_width",
           "object_cluster_width": "%object_cluster_width",
           "name": "islands1",
-          "filenames": ["$__DIR__/map_islands1.osm"],
-          "cache_filename": "$__APPDATA__/$loaded_level_id.cereal.binary",
-          "heightmap": "$__DIR__/heightmap.pgm",
-          "grass_foliagemap": "textures/noise/foliagemap.png",
-          "terrain_undefined_textures": ["textures/debug/pink.png"],
+          "filenames": ["file://$__DIR__/map_islands1.osm"],
+          "cache_filename": "file://$__APPDATA__/$loaded_level_id.cereal.binary",
+          "heightmap": "file://$__DIR__/heightmap.pgm",
+          "grass_foliagemap": "file://textures/noise/foliagemap.png",
+          "terrain_undefined_textures": ["#pink"],
           "terrain_grass_textures": [
             "#Gravel010_Base",
             "#Ground037_island_1",
@@ -96,27 +96,27 @@
             {"lanes": 1, "textures": ["#Road007"]}],
           "runway_displacement_threshold_textures": [
             {"lanes": 1, "textures": ["#Road007"]}],
-          "window_reflection_map": "window",
+          "window_reflection_map": "#window",
           "socle_textures": [
             {
-              "textures": ["Bricks058_Base", "concrete1_2K_wh_Detail"],
+              "textures": ["#Bricks058_Base", "#concrete1_2K_wh_Detail"],
               "material": "surface_base_stone"
             }
           ],
           "facade_textures": [
             {
-              "facade": ["Plaster003_Base", "concrete1_2K_wh_Detail"],
+              "facade": ["#Plaster003_Base", "#concrete1_2K_wh_Detail"],
               "material": "surface_base_stone",
               "max_height": 5
             },
             {
-              "facade": ["Plaster003_Gray_Base", "concrete1_2K_wh_Detail"],
+              "facade": ["#Plaster003_Gray_Base", "#concrete1_2K_wh_Detail"],
               "material": "surface_base_stone",
               "max_height": 5
             },
             {
               "selector": "brick",
-              "facade": ["wall_facade_bricks_red_Base", "concrete1_2K_wh_Detail"],
+              "facade": ["#wall_facade_bricks_red_Base", "#concrete1_2K_wh_Detail"],
               "material": "surface_base_stone",
               "min_height": 5,
               "max_height": 20,
@@ -124,44 +124,44 @@
                 "facade_edge_size": [1, 1],
                 "facade_inner_size": [2, 1.5],
                 "interior_size": [2, 2.5, 0.2],
-                "left": "DE21F2_industryWindow00001_left",
-                "right": "DE21F2_industryWindow00001_right",
-                "floor": "DE21F2_industryWindow00001_bottom",
-                "ceiling": "DE21F2_industryWindow00001_top",
-                "back": "DE21F2_industryWindow00001_512",
-                "back_specular": "DE21F2_industryWindow00001_512_specular"
+                "left": "#DE21F2_industryWindow00001_left",
+                "right": "#DE21F2_industryWindow00001_right",
+                "floor": "#DE21F2_industryWindow00001_bottom",
+                "ceiling": "#DE21F2_industryWindow00001_top",
+                "back": "#DE21F2_industryWindow00001_512",
+                "back_specular": "#DE21F2_industryWindow00001_512_specular"
               }
             },
             {
-              "facade": ["Concrete020_Base", "concrete1_2K_wh_Detail"],
+              "facade": ["#Concrete020_Base", "#concrete1_2K_wh_Detail"],
               "material": "surface_base_stone",
               "min_height": 5,
               "interior": {
                 "facade_edge_size": [1, 1],
                 "facade_inner_size": [2, 1.5],
                 "interior_size": [2, 2.5, 0.2],
-                "left": "DE21F2_industryWindow00001_left",
-                "right": "DE21F2_industryWindow00001_right",
-                "floor": "DE21F2_industryWindow00001_bottom",
-                "ceiling": "DE21F2_industryWindow00001_top",
-                "back": "DE21F2_industryWindow00001_512",
-                "back_specular": "DE21F2_industryWindow00001_512_specular"
+                "left": "#DE21F2_industryWindow00001_left",
+                "right": "#DE21F2_industryWindow00001_right",
+                "floor": "#DE21F2_industryWindow00001_bottom",
+                "ceiling": "#DE21F2_industryWindow00001_top",
+                "back": "#DE21F2_industryWindow00001_512",
+                "back_specular": "#DE21F2_industryWindow00001_512_specular"
               }
             },
             {
-              "facade": ["wall_facade_plaster_white_Base", "concrete1_2K_wh_Detail"],
+              "facade": ["#wall_facade_plaster_white_Base", "#concrete1_2K_wh_Detail"],
               "material": "surface_base_stone",
               "min_height": 5,
               "interior": {
                 "facade_edge_size": [1, 1],
                 "facade_inner_size": [2, 1.5],
                 "interior_size": [2, 2.5, 0.2],
-                "left": "DE21F2_industryWindow00001_left",
-                "right": "DE21F2_industryWindow00001_right",
-                "floor": "DE21F2_industryWindow00001_bottom",
-                "ceiling": "DE21F2_industryWindow00001_top",
-                "back": "DE21F2_industryWindow00001_512",
-                "back_specular": "DE21F2_industryWindow00001_512_specular"
+                "left": "#DE21F2_industryWindow00001_left",
+                "right": "#DE21F2_industryWindow00001_right",
+                "floor": "#DE21F2_industryWindow00001_bottom",
+                "ceiling": "#DE21F2_industryWindow00001_top",
+                "back": "#DE21F2_industryWindow00001_512",
+                "back_specular": "#DE21F2_industryWindow00001_512_specular"
               }
             }
           ],
@@ -186,7 +186,7 @@
               }
             }
           ],
-          "roof_texture": "textures/cc0textures/RoofingTiles002_2K_Color.jpg",
+          "roof_texture": "#RoofingTiles002Red",
           "roof_rail_texture": "#Metal038",
           "roof_model": "roof",
           "near_grass_resource_names": ["vegetation7.0"],
@@ -299,7 +299,7 @@
           "street_node_smoothing_iterations": 500,
           "street_edge_smoothness": 0,
           "terrain_edge_smoothness": 0.1,
-          "zonemap": "textures/noise/checkerboard.png",
+          "zonemap": "file://textures/noise/checkerboard.png",
           "zonemap_width": 1000,
           "zonemap_height": 1000,
           "zonemap_step_size": 2,
@@ -310,10 +310,10 @@
           "blend_taxiway": true,
           "blend_runway": true,
           "blend_runway_displacement_threshold": true,
-          "emissive_factor": "%vanilla_rally_emissive_factor",
-          "ambient_factor": "%vanilla_rally_ambient_factor",
-          "diffuse_factor": "%vanilla_rally_diffuse_factor",
-          "specular_factor": "%vanilla_rally_specular_factor",
+          "emissive_factor": "%default_emissive_factor",
+          "ambient_factor": "%default_ambient_factor",
+          "diffuse_factor": "%default_diffuse_factor",
+          "specular_factor": "%default_specular_factor",
           "fog_distances": "%fog_distances",
           "fog_ambient": "%fog_ambient"
         }
@@ -352,10 +352,10 @@
             "period": 10,
             "aggregate_mode": "none",
             "transformation_mode": "all",
-            "emissive_factor": "%vanilla_rally_emissive_factor",
-            "ambient_factor": "%vanilla_rally_ambient_factor",
-            "diffuse_factor": "%vanilla_rally_diffuse_factor",
-            "specular_factor": "%vanilla_rally_specular_factor",
+            "emissive_factor": "%default_emissive_factor",
+            "ambient_factor": "%default_ambient_factor",
+            "diffuse_factor": "%default_diffuse_factor",
+            "specular_factor": "%default_specular_factor",
             "fog_distances": "%fog_distances",
             "fog_ambient": "%fog_ambient"
           }
