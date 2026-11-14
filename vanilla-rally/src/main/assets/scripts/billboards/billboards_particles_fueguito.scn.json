@@ -78,8 +78,8 @@
         "call": "add_texture_atlas_cpu",
         "arguments": {
           "name": "fueguito",
-          "width": 512,
-          "height": 512,
+          "width": 128,
+          "height": 128,
           "layers": 50,
           "depth_interpolation": "linear",
           "mipmap_mode": "with_mipmaps_2d",
