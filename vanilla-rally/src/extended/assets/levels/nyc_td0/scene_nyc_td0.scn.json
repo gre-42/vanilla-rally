@@ -60,7 +60,6 @@
     "content": []
   },
   {
-    "required": "(%remote_role != 'client')",
     "execute": {
       "playback": "setup_teams",
       "context": "primary_scene",
@@ -73,7 +72,7 @@
     }
   },
   {
-    "playback": "scene_racing_setup_new_round",
+    "playback": "setup_traffic_with_pedestrians",
     "context": "primary_scene"
   },
   {
@@ -86,12 +85,19 @@
     }
   },
   {
+    "playback": "scene_racing_setup_new_round",
+    "context": "primary_scene",
+    "let": { "if_lobby": false }
+  },
+  {
     "call": "preload",
     "context": "primary_scene",
     "arguments": {
       "files": {
-        "resources": "file://$__DIR__/resources.json",
-        "trails": "file://$__DIR__/trails.json"
+        "audio_buffers": "file://$__DIR__/preload/audio_buffers.json",
+        "audio_buffer_sequences": "file://$__DIR__/preload/audio_buffer_sequences.json",
+        "resources": "file://$__DIR__/preload/resources.json",
+        "trails": "file://$__DIR__/preload/trails.json"
       },
       "throw_if_file_resource_unknown": "%if_graphics"
     }

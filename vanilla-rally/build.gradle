@@ -1,15 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 36
-    ndkVersion = '29.0.13599879 rc2'
+    compileSdk 37
+    compileSdkMinor 0
+    buildToolsVersion '37.0.0'
+    ndkVersion = '30.0.15729638 rc2'
 
     defaultConfig {
         applicationId = 'com.hallo2hallo.vanillarally'
-        minSdk 21
-        targetSdk 36
-        versionCode 58
-        versionName '0.58'
+        minSdk 23
+        targetSdk 37
+        versionCode 59
+        versionName '0.59'
         ndk {
             if (project.hasProperty('targetAbi')) {
                 abiFilters project.property('targetAbi').split(',')
@@ -82,12 +84,11 @@ android {
         // Dummy task for Android Studio
     }
     namespace 'com.hallo2hallo.vanillarally'
-    buildToolsVersion '37.0.0'
 }
 
 dependencies {
     implementation(platform('org.jetbrains.kotlin:kotlin-bom:2.2.0'))
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.appcompat:appcompat:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.2'
 }

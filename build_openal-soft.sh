@@ -17,7 +17,8 @@ for ANDROID_ABI in armeabi-v7a arm64-v8a x86 x86_64; do
         -DANDROID_STL=c++_shared \
         -DANDROID_ABI=$ANDROID_ABI \
         -DCMAKE_TOOLCHAIN_FILE="${NDK_ROOT}/build/cmake/android.toolchain.cmake" \
-        -DALSOFT_EXAMPLES=OFF
+        -DALSOFT_EXAMPLES=OFF \
+        -DALSOFT_ENABLE_MODULES=OFF
     cmake --build . -j $NPROC
     popd
 done

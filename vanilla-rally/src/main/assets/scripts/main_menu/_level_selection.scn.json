@@ -7,9 +7,17 @@
       "arguments": {
         "command": [
           {
+            "required": ["(%loaded_level_id != %null)"],
             "call": "echo",
             "arguments": {
               "message": "Reloading scene. Selected level ID: $selected_level_id. Loaded level ID: $loaded_level_id"
+            }
+          },
+          {
+            "required": ["(%loaded_level_id == %null)"],
+            "call": "echo",
+            "arguments": {
+              "message": "Reloading scene. Selected level ID: $selected_level_id"
             }
           },
           {
@@ -59,7 +67,10 @@
         "call": "execute_in_physics_thread",
         "context": "primary_scene",
         "arguments": {
-          "command": { "playback": "scene_racing_setup_new_round" }
+          "command": {
+            "playback": "scene_racing_setup_new_round",
+            "let": { "if_lobby": false }
+          }
         }
       }
     ]

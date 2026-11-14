@@ -1,4 +1,6 @@
 [
+  {"include": "billboards_vegetation0_atlas.scn.json"},
+  {"exclude": "%if_compressed", "include": "billboards_vegetation1_atlas.scn.json"},
   {
     "required": "%if_graphics",
     "execute": [
@@ -11,8 +13,6 @@
       {"include": "billboards_muzzle_flash_3d.scn.json"},
       {"include": "billboards_particles_atlas.scn.json"},
       {"include": "billboards_particles.scn.json"},
-      {"include": "billboards_vegetation0_atlas.scn.json"},
-      {"exclude": "%if_compressed", "include": "billboards_vegetation1_atlas.scn.json"},
       {"exclude": [["%if_compressed", "%if_android"]], "include": "billboards_vegetation3_atlas.scn.json"},
       {"exclude": "%if_compressed", "include": "billboards_vegetation4_atlas.scn.json"},
       {"exclude": "%if_compressed", "include": "billboards_vegetation5_atlas.scn.json"},

@@ -12,6 +12,8 @@ libwebp
 **/ndkHelperBin
 **/.cxx
 display-p3/third_party
+/Boost-for-Android/
 /freealut/
 /openal-soft/
+/recastnavigation/
 /zlib/
